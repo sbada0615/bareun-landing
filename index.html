@@ -486,6 +486,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="absolute top-[70%] left-[5%] w-1.5 h-1.5 bg-blue-300 rounded-full opacity-40 drift-slow"></div>
         <div class="absolute top-[10%] right-[8%] w-2 h-2 bg-cyan-300 rounded-full opacity-40 drift-slow"></div>
         <div class="absolute bottom-[15%] right-[8%] w-2.5 h-2.5 bg-yellow-200 rounded-full opacity-50 drift"></div>
+
+        <!-- LARGE background clock — like a wallpaper behind everything -->
+        <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none" aria-hidden="true">
+            <svg viewBox="0 0 100 100" class="w-[110vw] max-w-[700px] md:w-[80%] md:max-w-[600px] h-auto opacity-[0.13]">
+                <!-- Outer glow ring -->
+                <circle cx="50" cy="50" r="49" fill="none" stroke="rgba(253,224,71,0.6)" stroke-width="0.4"/>
+                <!-- Clock face -->
+                <circle cx="50" cy="50" r="47" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="0.6"/>
+                <!-- Hour markers (4 main: 12,3,6,9) -->
+                <g stroke="rgba(253,224,71,0.95)" stroke-linecap="round">
+                    <line x1="50" y1="6"  x2="50" y2="14" stroke-width="1.2"/>
+                    <line x1="94" y1="50" x2="86" y2="50" stroke-width="1.2"/>
+                    <line x1="50" y1="94" x2="50" y2="86" stroke-width="1.2"/>
+                    <line x1="6"  y1="50" x2="14" y2="50" stroke-width="1.2"/>
+                </g>
+                <!-- Minute markers (8 secondary) -->
+                <g stroke="rgba(255,255,255,0.6)" stroke-width="0.5" stroke-linecap="round">
+                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(30 50 50)"/>
+                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(60 50 50)"/>
+                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(120 50 50)"/>
+                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(150 50 50)"/>
+                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(210 50 50)"/>
+                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(240 50 50)"/>
+                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(300 50 50)"/>
+                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(330 50 50)"/>
+                </g>
+                <!-- Hour hand -->
+                <line x1="50" y1="50" x2="50" y2="32" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" class="clock-hour"/>
+                <!-- Minute hand -->
+                <line x1="50" y1="50" x2="50" y2="22" stroke="rgba(255,255,255,0.9)" stroke-width="1" stroke-linecap="round" class="clock-minute"/>
+                <!-- Second hand (red, animated) -->
+                <line x1="50" y1="56" x2="50" y2="12" stroke="#ef4444" stroke-width="0.6" stroke-linecap="round" class="clock-second"/>
+                <!-- Center pin -->
+                <circle cx="50" cy="50" r="1.5" fill="#ef4444"/>
+                <circle cx="50" cy="50" r="0.5" fill="white"/>
+            </svg>
+        </div>
     </div>
 
 
