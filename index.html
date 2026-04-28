@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="소상공인 정책자금 최소 3천만 ~ 최대 5억 지원. 99% 성공율, 누적 900억 승인. 바른정책자금연구소가 도와드립니다.">
+    <meta name="keywords" content="소상공인 정책자금, 정책자금 신청, 정부지원금, 사업자 대출, 소상공인 대출, 혁신성장촉진자금, 재도전특별자금">
+
+    <meta property="og:title" content="정책자금 최소 3천만 ~ 최대 5억 지원 | 바른정책자금연구소">
+    <meta property="og:description" content="누적 승인 900억, 성공율 99%. 1년 무료 자문 + 매년 재무제표 분석 무료. 지금 무료 상담 신청하세요.">
+    <meta property="og:type" content="website">
+
+    <title>정책자금 최소 3천만 ~ 최대 5억 지원 | 바른정책자금연구소</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PM773BPG');</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        gold: {
+                            400: '#f97316',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                        },
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                        },
+                        accent: {
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.6s ease-out',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Pretendard', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+        .bg-pattern {
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        /* Decorative blobs - large soft glows */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .blob-yellow { background: radial-gradient(circle, #fde047 0%, transparent 70%); }
+        .blob-blue { background: radial-gradient(circle, #3b82f6 0%, transparent 70%); }
+        .blob-cyan { background: radial-gradient(circle, #22d3ee 0%, transparent 70%); }
+        /* +5,000만원 savings box - continuous size pulse */
+        @keyframes pulseSavings {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+            50% { transform: scale(1.08); box-shadow: 0 0 30px 8px rgba(250, 204, 21, 0.5); }
+        }
+        .pulse-savings {
+            display: inline-block;
+            animation: pulseSavings 1.6s ease-in-out infinite;
+            transform-origin: center;
+        }
+        /* Chart line pumping after initial draw */
+        @keyframes linePulse {
+            0%, 100% { stroke-width: 3.5; }
+            50% { stroke-width: 5.5; }
+        }
+        @keyframes pointPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+        @keyframes labelPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        #comparisonChart.animate.pumping #loanLine,
+        #comparisonChart.animate.pumping #policyLine {
+            stroke-dashoffset: 0;
+            animation: linePulse 1.4s ease-in-out infinite;
+        }
+        #comparisonChart.animate.pumping #loanArea,
+        #comparisonChart.animate.pumping #policyArea {
+            opacity: 1;
+        }
+        #comparisonChart.animate.pumping .chart-points-red,
+        #comparisonChart.animate.pumping .chart-points-blue {
+            opacity: 1;
+            transform-origin: center;
+            transform-box: fill-box;
+            animation: pointPulse 1.4s ease-in-out infinite;
+        }
+        #comparisonChart.animate.pumping .chart-labels {
+            opacity: 1;
+            transform-origin: center;
+            transform-box: fill-box;
+            animation: labelPulse 1.4s ease-in-out infinite;
+        }
+        /* Animated finger pointer on CTA */
+        @keyframes fingerClick {
+            0%, 100% { transform: translate(0, 0) rotate(-15deg) scale(1); }
+            40% { transform: translate(-4px, -8px) rotate(-25deg) scale(1.1); }
+            55% { transform: translate(2px, 4px) rotate(-5deg) scale(0.95); }
+            70% { transform: translate(0, 0) rotate(-15deg) scale(1); }
+        }
+        .finger-click {
+            display: inline-block;
+            animation: fingerClick 1.4s ease-in-out infinite;
+            transform-origin: bottom right;
+            font-size: 1.4em;
+            margin-right: 4px;
+        }
+        /* Bottom-positioned finger (absolute, outside button area) */
+        @keyframes fingerTapBelow {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            35%      { transform: translateY(-14px) rotate(-8deg) scale(1.18); }
+            55%      { transform: translateY(2px) rotate(0deg) scale(0.95); }
+            75%      { transform: translateY(0) rotate(0deg) scale(1); }
+        }
+        .finger-click-right {
+            position: absolute;
+            bottom: -28px;
+            right: 22%;
+            margin: 0;
+            font-size: 2em;
+            animation: fingerTapBelow 1.5s ease-in-out infinite;
+            transform-origin: top center;
+            pointer-events: none;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+            z-index: 30;
+        }
+        /* Click ripple ring */
+        @keyframes clickRipple {
+            0% { transform: scale(0.5); opacity: 0.7; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .click-ripple {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border: 3px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            width: 60px; height: 60px;
+            animation: clickRipple 1.4s ease-out infinite;
+            pointer-events: none;
+        }
+        /* Stop-and-slide carousel: hold each card, then snap to next */
+        @keyframes marqueeProblems {
+            /* Card 1: hold 0-30% */
+            0%, 30%    { transform: translateX(0); }
+            /* Slide to Card 2: 30-34% */
+            34%, 63%   { transform: translateX(calc(-80vw - 20px)); }
+            /* Slide to Card 3: 63-67% */
+            67%, 96%   { transform: translateX(calc(-160vw - 40px)); }
+            /* Slide to dup (loop point): 96-100% */
+            100%       { transform: translateX(calc(-240vw - 60px)); }
+        }
+        @media (max-width: 767px) {
+            .problem-marquee {
+                width: max-content;
+                animation: marqueeProblems 4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+            }
+        }
+        /* Hide scrollbar for horizontal swipe rows (mobile case cards) */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hero background bars - continuous oscillation */
+        @keyframes heroBar1 { 0%,100% { transform: scaleY(0.25); } 50% { transform: scaleY(0.45); } }
+        @keyframes heroBar2 { 0%,100% { transform: scaleY(0.5); }  50% { transform: scaleY(0.7); } }
+        @keyframes heroBar3 { 0%,100% { transform: scaleY(0.75); } 50% { transform: scaleY(0.9); } }
+        @keyframes heroBar4 { 0%,100% { transform: scaleY(0.6); }  50% { transform: scaleY(0.85); } }
+        @keyframes heroBar5 { 0%,100% { transform: scaleY(0.85); } 50% { transform: scaleY(1); } }
+        .hero-bar { transform-origin: bottom center; transform-box: fill-box; }
+        .hero-bar-1 { animation: heroBar1 2.8s ease-in-out infinite; }
+        .hero-bar-2 { animation: heroBar2 3.2s ease-in-out infinite 0.4s; }
+        .hero-bar-3 { animation: heroBar3 2.6s ease-in-out infinite 0.7s; }
+        .hero-bar-4 { animation: heroBar4 3.0s ease-in-out infinite 1.0s; }
+        .hero-bar-5 { animation: heroBar5 2.4s ease-in-out infinite 1.3s; }
+        /* Animated clock — second hand rotating */
+        @keyframes clockTick {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .clock-second {
+            transform-origin: 50px 50px;
+            transform-box: fill-box;
+            animation: clockTick 4s linear infinite;
+        }
+        .clock-minute {
+            transform-origin: 50px 50px;
+            transform-box: fill-box;
+            animation: clockTick 240s linear infinite;
+        }
+        .clock-hour {
+            transform-origin: 50px 50px;
+            transform-box: fill-box;
+            animation: clockTick 2880s linear infinite;
+        }
+        /* Funnel bars - continuous breathing animation */
+        @keyframes funnel100 { 0%, 100% { width: 100%; } 50% { width: 88%; } }
+        @keyframes funnel50  { 0%, 100% { width: 50%; }  50% { width: 42%; } }
+        @keyframes funnel25  { 0%, 100% { width: 25%; }  50% { width: 19%; } }
+        @keyframes funnel12  { 0%, 100% { width: 12%; }  50% { width: 8%; } }
+        @keyframes funnel7   { 0%, 100% { width: 7%; }   50% { width: 4%; } }
+        @keyframes funnel3   { 0%, 100% { width: 3%; }   50% { width: 1%; } }
+        .funnel-bar-100 { width: 100%; animation: funnel100 2.6s ease-in-out infinite; }
+        .funnel-bar-50  { width: 50%;  animation: funnel50  3.0s ease-in-out infinite 0.3s; }
+        .funnel-bar-25  { width: 25%;  animation: funnel25  2.4s ease-in-out infinite 0.6s; }
+        .funnel-bar-12  { width: 12%;  animation: funnel12  2.8s ease-in-out infinite 0.9s; }
+        .funnel-bar-7   { width: 7%;   animation: funnel7   3.2s ease-in-out infinite 1.2s; }
+        .funnel-bar-3   { width: 3%;   animation: funnel3   2.5s ease-in-out infinite 1.5s; }
+        /* Ken Burns zoom-pan effect for video-like background */
+        @keyframes kenBurns {
+            0%   { transform: scale(1) translate(0, 0); }
+            25%  { transform: scale(1.08) translate(-1%, -1.5%); }
+            50%  { transform: scale(1.12) translate(1%, 0); }
+            75%  { transform: scale(1.08) translate(0, 1%); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+        .ken-burns {
+            animation: kenBurns 22s ease-in-out infinite;
+        }
+        /* Animated line chart - draws left to right when scrolled into view */
+        @keyframes drawLine {
+            to { stroke-dashoffset: 0; }
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0); }
+            70% { transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        #comparisonChart.animate #loanLine {
+            animation: drawLine 2.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        #comparisonChart.animate #policyLine {
+            animation: drawLine 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+        }
+        #comparisonChart.animate #loanArea,
+        #comparisonChart.animate #policyArea {
+            animation: fadeIn 1.2s ease-out 1.5s forwards;
+        }
+        #comparisonChart.animate .chart-points-red,
+        #comparisonChart.animate .chart-points-blue {
+            animation: fadeIn 0.6s ease-out 2s forwards;
+        }
+        #comparisonChart.animate .chart-labels {
+            animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 2.6s forwards;
+            transform-origin: center;
+        }
+        /* Animated mesh gradient (video-like flowing background) */
+        .mesh-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            background: #0a1535;
+        }
+        .mesh-bg::before, .mesh-bg::after {
+            content: '';
+            position: absolute;
+            width: 140%;
+            height: 140%;
+            top: -20%;
+            left: -20%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(99, 102, 241, 0.85) 0%, transparent 35%),
+                radial-gradient(circle at 75% 65%, rgba(59, 130, 246, 0.7) 0%, transparent 40%),
+                radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.6) 0%, transparent 35%),
+                radial-gradient(circle at 90% 15%, rgba(168, 85, 247, 0.5) 0%, transparent 30%);
+            filter: blur(40px);
+            animation: meshSwirl 25s ease-in-out infinite;
+        }
+        .mesh-bg::after {
+            background:
+                radial-gradient(circle at 70% 20%, rgba(56, 189, 248, 0.55) 0%, transparent 40%),
+                radial-gradient(circle at 30% 75%, rgba(124, 58, 237, 0.55) 0%, transparent 35%),
+                radial-gradient(circle at 85% 50%, rgba(45, 212, 191, 0.4) 0%, transparent 30%);
+            animation: meshSwirl2 30s ease-in-out infinite reverse;
+            mix-blend-mode: screen;
+        }
+        @keyframes meshSwirl {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(-5%, 4%) rotate(2deg) scale(1.05); }
+            50% { transform: translate(3%, -3%) rotate(-2deg) scale(1.1); }
+            75% { transform: translate(-3%, -5%) rotate(1deg) scale(1.05); }
+        }
+        @keyframes meshSwirl2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(4%, -4%) rotate(-3deg) scale(1.08); }
+            66% { transform: translate(-4%, 3%) rotate(2deg) scale(1.12); }
+        }
+        /* Subtle noise texture for cinematic feel */
+        .noise-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.08;
+            pointer-events: none;
+            mix-blend-mode: overlay;
+        }
+        /* Floating shapes */
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(15px, -20px) rotate(5deg); }
+            66% { transform: translate(-10px, 10px) rotate(-3deg); }
+        }
+        @keyframes drift-slow {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, 30px); }
+        }
+        .drift { animation: drift 12s ease-in-out infinite; }
+        .drift-slow { animation: drift-slow 18s ease-in-out infinite; }
+        /* Diagonal stripe pattern */
+        .diagonal-pattern {
+            background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px);
+        }
+        /* Section divider waves */
+        .wave-divider svg { display: block; width: 100%; height: 60px; }
+        /* Decorative dots */
+        .dot { position: absolute; border-radius: 50%; pointer-events: none; }
+        /* Glass morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.01em;
+        }
+        .fluo-yellow-glow {
+            color: #fff200;
+            text-shadow: 0 0 18px rgba(255, 242, 0, 0.8), 0 0 6px rgba(255, 242, 0, 1);
+        }
+        .accent-blue {
+            color: #1d4ed8;
+        }
+        .yellow-highlight {
+            background: linear-gradient(180deg, transparent 60%, #fed7aa 60%);
+        }
+        .case-card-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+        .case-card-link:hover { transform: translateY(-6px); transition: all 0.3s; box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15); }
+        .img-placeholder {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            display: flex; align-items: center; justify-content: center;
+            color: #94a3b8; font-size: 0.875rem;
+        }
+        /* Scroll-triggered animations */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        /* Floating animation for hero photo */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        /* Pulse glow for CTA */
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5); }
+            50% { box-shadow: 0 0 0 16px rgba(249, 115, 22, 0); }
+        }
+        .pulse-glow { animation: pulse-glow 2.5s infinite; }
+        /* Counter animation prep */
+        .stat-num { transition: all 0.5s; }
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        input:focus, select:focus, textarea:focus { outline: none; }
+
+        /* Sticky CTA on mobile */
+        @media (max-width: 768px) {
+            .mobile-sticky-cta {
+                position: fixed;
+                bottom: 0; left: 0; right: 0;
+                z-index: 50;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            }
+            body { padding-bottom: 80px; }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PM773BPG"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ============================================
+     1. HERO SECTION
+============================================ -->
+<section class="relative text-white overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <!-- Background photo (smiling small business owner) -->
+    <img src="images/hero-bg.jpg"
+         alt=""
+         class="absolute inset-0 w-full h-full object-cover ken-burns"
+         onerror="this.style.display='none'">
+
+    <!-- Dark gradient overlay for text readability -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-900/75 to-slate-900/90"></div>
+
+    <!-- Subtle animated decoration on top of photo -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <!-- Soft glow blobs -->
+        <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-15 -translate-x-1/3 -translate-y-1/3"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow-400 rounded-full blur-3xl opacity-10 translate-x-1/4 translate-y-1/4"></div>
+
+        <!-- Floating dots (very subtle) -->
+        <div class="absolute top-[15%] left-[8%] w-2 h-2 bg-yellow-300 rounded-full opacity-50 drift"></div>
+        <div class="absolute top-[70%] left-[5%] w-1.5 h-1.5 bg-blue-300 rounded-full opacity-40 drift-slow"></div>
+        <div class="absolute top-[10%] right-[8%] w-2 h-2 bg-cyan-300 rounded-full opacity-40 drift-slow"></div>
+        <div class="absolute bottom-[15%] right-[8%] w-2.5 h-2.5 bg-yellow-200 rounded-full opacity-50 drift"></div>
+    </div>
+
+
+    <div class="relative max-w-6xl mx-auto px-5 py-12 md:py-16">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <div class="flex flex-col">
+        <!-- Top group: vertically centered within available space (aligns with photo) -->
+        <div class="flex-1 flex flex-col justify-center">
+        <div>
+        <!-- Top badge -->
+        <div class="inline-flex items-center gap-2 bg-yellow-400/15 border border-yellow-400/40 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up">
+            <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+            <span class="text-sm text-yellow-200 font-medium">2026년 정부 정책자금 신청 접수 중</span>
+        </div>
+
+        <!-- Main headline -->
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-5 animate-fade-in-up">
+            소상공인 정책자금<br>
+            <span class="fluo-yellow-glow">최소 3천만 ~ 최대 5억</span><br>
+            지원받는 법
+        </h1>
+
+        </div>
+        </div>
+
+        <!-- Bottom group: pushed to bottom of left column to align with right column dashboard -->
+        <div class="mt-6">
+            <!-- Primary CTA -->
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="#apply-form"
+                   class="pulse-glow relative z-20 flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all transform hover:scale-105 shadow-xl">
+                    <span class="click-ripple"></span>
+                    <span>무료 자격조회 신청</span>
+                    <span class="finger-click finger-click-right">👆</span>
+                </a>
+                <a href="tel:1666-0266"
+                   class="relative z-10 flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all">
+                    📞 1666-0266
+                </a>
+            </div>
+
+            <p class="text-sm text-gray-400 mt-4 flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                상담 신청 후 1영업일 내 연락드립니다 · 100% 무료 상담
+            </p>
+        </div>
+        </div>
+
+        <!-- CEO/Team image with overlay caption -->
+        <div class="relative">
+            <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-white/5 border-2 border-yellow-400/30">
+                <img src="images/6단체사진.png" alt="바른정책자금연구소 강정균 대표 및 팀" class="w-full h-full object-cover"
+                     onerror="this.outerHTML='<div class=&quot;img-placeholder w-full h-full text-base&quot;>📷 대표/팀 사진</div>'">
+                <!-- Caption overlay (single line, at the bottom) -->
+                <div class="absolute bottom-4 left-0 right-0 flex justify-center px-2">
+                    <div class="bg-white/95 backdrop-blur text-slate-900 px-4 py-2 rounded-lg shadow-2xl inline-flex items-center gap-2 whitespace-nowrap">
+                        <span class="text-sm md:text-base text-blue-600 font-bold">바른정책자금연구소</span>
+                        <span class="text-xl md:text-2xl font-black">강정균 대표</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live data dashboard panel below photo -->
+            <div class="mt-5 bg-slate-900/70 backdrop-blur border border-white/10 rounded-2xl px-4 py-4">
+                <div class="flex items-center gap-2 text-xs mb-3">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="text-gray-300 font-bold">2026 정책자금 현황</span>
+                </div>
+                <div class="grid grid-cols-2 gap-x-4 gap-y-2">
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[11px] text-gray-400 font-bold">정부 예산</span>
+                        <span id="heroBudget" class="text-sm md:text-base font-black text-yellow-300">3조 3,620억</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[11px] text-gray-400 font-bold">신청 거절</span>
+                        <span id="heroStat87" class="text-sm md:text-base font-black text-red-400">87%</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[11px] text-gray-400 font-bold">신청 포기</span>
+                        <span id="heroStat63" class="text-sm md:text-base font-black text-orange-400">63%</span>
+                    </div>
+                    <div class="flex items-baseline justify-between">
+                        <span class="text-[11px] text-gray-400 font-bold">실제 수혜</span>
+                        <span id="heroStat39" class="text-sm md:text-base font-black text-yellow-300">3.9%</span>
+                    </div>
+                </div>
+                <!-- Mini bar chart row -->
+                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between gap-3">
+                    <span class="text-[10px] text-gray-400">실시간 데이터</span>
+                    <svg width="100" height="20" viewBox="0 0 100 20">
+                        <rect x="0"  y="14" width="14" height="6"  fill="#fde047" class="hero-bar hero-bar-1" rx="1"/>
+                        <rect x="18" y="10" width="14" height="10" fill="#facc15" class="hero-bar hero-bar-2" rx="1"/>
+                        <rect x="36" y="6"  width="14" height="14" fill="#eab308" class="hero-bar hero-bar-3" rx="1"/>
+                        <rect x="54" y="8"  width="14" height="12" fill="#fde047" class="hero-bar hero-bar-4" rx="1"/>
+                        <rect x="72" y="2"  width="14" height="18" fill="#facc15" class="hero-bar hero-bar-5" rx="1"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     1.2 HERO QUICK FORM
+============================================ -->
+<section class="py-12 md:py-16 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden">
+    <div class="absolute -top-20 -left-20 w-80 h-80 bg-yellow-100 rounded-full blur-3xl opacity-50"></div>
+    <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
+    <div class="relative max-w-3xl mx-auto px-5">
+        <div class="bg-white rounded-3xl shadow-2xl border-2 border-blue-100 p-6 md:p-10">
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 rounded-full px-4 py-1.5 mb-4">
+                    <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span>
+                    <span class="text-xs text-orange-600 font-bold">⏰ 평일 1영업일 내 연락 · 100% 무료</span>
+                </div>
+                <h2 class="text-xl md:text-3xl font-black text-slate-900 mb-2">
+                    1분 만에 <span class="bg-yellow-200 px-2">내 자격</span> 무료 조회
+                </h2>
+                <p class="text-sm md:text-base text-gray-600">
+                    아래 정보만 입력하시면 전문가가 직접 연락드립니다.
+                </p>
+            </div>
+
+            <form id="heroForm" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">성함 <span class="text-red-500">*</span></label>
+                        <input type="text" name="name" required placeholder="예) 홍길동"
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">연락처 <span class="text-red-500">*</span></label>
+                        <input type="tel" name="phone" required placeholder="010-1234-5678" pattern="[0-9-]+"
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">사업자 유형 <span class="text-red-500">*</span></label>
+                        <select name="business_type" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm bg-white">
+                            <option value="">선택해주세요</option>
+                            <option value="개인사업자">개인사업자</option>
+                            <option value="법인사업자">법인사업자</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">연매출 (대략) <span class="text-red-500">*</span></label>
+                        <select name="annual_revenue" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm bg-white">
+                            <option value="">선택해주세요</option>
+                            <option value="5천만원 미만">5천만원 미만</option>
+                            <option value="5천만원 ~ 1억">5천만원 ~ 1억</option>
+                            <option value="1억 ~ 3억">1억 ~ 3억</option>
+                            <option value="3억 ~ 5억">3억 ~ 5억</option>
+                            <option value="5억 ~ 10억">5억 ~ 10억</option>
+                            <option value="10억 이상">10억 이상</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">세금 체납 여부 <span class="text-red-500">*</span></label>
+                        <select name="tax_status" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm bg-white">
+                            <option value="">선택해주세요</option>
+                            <option value="없음">체납 없음</option>
+                            <option value="있음">체납 있음</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">상호 <span class="text-gray-400 font-normal">(선택)</span></label>
+                        <input type="text" name="company_name" placeholder="예) 바른가게"
+                               class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm">
+                    </div>
+                </div>
+                <label class="flex items-start gap-3 cursor-pointer bg-gray-50 p-3 rounded-xl border border-gray-200">
+                    <input type="checkbox" name="agreement" required class="mt-0.5 w-4 h-4 text-blue-500 border-2 border-gray-300 rounded focus:ring-blue-500">
+                    <span class="text-xs text-gray-700">
+                        <strong>[필수]</strong> 개인정보 수집·이용에 동의합니다.
+                    </span>
+                </label>
+                <button type="submit" id="heroSubmitBtn"
+                        class="pulse-glow w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-black text-base md:text-lg py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-xl flex items-center justify-center gap-2">
+                    <span id="heroSubmitText">👉 무료 자격조회 신청하기</span>
+                    <span id="heroSubmitSpinner" class="hidden">
+                        <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>
+                    </span>
+                </button>
+                <p class="text-center text-xs text-gray-400">
+                    🔒 입력 정보는 SSL 암호화 / 더 자세한 정보는 통화 시 안내드립니다.
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     2. PROBLEM / PAIN POINTS
+============================================ -->
+<section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-4xl font-black text-navy-900 mt-2">
+                혹시 이런 경험 있으신가요?
+            </h2>
+        </div>
+
+        <!-- Auto-scrolling marquee on mobile, grid on desktop -->
+        <div class="overflow-hidden md:overflow-visible -mx-5 md:mx-0">
+            <div class="problem-marquee flex md:grid md:grid-cols-3 gap-5 px-5 md:px-0">
+                <!-- Original cards -->
+                <div class="flex-shrink-0 w-[80vw] md:w-auto bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">😵</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-navy-900 mb-2">"어디부터 알아봐야 할지..."</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        정부 정책자금만 300종류 이상. 어떤 게 내 사업에 맞는지 찾는 것부터 막막합니다.
+                    </p>
+                </div>
+
+                <div class="flex-shrink-0 w-[80vw] md:w-auto bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">📋</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-navy-900 mb-2">"서류가 너무 복잡해..."</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        재무제표, 사업계획서, 신용평가 자료... 빠진 서류 하나 때문에 처음부터 다시 시작.
+                    </p>
+                </div>
+
+                <div class="flex-shrink-0 w-[80vw] md:w-auto bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">❌</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-navy-900 mb-2">"신청했는데 또 거절..."</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        어렵게 신청했지만 사유도 모르고 거절. 다음엔 어떻게 보완해야 할지도 막막합니다.
+                    </p>
+                </div>
+
+                <!-- Duplicate cards for seamless loop (mobile only, hidden on desktop) -->
+                <div aria-hidden="true" class="flex-shrink-0 w-[80vw] md:hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">😵</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-navy-900 mb-2">"어디부터 알아봐야 할지..."</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        정부 정책자금만 300종류 이상. 어떤 게 내 사업에 맞는지 찾는 것부터 막막합니다.
+                    </p>
+                </div>
+                <div aria-hidden="true" class="flex-shrink-0 w-[80vw] md:hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">📋</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-navy-900 mb-2">"서류가 너무 복잡해..."</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        재무제표, 사업계획서, 신용평가 자료... 빠진 서류 하나 때문에 처음부터 다시 시작.
+                    </p>
+                </div>
+                <div aria-hidden="true" class="flex-shrink-0 w-[80vw] md:hidden bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-2xl">❌</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-navy-900 mb-2">"신청했는데 또 거절..."</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        어렵게 신청했지만 사유도 모르고 거절. 다음엔 어떻게 보완해야 할지도 막막합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================
+     3. WHY US (USP) — title text removed, photo only
+============================================ -->
+<section class="py-8 md:py-10 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+        <!-- "그래서 전문가가 필요합니다" — moved here, right above photo -->
+        <div class="mb-6 text-center">
+            <p class="text-lg md:text-2xl text-slate-900 font-bold">
+                ✅ 그래서 <span class="text-blue-700">정책자금 전문가</span>가 필요합니다.
+            </p>
+        </div>
+        <!-- CEO portrait -->
+        <div class="flex justify-center">
+            <div class="relative max-w-sm w-full">
+                <div class="rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] bg-gradient-to-br from-blue-50 to-blue-100">
+                    <img src="images/넥타이강정균.jpg" alt="강정균 대표" class="w-full h-full object-cover"
+                         onerror="this.outerHTML='<div class=&quot;img-placeholder w-full h-full text-base&quot;>📷 대표 사진</div>'">
+                </div>
+                <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white shadow-xl rounded-2xl px-6 py-3 border-l-4 border-blue-600 whitespace-nowrap">
+                    <div class="text-xs text-blue-600 font-medium">바른정책자금연구소</div>
+                    <div class="text-base font-black text-slate-900">강정균 대표</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 USP cards removed — going directly to success cases below -->
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     4. SUCCESS CASES (MOVED — now before comparison)
+============================================ -->
+<section class="pt-6 pb-16 md:pt-8 md:pb-20 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-4xl font-black text-slate-900 mt-2 mb-3">
+                이런 분들이 <span class="text-blue-700">실제로 받으셨습니다</span>
+            </h2>
+            <p class="text-gray-600 md:text-lg">
+                업종, 지역, 매출 규모 상관없이<br>
+                다양한 대표님들이 자금을 받으셨어요.
+            </p>
+        </div>
+
+        <!-- Mobile swipe hint -->
+        <p class="text-center text-xs text-gray-400 mb-3 md:hidden">← 좌우로 스와이프해서 보세요 →</p>
+
+        <div class="flex md:grid md:grid-cols-3 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+            <!-- Case 1: 소진공 대리대출 -->
+            <a href="https://blog.naver.com/kjgman77/224241384695" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/소진공%20대리대출%20확인서.png" alt="소진공 대리대출 확인서 사례" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">소진공 긴급경영안정자금</span>
+                    <div class="text-white text-3xl font-black">3,000만원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">재단 부결 → 소진공 대리대출로 우회</h3>
+                    <p class="text-xs text-gray-500 mb-3">도소매업 · 긴급경영안정자금</p>
+<span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                    <div class="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
+                        <img src="images/6단체사진.png" class="w-9 h-9 rounded-full object-cover object-top border-2 border-blue-100" alt="강정균 대표">
+                        <div>
+                            <div class="text-xs font-bold text-gray-700">강정균 대표 진행</div>
+                            <div class="text-[11px] text-gray-500">바른정책자금연구소</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Case 2: 기술보증 -->
+            <a href="https://blog.naver.com/kjgman77/224245660368" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/정책자금%20기술보증.png" alt="기술보증기금 정책자금 사례" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">기술보증기금</span>
+                    <div class="text-white text-3xl font-black">1억원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">정밀 금속 제조 — 기술가치로 기보 통과</h3>
+                    <p class="text-xs text-gray-500 mb-3">정밀 금속 제조업 · 기보 보증부 자금</p>
+<span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                    <div class="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
+                        <img src="images/6단체사진.png" class="w-9 h-9 rounded-full object-cover object-top border-2 border-blue-100" alt="강정균 대표">
+                        <div>
+                            <div class="text-xs font-bold text-gray-700">강정균 대표 진행</div>
+                            <div class="text-[11px] text-gray-500">바른정책자금연구소</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Case 3: 혁신성장촉진자금 -->
+            <a href="https://blog.naver.com/kjgman77/224243044909" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/정책자금%20승인%20사례.png" alt="혁신성장촉진자금 승인 사례" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">재단 + 혁신성장 동시 승인</span>
+                    <div class="text-white text-3xl font-black">7,000만원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">재단 3천 + 혁신성장 4천 동시 승인</h3>
+                    <p class="text-xs text-gray-500 mb-3">외식업 (경기도) · 운영자금</p>
+<span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                    <div class="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
+                        <img src="images/6단체사진.png" class="w-9 h-9 rounded-full object-cover object-top border-2 border-blue-100" alt="강정균 대표">
+                        <div>
+                            <div class="text-xs font-bold text-gray-700">강정균 대표 진행</div>
+                            <div class="text-[11px] text-gray-500">바른정책자금연구소</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Case 4: 반송 → 재신청 성공 -->
+            <a href="https://blog.naver.com/kjgman77/224240627145" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/정책자금%20신청%2C%20반송.png" alt="정책자금 신청 반송 후 재신청 성공 사례" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">주소 검색 불가 → 우선 접수</span>
+                    <div class="text-white text-3xl font-black">실사 통과<span class="text-base text-yellow-300 font-normal ml-1">최종 승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">신축 입주, 주소 검색 안 됐지만 거주지로 우선 접수</h3>
+                    <p class="text-xs text-gray-500 mb-3">신축 건물 입주 사업자 · 운영자금</p>
+<span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                    <div class="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
+                        <img src="images/6단체사진.png" class="w-9 h-9 rounded-full object-cover object-top border-2 border-blue-100" alt="강정균 대표">
+                        <div>
+                            <div class="text-xs font-bold text-gray-700">강정균 대표 진행</div>
+                            <div class="text-[11px] text-gray-500">바른정책자금연구소</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Case 5: 신보 특례보증 -->
+            <a href="https://blog.naver.com/kjgman77/224265750874" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/정책자금특례보증.png" alt="신용보증기금 특례보증 사례" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">지역재단 정책자금 특례보증</span>
+                    <div class="text-white text-3xl font-black">3,000만원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">카드론 이력 부결 → 특례보증 3,000만원</h3>
+                    <p class="text-xs text-gray-500 mb-3">소상공인 · 지역재단 특례보증</p>
+<span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                    <div class="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
+                        <img src="images/6단체사진.png" class="w-9 h-9 rounded-full object-cover object-top border-2 border-blue-100" alt="강정균 대표">
+                        <div>
+                            <div class="text-xs font-bold text-gray-700">강정균 대표 진행</div>
+                            <div class="text-[11px] text-gray-500">바른정책자금연구소</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Case 6: 제조업 시설자금 -->
+            <a href="https://blog.naver.com/kjgman77/224261320814" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/제조업%20정책자금.png" alt="제조업 시설자금 사례" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">제조업 정책자금</span>
+                    <div class="text-white text-3xl font-black">1억원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">자가 자산 없이 제조업 1억 확보</h3>
+                    <p class="text-xs text-gray-500 mb-3">제조업 · 운영자금</p>
+<span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                    <div class="flex items-center gap-2 mt-4 pt-4 border-t border-gray-100">
+                        <img src="images/6단체사진.png" class="w-9 h-9 rounded-full object-cover object-top border-2 border-blue-100" alt="강정균 대표">
+                        <div>
+                            <div class="text-xs font-bold text-gray-700">강정균 대표 진행</div>
+                            <div class="text-[11px] text-gray-500">바른정책자금연구소</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- More cases CTA (below grid) -->
+        <div class="text-center mt-10">
+            <a href="https://blog.naver.com/PostList.naver?blogId=kjgman77&from=postList&categoryNo=9" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-black px-8 py-4 rounded-xl shadow-xl transition-all transform hover:scale-105">
+                <span>📈</span>
+                블로그에서 실제 후기 더 보기 →
+            </a>
+        </div>
+
+        <p class="text-center text-xs text-gray-400 mt-6">
+            ※ 카드 클릭 시 네이버 블로그의 실제 승인 후기로 이동합니다.<br>
+            개인정보 보호를 위해 요약문은 일부 정보가 가명/축약 처리되었습니다.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================
+     4.5 YOUTUBE VIDEO — Full-bleed cinematic background
+============================================ -->
+<section class="relative overflow-hidden text-white" style="min-height: 540px;">
+    <!-- Background image with Ken Burns motion -->
+    <img src="https://i.ytimg.com/vi/f-gu-n0lVJ0/maxresdefault.jpg"
+         alt=""
+         class="ken-burns absolute inset-0 w-full h-full object-cover"
+         onerror="this.src='https://i.ytimg.com/vi/f-gu-n0lVJ0/hqdefault.jpg'">
+
+    <!-- Dark gradient overlay for text readability -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-900/75 to-slate-900/90"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-5 py-20 md:py-28 text-center">
+        <div class="inline-flex items-center gap-2 bg-red-600/90 backdrop-blur rounded-full px-4 py-1.5 mb-5 shadow-lg">
+            <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            <span class="text-xs text-white font-bold">📺 영상으로 보기</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-black mb-4 drop-shadow-lg">
+            <span class="text-yellow-300">강정균 대표</span>가<br class="md:hidden">
+            직접 설명드립니다
+        </h2>
+        <p class="text-base md:text-xl text-blue-100 mb-10 drop-shadow">
+            글보다 영상이 편한 대표님은<br>
+            <strong class="text-white">1분 쇼츠</strong>로 빠르게 확인하세요.
+        </p>
+
+        <!-- Big play button -->
+        <a href="https://youtube.com/shorts/f-gu-n0lVJ0" target="_blank" rel="noopener"
+           class="group inline-flex items-center justify-center mb-8">
+            <span class="relative flex items-center justify-center w-24 h-24 md:w-32 md:h-32 bg-red-600 hover:bg-red-700 rounded-full shadow-2xl transition-all transform group-hover:scale-110">
+                <span class="absolute inset-0 rounded-full bg-red-600 opacity-50 animate-ping"></span>
+                <svg class="relative w-10 h-10 md:w-14 md:h-14 text-white ml-1.5" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21"/>
+                </svg>
+            </span>
+        </a>
+
+        <div>
+            <a href="https://youtube.com/shorts/f-gu-n0lVJ0" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur border border-white/30 text-white font-black px-6 py-3 rounded-xl transition-all">
+                ▶ 1분 영상 바로 보기
+            </a>
+            <span class="text-white/40 mx-2 hidden md:inline">|</span>
+            <a href="https://www.youtube.com/@kjgman77" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 mt-3 md:mt-0 bg-red-600 hover:bg-red-700 text-white font-black px-6 py-3 rounded-xl shadow-xl transition-all">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                YouTube 채널 가기
+            </a>
+        </div>
+
+        <p class="text-xs text-white/60 mt-6">
+            🔔 구독하시면 새 정책자금 영상 알림이 옵니다
+        </p>
+    </div>
+
+    <!-- Top right SHORTS badge -->
+    <div class="absolute top-6 right-6 z-20 bg-red-600 text-white text-xs font-black px-3 py-1.5 rounded-full shadow-xl">
+        SHORTS
+    </div>
+</section>
+
+<!-- ============================================
+     3.5 LOAN VS POLICY FUND COMPARISON
+============================================ -->
+<section class="py-16 md:py-20 bg-white relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-4xl font-black text-slate-900 mt-2 mb-3">
+                일반 대출과 <span class="bg-yellow-200 px-2">5천만원 차이</span>
+            </h2>
+            <p class="text-gray-600 md:text-lg">
+                같은 1억을 5년간 빌릴 때, <strong class="text-slate-900">정책자금이면 이자만 5천만원이 절약</strong>됩니다.
+            </p>
+        </div>
+
+        <!-- Comparison table — fits on mobile (4 cols), full on desktop (6 cols) -->
+        <div class="max-w-5xl mx-auto">
+            <div class="bg-white rounded-2xl md:rounded-3xl shadow-xl border border-gray-200 overflow-hidden">
+                <!-- Header row -->
+                <div class="grid grid-cols-4 md:grid-cols-6 bg-slate-100 border-b border-slate-200">
+                    <div class="p-2 md:p-4 text-[11px] md:text-sm font-bold text-gray-500 tracking-wider">구분</div>
+                    <div class="p-2 md:p-4 text-center text-[11px] md:text-sm font-bold text-slate-700 border-l border-slate-200">금리</div>
+                    <div class="p-2 md:p-4 text-center text-[11px] md:text-sm font-bold text-slate-700 border-l border-slate-200">한도</div>
+                    <div class="hidden md:block p-2 md:p-4 text-center text-[11px] md:text-sm font-bold text-slate-700 border-l border-slate-200">상환 기간</div>
+                    <div class="hidden md:block p-2 md:p-4 text-center text-[11px] md:text-sm font-bold text-slate-700 border-l border-slate-200">담보 요건</div>
+                    <div class="p-2 md:p-4 text-center text-[10px] md:text-sm font-bold text-slate-700 border-l border-slate-200 bg-yellow-100 leading-tight">5년 이자<br><span class="text-[9px] md:text-[10px] text-gray-500 font-normal">(1억)</span></div>
+                </div>
+
+                <!-- Row: 일반 대출 -->
+                <div class="grid grid-cols-4 md:grid-cols-6 items-center border-b border-gray-100">
+                    <div class="p-2 md:p-5">
+                        <div class="text-[9px] md:text-xs text-gray-400">시중은행</div>
+                        <div class="text-xs md:text-base font-black text-gray-700 leading-tight">일반 대출</div>
+                    </div>
+                    <div class="p-2 md:p-5 text-center text-red-600 font-bold text-xs md:text-base border-l border-gray-100">7~15%</div>
+                    <div class="p-2 md:p-5 text-center text-gray-700 text-xs md:text-base border-l border-gray-100">~1억</div>
+                    <div class="hidden md:block p-2 md:p-5 text-center text-gray-700 text-sm md:text-base border-l border-gray-100">3~5년</div>
+                    <div class="hidden md:block p-2 md:p-5 text-center text-red-600 text-sm md:text-base border-l border-gray-100">담보 필수</div>
+                    <div class="p-2 md:p-5 text-center text-red-600 font-black text-sm md:text-2xl border-l border-gray-100 bg-yellow-50 leading-tight">5,500만</div>
+                </div>
+
+                <!-- Row: 정책자금 -->
+                <div class="grid grid-cols-4 md:grid-cols-6 items-center bg-gradient-to-r from-blue-700 to-blue-900 text-white">
+                    <div class="p-2 md:p-5">
+                        <div class="text-[9px] md:text-xs text-blue-200">정부 지원</div>
+                        <div class="text-xs md:text-base font-black leading-tight">정책자금 ✨</div>
+                    </div>
+                    <div class="p-2 md:p-5 text-center text-yellow-300 font-bold text-xs md:text-base border-l border-blue-600/40">1~3%</div>
+                    <div class="p-2 md:p-5 text-center text-yellow-300 font-bold text-xs md:text-base border-l border-blue-600/40">최대 5억</div>
+                    <div class="hidden md:block p-2 md:p-5 text-center text-yellow-300 text-sm md:text-base border-l border-blue-600/40">최대 10년</div>
+                    <div class="hidden md:block p-2 md:p-5 text-center text-yellow-300 text-sm md:text-base border-l border-blue-600/40">무담보 가능</div>
+                    <div class="p-2 md:p-5 text-center font-black text-sm md:text-2xl border-l border-blue-600/40 bg-yellow-300 text-slate-900 leading-tight">500만</div>
+                </div>
+            </div>
+
+            <!-- Mobile-only note about hidden columns -->
+            <p class="text-center text-[11px] text-gray-500 mt-3 md:hidden">
+                * 정책자금: 상환 <strong>최대 10년</strong> · <strong>무담보</strong> 가능
+            </p>
+        </div>
+
+        <!-- Animated line chart (compact) -->
+        <div class="mt-8 bg-white rounded-2xl shadow-xl p-4 md:p-6 border border-gray-100 max-w-3xl mx-auto">
+            <h3 class="text-base md:text-lg font-black text-slate-900 mb-1 text-center">📈 5년 누적 이자 추이 (1억 기준)</h3>
+            <p class="text-center text-xs text-gray-500 mb-3">시간이 흐를수록 차이가 커집니다</p>
+
+            <div class="relative">
+                <svg viewBox="0 0 600 280" class="w-full h-44 md:h-56" preserveAspectRatio="xMidYMid meet" id="comparisonChart">
+                    <defs>
+                        <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#dc2626" stop-opacity="0.25"/>
+                            <stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#2563eb" stop-opacity="0.18"/>
+                            <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- Grid -->
+                    <g stroke="#e5e7eb" stroke-width="1" stroke-dasharray="2 4">
+                        <line x1="60" y1="60" x2="560" y2="60"/>
+                        <line x1="60" y1="130" x2="560" y2="130"/>
+                        <line x1="60" y1="200" x2="560" y2="200"/>
+                    </g>
+                    <line x1="60" y1="270" x2="560" y2="270" stroke="#cbd5e1" stroke-width="1.5"/>
+
+                    <!-- Y-axis labels -->
+                    <text x="55" y="65" text-anchor="end" font-size="11" fill="#94a3b8">6,000만</text>
+                    <text x="55" y="135" text-anchor="end" font-size="11" fill="#94a3b8">4,000만</text>
+                    <text x="55" y="205" text-anchor="end" font-size="11" fill="#94a3b8">2,000만</text>
+                    <text x="55" y="275" text-anchor="end" font-size="11" fill="#94a3b8">0</text>
+
+                    <!-- X-axis labels -->
+                    <text x="60" y="295" font-size="12" fill="#475569" font-weight="600">1년차</text>
+                    <text x="185" y="295" font-size="12" fill="#475569" font-weight="600">2년차</text>
+                    <text x="310" y="295" font-size="12" fill="#475569" font-weight="600">3년차</text>
+                    <text x="435" y="295" font-size="12" fill="#475569" font-weight="600">4년차</text>
+                    <text x="560" y="295" font-size="12" fill="#475569" font-weight="600" text-anchor="end">5년차</text>
+
+                    <!-- Loan area (filled) - 1100만→2200만→3300만→4400만→5500만 -->
+                    <path id="loanArea" d="M 60 232 L 185 194 L 310 156 L 435 118 L 560 80 L 560 270 L 60 270 Z"
+                          fill="url(#redGrad)" opacity="0"/>
+                    <!-- Policy area -->
+                    <path id="policyArea" d="M 60 266 L 185 263 L 310 259 L 435 256 L 560 252 L 560 270 L 60 270 Z"
+                          fill="url(#blueGrad)" opacity="0"/>
+
+                    <!-- Loan line (red) - 1100, 2200, 3300, 4400, 5500 -->
+                    <path id="loanLine" d="M 60 232 L 185 194 L 310 156 L 435 118 L 560 80"
+                          fill="none" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-dasharray="900" stroke-dashoffset="900"/>
+
+                    <!-- Policy line (blue) - 100, 200, 300, 400, 500 -->
+                    <path id="policyLine" d="M 60 266 L 185 263 L 310 259 L 435 256 L 560 252"
+                          fill="none" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+                          stroke-dasharray="900" stroke-dashoffset="900"/>
+
+                    <!-- Data points red -->
+                    <g class="chart-points-red" opacity="0">
+                        <circle cx="60" cy="232" r="4" fill="#dc2626"/>
+                        <circle cx="185" cy="194" r="4" fill="#dc2626"/>
+                        <circle cx="310" cy="156" r="4" fill="#dc2626"/>
+                        <circle cx="435" cy="118" r="4" fill="#dc2626"/>
+                        <circle cx="560" cy="80" r="7" fill="#dc2626" stroke="white" stroke-width="3"/>
+                    </g>
+
+                    <!-- Data points blue -->
+                    <g class="chart-points-blue" opacity="0">
+                        <circle cx="60" cy="266" r="4" fill="#2563eb"/>
+                        <circle cx="185" cy="263" r="4" fill="#2563eb"/>
+                        <circle cx="310" cy="259" r="4" fill="#2563eb"/>
+                        <circle cx="435" cy="256" r="4" fill="#2563eb"/>
+                        <circle cx="560" cy="252" r="7" fill="#2563eb" stroke="white" stroke-width="3"/>
+                    </g>
+
+                    <!-- Final value labels -->
+                    <g class="chart-labels" opacity="0">
+                        <rect x="478" y="55" width="80" height="22" rx="11" fill="#dc2626"/>
+                        <text x="518" y="71" text-anchor="middle" font-size="13" font-weight="800" fill="white">5,500만원</text>
+                        <rect x="478" y="237" width="80" height="22" rx="11" fill="#2563eb"/>
+                        <text x="518" y="253" text-anchor="middle" font-size="13" font-weight="800" fill="white">500만원</text>
+                    </g>
+                </svg>
+
+                <!-- Legend -->
+                <div class="flex justify-center gap-6 mt-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-4 h-1 bg-red-600 rounded"></span>
+                        <span class="text-sm font-bold text-red-600">일반 대출 (이자 7~15%)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-4 h-1 bg-blue-600 rounded"></span>
+                        <span class="text-sm font-bold text-blue-600">정책자금 (이자 1~3%)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Savings highlight (compact) -->
+            <div class="mt-4 pt-4 border-t border-dashed border-gray-200">
+                <div class="flex justify-between items-center flex-wrap gap-3">
+                    <div>
+                        <div class="text-[11px] text-gray-500 font-bold">5년간 절약되는 금액</div>
+                        <div class="text-xs md:text-sm text-gray-700">정책자금을 선택하면</div>
+                    </div>
+                    <div class="pulse-savings text-2xl md:text-4xl font-black bg-yellow-200 px-3 py-1.5 rounded-xl text-slate-900">
+                        +5,000만원
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-xs text-gray-400 mt-5">
+            ※ 위 수치는 평균값 기반 시뮬레이션이며, 실제 조건은 자금 종류·신용·매출에 따라 달라질 수 있습니다.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================
+     5. WHO QUALIFIES (CHECKLIST)
+============================================ -->
+<section class="py-16 md:py-24 bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 text-white relative overflow-hidden">
+    <div class="blob blob-yellow drift" style="width: 400px; height: 400px; top: -100px; right: -100px; opacity: 0.3;"></div>
+    <div class="blob blob-cyan drift-slow" style="width: 350px; height: 350px; bottom: -100px; left: -100px; opacity: 0.25;"></div>
+    <div class="absolute inset-0 bg-pattern opacity-30"></div>
+    <svg class="absolute top-10 left-10 opacity-10 hidden md:block" width="180" height="180" viewBox="0 0 180 180">
+        <polygon points="90,10 170,170 10,170" stroke="#fde047" stroke-width="2" fill="none"/>
+        <polygon points="90,40 145,150 35,150" stroke="white" stroke-width="1" fill="none"/>
+    </svg>
+    <div class="relative max-w-5xl mx-auto px-5">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-4xl font-black mt-2 mb-3">
+                <span class="gold-gradient">이런 분</span>이라면 받으실 수 있습니다
+            </h2>
+            <p class="text-gray-300 md:text-lg">
+                3가지 중 하나라도 해당된다면 <strong class="text-white">무료 자격조회</strong> 신청해보세요.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-5">
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 text-center">
+                <div class="text-6xl mb-4">🏢</div>
+                <h3 class="font-bold text-xl text-yellow-300 mb-4">사업자 운영 중</h3>
+                <ul class="space-y-2 text-sm text-gray-300 inline-block text-left">
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 개인사업자 / 법인 모두 가능</li>
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 사업자등록 6개월 이상</li>
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 업종 제한 없음</li>
+                </ul>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 text-center">
+                <div class="text-6xl mb-4">💼</div>
+                <h3 class="font-bold text-xl text-yellow-300 mb-4">자금이 필요한 상황</h3>
+                <ul class="space-y-2 text-sm text-gray-300 inline-block text-left">
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 운영자금 / 시설자금</li>
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 신규 매장 오픈</li>
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 설비 투자 / 사업 확장</li>
+                </ul>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-7 text-center">
+                <div class="text-6xl mb-4">📈</div>
+                <h3 class="font-bold text-xl text-yellow-300 mb-4">신용 상황 무관</h3>
+                <ul class="space-y-2 text-sm text-gray-300 inline-block text-left">
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 기존 거절 경험 OK</li>
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 신용 취약자도 OK</li>
+                    <li class="flex gap-2"><span class="text-green-400">✓</span> 재도전자도 OK</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-10 text-center">
+            <a href="#apply-form" class="pulse-glow inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all transform hover:scale-105 shadow-xl">
+                내 자격 1분 만에 확인하기 →
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================
+     6. PROCESS (3-STEP)
+============================================ -->
+<section class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="text-center mb-14">
+            <h2 class="text-2xl md:text-4xl font-black text-navy-900 mt-2 mb-3">
+                간단한 <span class="text-gold-600">3단계</span> 진행
+            </h2>
+            <p class="text-gray-600 md:text-lg">
+                상담부터 자금 입금까지, 평균 <strong class="text-navy-900">2~4주</strong> 소요됩니다.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 relative">
+            <!-- Connector line (desktop) -->
+            <div class="hidden md:block absolute top-12 left-1/3 right-1/3 h-0.5 bg-gold-500/30"></div>
+
+            <div class="relative bg-gray-50 p-7 rounded-2xl border border-gray-100">
+                <div class="absolute -top-5 left-7 w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-black text-xl shadow-lg">1</div>
+                <div class="mt-3">
+                    <h3 class="font-black text-lg text-navy-900 mb-2">무료 상담 신청</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        간단한 정보 입력 후, 1영업일 내 전화 상담.<br>
+                        대표님 상황에 맞는 자금을 찾아드립니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative bg-gray-50 p-7 rounded-2xl border border-gray-100">
+                <div class="absolute -top-5 left-7 w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-black text-xl shadow-lg">2</div>
+                <div class="mt-3">
+                    <h3 class="font-black text-lg text-navy-900 mb-2">서류 준비 + 신청</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        필요한 서류 안내 + 사업계획서 작성 지원. 심사 통과 가능성을 최대로 끌어올립니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white p-7 rounded-2xl shadow-xl">
+                <div class="absolute -top-5 left-7 w-10 h-10 bg-orange-500 text-white rounded-xl flex items-center justify-center font-black text-xl shadow-lg">3</div>
+                <div class="mt-3">
+                    <h3 class="font-black text-lg mb-2">승인 + 자금 입금</h3>
+                    <p class="text-sm leading-relaxed text-blue-50">
+                        심사 통과 후 자금 입금. 입금 후에도 1년간 무료 자문으로 사업 안정화를 지원합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     8. FAQ
+============================================ -->
+<section class="py-16 md:py-24 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-5">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-4xl font-black text-navy-900 mt-2">
+                자주 묻는 질문
+            </h2>
+        </div>
+
+        <div class="space-y-3">
+            <details class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
+                <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-navy-900 hover:bg-gray-50 transition">
+                    <span>Q. 상담 비용이 발생하나요?</span>
+                    <span class="text-gold-500 text-xl group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                    <strong>상담은 100% 무료입니다.</strong> 자격조회와 자금 매칭까지 비용 부담 없이 진행됩니다. 본격적인 신청 진행 시에만 컨설팅 비용이 발생하며, 사전에 충분히 안내드립니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
+                <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-navy-900 hover:bg-gray-50 transition">
+                    <span>Q. 신용점수가 낮아도 가능한가요?</span>
+                    <span class="text-gold-500 text-xl group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                    <strong>네, 가능합니다.</strong> 신용취약소상공인자금, 재도전특별자금 등 신용 점수가 낮은 분들을 위한 정책자금이 별도로 있습니다. 실제 사례에서도 신용점수 낮으셨던 대표님들이 자금을 받으셨습니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
+                <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-navy-900 hover:bg-gray-50 transition">
+                    <span>Q. 자금 입금까지 얼마나 걸리나요?</span>
+                    <span class="text-gold-500 text-xl group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                    상담 신청 후 자금 입금까지 <strong>평균 2~4주</strong>가 소요됩니다. 자금 종류와 대표님 상황에 따라 차이가 있을 수 있으며, 정확한 일정은 상담 시 안내드립니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
+                <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-navy-900 hover:bg-gray-50 transition">
+                    <span>Q. 어느 지역까지 상담 가능한가요?</span>
+                    <span class="text-gold-500 text-xl group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                    <strong>전국 어디든 가능합니다.</strong> 서울/경기/인천뿐 아니라 부산·대구·광주·대전·울산·제주 등 전국 대표님들이 전화·온라인으로 상담받으셨습니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
+                <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-navy-900 hover:bg-gray-50 transition">
+                    <span>Q. 한 번 받은 적 있는데 또 받을 수 있나요?</span>
+                    <span class="text-gold-500 text-xl group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                    <strong>네, 가능합니다.</strong> 정책자금은 종류가 300여 가지로 매우 다양하여 하나를 받으신 후에도 추가로 다른 자금을 받으실 수 있는 경우가 많습니다. 대표님 상황을 분석해 추가 가능한 자금을 안내드립니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
+                <summary class="flex items-center justify-between p-5 cursor-pointer font-bold text-navy-900 hover:bg-gray-50 transition">
+                    <span>Q. 신청 후 거절될 수도 있나요?</span>
+                    <span class="text-gold-500 text-xl group-open:rotate-45 transition-transform">+</span>
+                </summary>
+                <div class="px-5 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
+                    바른정책자금연구소의 <strong>승인율은 99%</strong> 입니다. 자격조회 단계에서부터 대표님 상황에 맞는 자금만 추천드리고, 사업계획서·재무 자료를 꼼꼼히 준비하기 때문에 거절률이 매우 낮습니다.<br><br>
+                    <strong class="text-blue-700">혹시 거절되더라도 끝이 아닙니다.</strong> 거절 사유를 함께 분석해 보완하고, 대표님께 맞는 <strong>다른 적합한 자금을 찾아 재신청까지 끝까지 동행</strong>해드립니다.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     8.5 GUARANTEES (3 promises)
+============================================ -->
+<section class="py-16 md:py-24 bg-white relative overflow-hidden">
+    <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
+    <div class="relative max-w-6xl mx-auto px-5">
+        <div class="text-center mb-14">
+            <h2 class="text-2xl md:text-4xl font-black text-slate-900 mt-2 mb-3">
+                바른정책자금연구소가<br>
+                <span class="bg-yellow-200 px-2">반드시 약속</span>드리는 3가지
+            </h2>
+            <p class="text-gray-600 md:text-lg">
+                컨설팅이 처음이신 대표님도 안심하실 수 있도록, 명확하게 약속드립니다.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Promise 1: 무료 상담 -->
+            <div class="bg-white border-2 border-blue-100 rounded-3xl p-7 text-center hover:border-blue-400 transition-all hover:-translate-y-1">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mb-5 shadow-lg">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                </div>
+                <div class="text-xs text-blue-700 font-bold mb-1">PROMISE 01</div>
+                <h3 class="text-xl font-black text-slate-900 mb-3">상담은 100% 무료</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    자격조회부터 자금 매칭, 신청 절차 안내까지<br>
+                    <strong class="text-slate-900">상담은 단 한 푼도 받지 않습니다.</strong><br>
+                    부담 없이 먼저 알아보세요.
+                </p>
+            </div>
+
+            <!-- Promise 2: 선수수료 X (CORE) -->
+            <div class="bg-gradient-to-br from-blue-700 to-blue-900 text-white rounded-3xl p-7 text-center shadow-2xl scale-105 relative">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-slate-900 text-xs font-black px-4 py-1 rounded-full shadow-lg">CORE</div>
+                <div class="w-16 h-16 mx-auto bg-yellow-400 rounded-2xl flex items-center justify-center mb-5 shadow-lg">
+                    <svg class="w-8 h-8 text-slate-900" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <line x1="4" y1="20" x2="20" y2="4" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="text-xs text-yellow-300 font-bold mb-1">PROMISE 02</div>
+                <h3 class="text-xl font-black mb-3">선수수료 0원</h3>
+                <p class="text-sm text-blue-100 leading-relaxed">
+                    컨설팅 시작 전 어떤 비용도 받지 않습니다.<br>
+                    <strong class="text-white">자금 승인이 확정된 후에만</strong> 수수료가 발생합니다.
+                </p>
+            </div>
+
+            <!-- Promise 3: 1년 관리 -->
+            <div class="bg-white border-2 border-blue-100 rounded-3xl p-7 text-center hover:border-blue-400 transition-all hover:-translate-y-1">
+                <div class="w-16 h-16 mx-auto bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center mb-5 shadow-lg">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <div class="text-xs text-blue-700 font-bold mb-1">PROMISE 03</div>
+                <h3 class="text-xl font-black text-slate-900 mb-3">1년간 지속 관리</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    자금 받은 이후에도 끝이 아닙니다. <strong class="text-slate-900">1년 동안 추가 자금 매칭·재무 점검</strong>까지 평생 파트너로 함께합니다.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============================================
+     7. APPLICATION FORM (moved to last position)
+============================================ -->
+<section id="apply-form" class="py-16 md:py-24 bg-gradient-to-br from-blue-800 via-blue-900 to-slate-900 text-white relative overflow-hidden">
+    <div class="blob blob-yellow drift-slow" style="width: 450px; height: 450px; top: -150px; left: -150px; opacity: 0.25;"></div>
+    <div class="blob blob-blue drift" style="width: 400px; height: 400px; bottom: -100px; right: -100px; opacity: 0.4;"></div>
+    <div class="absolute inset-0 bg-pattern opacity-30"></div>
+    <svg class="absolute top-20 right-10 opacity-10 hidden md:block" width="160" height="160" viewBox="0 0 160 160">
+        <rect x="20" y="20" width="120" height="120" rx="20" stroke="#fde047" stroke-width="2" fill="none" transform="rotate(15 80 80)"/>
+        <rect x="40" y="40" width="80" height="80" rx="12" stroke="white" stroke-width="1" fill="none" transform="rotate(-10 80 80)"/>
+    </svg>
+    <div class="relative max-w-3xl mx-auto px-5">
+        <div class="text-center mb-10">
+            <h2 class="text-2xl md:text-4xl font-black mt-2 mb-3">
+                <span class="gold-gradient">2026년 정책자금</span>,<br>
+                예산이 빠르게 소진되고 있습니다
+            </h2>
+            <p class="text-gray-300 md:text-lg leading-relaxed">
+                중소기업 4조 5천억 + 소상공인 3조 7천억.<br>
+                매년 조기 마감되니 <strong class="text-yellow-300">서둘러 신청하세요.</strong>
+            </p>
+        </div>
+
+        <form id="applicationForm" class="bg-white text-gray-900 p-6 md:p-10 rounded-3xl shadow-2xl space-y-5">
+
+            <div>
+                <label class="block text-sm font-bold text-navy-900 mb-2">성함 <span class="text-red-500">*</span></label>
+                <input type="text" name="name" required
+                       placeholder="예) 홍길동"
+                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 transition">
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-navy-900 mb-2">연락처 <span class="text-red-500">*</span></label>
+                <input type="tel" name="phone" required
+                       placeholder="예) 010-1234-5678"
+                       pattern="[0-9-]+"
+                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 transition">
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-navy-900 mb-2">사업자 유형 <span class="text-red-500">*</span></label>
+                <select name="business_type" required
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 transition bg-white">
+                    <option value="">선택해주세요</option>
+                    <option value="개인사업자">개인사업자</option>
+                    <option value="법인사업자">법인사업자</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-navy-900 mb-2">연매출 (대략) <span class="text-red-500">*</span></label>
+                <select name="annual_revenue" required
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 transition bg-white">
+                    <option value="">선택해주세요</option>
+                    <option value="5천만원 미만">5천만원 미만</option>
+                    <option value="5천만원 ~ 1억">5천만원 ~ 1억</option>
+                    <option value="1억 ~ 3억">1억 ~ 3억</option>
+                    <option value="3억 ~ 5억">3억 ~ 5억</option>
+                    <option value="5억 ~ 10억">5억 ~ 10억</option>
+                    <option value="10억 이상">10억 이상</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-navy-900 mb-2">세금 체납 여부 <span class="text-red-500">*</span></label>
+                <select name="tax_status" required
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 transition bg-white">
+                    <option value="">선택해주세요</option>
+                    <option value="없음">체납 없음</option>
+                    <option value="있음">체납 있음</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-bold text-navy-900 mb-2">상호 (선택)</label>
+                <input type="text" name="company_name"
+                       placeholder="예) 바른가게"
+                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 transition">
+            </div>
+
+            <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" name="agreement" required class="mt-1 w-5 h-5 text-gold-500 border-2 border-gray-300 rounded focus:ring-gold-500">
+                    <span class="text-sm text-gray-700">
+                        <strong>[필수]</strong> 개인정보 수집·이용에 동의합니다.<br>
+                        <span class="text-xs text-gray-500">수집항목: 성함, 연락처, 사업정보 / 이용목적: 정책자금 상담 / 보유기간: 상담 종료 후 1년</span>
+                    </span>
+                </label>
+            </div>
+
+            <button type="submit" id="submitBtn"
+                    class="pulse-glow w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-black text-lg py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-xl flex items-center justify-center gap-2">
+                <span id="submitText">👉 무료 상담 신청하기</span>
+                <span id="submitSpinner" class="hidden">
+                    <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>
+                </span>
+            </button>
+
+            <p class="text-xs text-center text-gray-500">
+                🔒 입력하신 정보는 SSL 암호화되어 안전하게 전송됩니다.
+            </p>
+        </form>
+    </div>
+</section>
+
+<!-- ============================================
+     10. FOOTER
+============================================ -->
+<footer class="bg-gray-900 text-gray-400 py-6 md:py-8">
+    <div class="max-w-6xl mx-auto px-5">
+        <!-- Top: brand + contact in one compact row -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 pb-4 border-b border-gray-800">
+            <div>
+                <div class="text-white font-bold text-base">바른정책자금연구소</div>
+                <div class="text-xs text-gray-500">소상공인·중소기업 정책자금 컨설팅 전문기관</div>
+            </div>
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs">
+                <span>📞 1666-0266</span>
+                <span>✉️ kjgman0711@gmail.com</span>
+                <span>🕐 평일 09–18시 (12–13시 점심)</span>
+            </div>
+        </div>
+
+        <!-- Bottom: legal info compact -->
+        <div class="text-[11px] text-gray-500 leading-relaxed mt-4 space-y-0.5">
+            <p>상호 <span class="text-gray-300">바른정책자금연구소</span> · 대표 <span class="text-gray-300">강정균</span> · 사업자등록번호 <span class="text-gray-300">292-54-01028</span></p>
+            <p>주소 인천광역시 연수구 송도동 214 송도비알씨스마트밸리지식산업센터 D동 1603호</p>
+            <p class="pt-2">© 2026 바른정책자금연구소 · <a href="#" class="hover:text-white underline">개인정보처리방침</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================
+     MOBILE STICKY CTA
+============================================ -->
+<div class="mobile-sticky-cta md:hidden bg-white border-t border-gray-200 p-3 flex gap-2">
+    <a href="tel:1666-0266" class="flex-1 bg-blue-700 text-white font-bold py-3 rounded-xl text-center">
+        📞 1666-0266
+    </a>
+    <a href="#apply-form" class="flex-[2] bg-orange-500 text-white font-bold py-3 rounded-xl text-center">
+        👉 무료 상담 신청
+    </a>
+</div>
+
+<!-- ============================================
+     FORM SUBMISSION SCRIPT
+============================================ -->
+<script>
+// === Scroll-triggered fade-up animation ===
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('section h2, section h3, section .grid > *, section > div > p, .case-card-link, details').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+});
+
+// === Counter animation for hero stats ===
+const animateCounter = (el, target, suffix = '', duration = 1600) => {
+    const startTime = performance.now();
+    const isPercent = suffix === '%';
+    const animate = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(eased * target);
+        el.textContent = value.toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(animate);
+        else el.textContent = (isPercent ? target : target.toLocaleString()) + suffix;
+    };
+    requestAnimationFrame(animate);
+};
+
+const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.animated) {
+            entry.target.dataset.animated = 'true';
+            const text = entry.target.textContent.trim();
+            if (text === '99%') animateCounter(entry.target, 99, '%');
+            else if (text === '900억') {
+                let n = 0;
+                const id = setInterval(() => {
+                    n += 30;
+                    if (n >= 900) { entry.target.textContent = '900억'; clearInterval(id); }
+                    else entry.target.textContent = n + '억';
+                }, 30);
+            }
+            else if (text === '2,000+') animateCounter(entry.target, 2000, '+');
+            else if (text === '300+') animateCounter(entry.target, 300, '+');
+        }
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.gold-gradient').forEach(el => {
+    if (['99%', '900억', '2,000+', '300+'].includes(el.textContent.trim())) statObserver.observe(el);
+});
+
+// === Hero background counter animations ===
+const animateHeroNumber = (id, target, suffix = '', decimals = 0, duration = 2000) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const startTime = performance.now();
+    const animate = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = (eased * target).toFixed(decimals);
+        el.textContent = value + suffix;
+        if (progress < 1) requestAnimationFrame(animate);
+        else el.textContent = (decimals > 0 ? target.toFixed(decimals) : target) + suffix;
+    };
+    requestAnimationFrame(animate);
+};
+
+const animateHeroBudget = () => {
+    const el = document.getElementById('heroBudget');
+    if (!el) return;
+    const startTime = performance.now();
+    const target = 33620; // 3조 3,620억 → 33,620 (억 단위)
+    const duration = 2400;
+    const animate = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(eased * target);
+        const jo = Math.floor(value / 10000);
+        const eok = value % 10000;
+        el.textContent = jo > 0 ? `${jo}조 ${eok.toLocaleString()}억` : `${eok.toLocaleString()}억`;
+        if (progress < 1) requestAnimationFrame(animate);
+        else el.textContent = '3조 3,620억';
+    };
+    requestAnimationFrame(animate);
+};
+
+// Trigger on page load
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        animateHeroNumber('heroStat87', 87, '%');
+        animateHeroNumber('heroStat39', 3.9, '%', 1);
+        animateHeroBudget();
+    }, 300);
+});
+
+// === Comparison line chart - trigger animation, then start pumping ===
+const comparisonChart = document.getElementById('comparisonChart');
+if (comparisonChart) {
+    const chartObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                comparisonChart.classList.add('animate');
+                // After initial draw + pop-in completes (~3.2s), start pumping
+                setTimeout(() => {
+                    comparisonChart.classList.add('pumping');
+                }, 3300);
+                chartObserver.unobserve(comparisonChart);
+            }
+        });
+    }, { threshold: 0.3 });
+    chartObserver.observe(comparisonChart);
+}
+
+// === Forms (hero quick form + bottom full form) ===
+const ZAPIER_WEBHOOK = 'https://hooks.zapier.com/hooks/catch/23898261/urtjt4m/';
+
+const setupForm = (formId, btnId, textId, spinnerId, sourceLabel, defaultText) => {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    const submitBtn = document.getElementById(btnId);
+    const submitText = document.getElementById(textId);
+    const submitSpinner = document.getElementById(spinnerId);
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitText.textContent = '신청 중...';
+        submitSpinner.classList.remove('hidden');
+
+        const formData = new FormData(form);
+        const payload = {
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            business_type: formData.get('business_type') || '',
+            annual_revenue: formData.get('annual_revenue') || '',
+            tax_status: formData.get('tax_status') || '',
+            company_name: formData.get('company_name') || '',
+            agreement: formData.get('agreement') ? '동의' : '미동의',
+            submitted_at: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
+            source: sourceLabel,
+        };
+
+        try {
+            await fetch(ZAPIER_WEBHOOK, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: 'form_submit_success',
+                form_name: sourceLabel
+            });
+            window.location.href = '/thank-you.html';
+        } catch (error) {
+            console.error('Submission error:', error);
+            alert('신청 중 오류가 발생했습니다. 잠시 후 다시 시도하시거나 1666-0266으로 전화주세요.');
+            submitBtn.disabled = false;
+            submitText.textContent = defaultText;
+            submitSpinner.classList.add('hidden');
+        }
+    });
+};
+
+setupForm('heroForm', 'heroSubmitBtn', 'heroSubmitText', 'heroSubmitSpinner', 'YouTube 랜딩-상단폼', '👉 무료 자격조회 신청하기');
+setupForm('applicationForm', 'submitBtn', 'submitText', 'submitSpinner', 'YouTube 랜딩-하단폼', '👉 무료 상담 신청하기');
+
+// Phone number auto-format (applies to ALL phone inputs on page)
+document.querySelectorAll('input[name="phone"]').forEach(input => {
+    input.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.slice(0, 11);
+        if (v.length >= 7) {
+            e.target.value = v.replace(/(\d{3})(\d{3,4})(\d{4})/, '$1-$2-$3');
+        } else if (v.length >= 4) {
+            e.target.value = v.replace(/(\d{3})(\d{1,4})/, '$1-$2');
+        } else {
+            e.target.value = v;
+        }
+    });
+});
+</script>
+
+</body>
+</html>
