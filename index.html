@@ -662,9 +662,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <svg class="animate-spin h-5 w-5" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/></svg>
                     </span>
                 </button>
-                <p class="text-center text-xs text-gray-400">
-                    🔒 입력 정보는 SSL 암호화 / 더 자세한 정보는 통화 시 안내드립니다.
-                </p>
             </form>
         </div>
     </div>
@@ -956,11 +953,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      4.5 YOUTUBE VIDEO — Full-bleed cinematic background
 ============================================ -->
 <section class="relative overflow-hidden text-white flex flex-col" style="min-height: 600px;">
-    <!-- Background image with Ken Burns motion -->
+    <!-- Background video (auto-playing, looping, muted). Falls back to thumbnail if video missing. -->
+    <video class="absolute inset-0 w-full h-full object-cover"
+           autoplay loop muted playsinline preload="auto"
+           poster="https://i.ytimg.com/vi/f-gu-n0lVJ0/maxresdefault.jpg">
+        <source src="images/2eok.mp4" type="video/mp4">
+    </video>
     <img src="https://i.ytimg.com/vi/f-gu-n0lVJ0/maxresdefault.jpg"
-         alt=""
-         class="ken-burns absolute inset-0 w-full h-full object-cover"
-         onerror="this.src='https://i.ytimg.com/vi/f-gu-n0lVJ0/hqdefault.jpg'">
+         alt="" class="ken-burns absolute inset-0 w-full h-full object-cover -z-10">
 
     <!-- Gradient overlay — dark on top + bottom, transparent middle (face visible) -->
     <div class="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/10 to-slate-900/90"></div>
@@ -1536,9 +1536,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </span>
             </button>
 
-            <p class="text-xs text-center text-gray-500">
-                🔒 입력하신 정보는 SSL 암호화되어 안전하게 전송됩니다.
-            </p>
         </form>
     </div>
 </section>
