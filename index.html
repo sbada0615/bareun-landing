@@ -1635,30 +1635,23 @@ document.querySelectorAll('.gold-gradient').forEach(el => {
     if (['99%', '900억', '2,000+', '300+'].includes(el.textContent.trim())) statObserver.observe(el);
 });
 
-// === Countdown timer — 매 분기 마감일까지 ===
+// === Countdown timer — 하루 단위 (HH:MM:SS) 자동 리셋 ===
 const updateCountdown = () => {
     const el = document.getElementById('countdown');
     if (!el) return;
     const now = new Date();
-    const month = now.getMonth(); // 0-11
-    const quarterEndMonth = Math.floor(month / 3) * 3 + 2; // 2, 5, 8, 11
-    const deadline = new Date(now.getFullYear(), quarterEndMonth + 1, 0, 23, 59, 59);
+    // 오늘 자정까지 남은 시간
+    const deadline = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
     let diff = deadline - now;
     if (diff <= 0) {
-        // 마감 후엔 다음 분기로 자동 갱신
-        const nextDeadline = new Date(now.getFullYear(), quarterEndMonth + 4, 0, 23, 59, 59);
-        diff = nextDeadline - now;
+        const tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 23, 59, 59);
+        diff = tomorrow - now;
     }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
     const pad = (n) => String(n).padStart(2, '0');
-    if (days > 0) {
-        el.textContent = `${days}일 ${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-    } else {
-        el.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
-    }
+    el.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
 };
 updateCountdown();
 setInterval(updateCountdown, 1000);
