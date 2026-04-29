@@ -226,26 +226,7 @@
         .hero-bar-3 { animation: heroBar3 2.6s ease-in-out infinite 0.7s; }
         .hero-bar-4 { animation: heroBar4 3.0s ease-in-out infinite 1.0s; }
         .hero-bar-5 { animation: heroBar5 2.4s ease-in-out infinite 1.3s; }
-        /* Animated clock — second hand rotating */
-        @keyframes clockTick {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .clock-second {
-            transform-origin: 50px 50px;
-            transform-box: fill-box;
-            animation: clockTick 4s linear infinite;
-        }
-        .clock-minute {
-            transform-origin: 50px 50px;
-            transform-box: fill-box;
-            animation: clockTick 240s linear infinite;
-        }
-        .clock-hour {
-            transform-origin: 50px 50px;
-            transform-box: fill-box;
-            animation: clockTick 2880s linear infinite;
-        }
+        /* Real clock hands — rotated via JS */
         /* Funnel bars - continuous breathing animation */
         @keyframes funnel100 { 0%, 100% { width: 100%; } 50% { width: 88%; } }
         @keyframes funnel50  { 0%, 100% { width: 50%; }  50% { width: 42%; } }
@@ -466,64 +447,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      1. HERO SECTION
 ============================================ -->
 <section class="relative text-white overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-    <!-- Background photo (smiling small business owner) -->
-    <img src="images/hero-bg.jpg"
-         alt=""
-         class="absolute inset-0 w-full h-full object-cover ken-burns"
-         onerror="this.style.display='none'">
+    <!-- Background video -->
+    <video autoplay muted loop playsinline
+           style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top;">
+        <source src="images/hero-video.mp4" type="video/mp4">
+    </video>
 
     <!-- Dark gradient overlay for text readability -->
     <div class="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-900/75 to-slate-900/90"></div>
 
-    <!-- Subtle animated decoration on top of photo -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <!-- Soft glow blobs -->
-        <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-3xl opacity-15 -translate-x-1/3 -translate-y-1/3"></div>
-        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-yellow-400 rounded-full blur-3xl opacity-10 translate-x-1/4 translate-y-1/4"></div>
-
-        <!-- Floating dots (very subtle) -->
-        <div class="absolute top-[15%] left-[8%] w-2 h-2 bg-yellow-300 rounded-full opacity-50 drift"></div>
-        <div class="absolute top-[70%] left-[5%] w-1.5 h-1.5 bg-blue-300 rounded-full opacity-40 drift-slow"></div>
-        <div class="absolute top-[10%] right-[8%] w-2 h-2 bg-cyan-300 rounded-full opacity-40 drift-slow"></div>
-        <div class="absolute bottom-[15%] right-[8%] w-2.5 h-2.5 bg-yellow-200 rounded-full opacity-50 drift"></div>
-
-        <!-- LARGE background clock — like a wallpaper behind everything -->
-        <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none" aria-hidden="true">
-            <svg viewBox="0 0 100 100" class="w-[110vw] max-w-[700px] md:w-[80%] md:max-w-[600px] h-auto opacity-[0.13]">
-                <!-- Outer glow ring -->
-                <circle cx="50" cy="50" r="49" fill="none" stroke="rgba(253,224,71,0.6)" stroke-width="0.4"/>
-                <!-- Clock face -->
-                <circle cx="50" cy="50" r="47" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="0.6"/>
-                <!-- Hour markers (4 main: 12,3,6,9) -->
-                <g stroke="rgba(253,224,71,0.95)" stroke-linecap="round">
-                    <line x1="50" y1="6"  x2="50" y2="14" stroke-width="1.2"/>
-                    <line x1="94" y1="50" x2="86" y2="50" stroke-width="1.2"/>
-                    <line x1="50" y1="94" x2="50" y2="86" stroke-width="1.2"/>
-                    <line x1="6"  y1="50" x2="14" y2="50" stroke-width="1.2"/>
-                </g>
-                <!-- Minute markers (8 secondary) -->
-                <g stroke="rgba(255,255,255,0.6)" stroke-width="0.5" stroke-linecap="round">
-                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(30 50 50)"/>
-                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(60 50 50)"/>
-                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(120 50 50)"/>
-                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(150 50 50)"/>
-                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(210 50 50)"/>
-                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(240 50 50)"/>
-                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(300 50 50)"/>
-                    <line x1="50" y1="8" x2="50" y2="12" transform="rotate(330 50 50)"/>
-                </g>
-                <!-- Hour hand -->
-                <line x1="50" y1="50" x2="50" y2="32" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" class="clock-hour"/>
-                <!-- Minute hand -->
-                <line x1="50" y1="50" x2="50" y2="22" stroke="rgba(255,255,255,0.9)" stroke-width="1" stroke-linecap="round" class="clock-minute"/>
-                <!-- Second hand (red, animated) -->
-                <line x1="50" y1="56" x2="50" y2="12" stroke="#ef4444" stroke-width="0.6" stroke-linecap="round" class="clock-second"/>
-                <!-- Center pin -->
-                <circle cx="50" cy="50" r="1.5" fill="#ef4444"/>
-                <circle cx="50" cy="50" r="0.5" fill="white"/>
-            </svg>
-        </div>
-    </div>
 
 
     <div class="relative max-w-6xl mx-auto px-5 py-12 md:py-16">
@@ -535,7 +467,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Top badge -->
         <div class="inline-flex items-center gap-2 bg-yellow-400/15 border border-yellow-400/40 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up">
             <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
-            <span class="text-sm text-yellow-200 font-medium">2026년 정부 정책자금 신청 접수 중</span>
+            <span class="text-sm text-yellow-300 font-medium">2026년 정부 정책자금 신청 접수 중</span>
         </div>
 
         <!-- Main headline -->
@@ -589,35 +521,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="mt-5 bg-slate-900/70 backdrop-blur border border-white/10 rounded-2xl px-4 py-4">
                 <div class="flex items-center gap-2 text-xs mb-3">
                     <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                    <span class="text-gray-300 font-bold">2026 정책자금 현황</span>
+                    <span class="font-bold" style="color:#2979ff;">2026 정책자금 현황</span>
                 </div>
                 <div class="grid grid-cols-2 gap-x-4 gap-y-2">
                     <div class="flex items-baseline justify-between">
-                        <span class="text-[11px] text-gray-400 font-bold">정부 예산</span>
-                        <span id="heroBudget" class="text-sm md:text-base font-black text-yellow-300">3조 3,620억</span>
+                        <span class="text-[11px] text-white font-bold">정부 예산</span>
+                        <span id="heroBudget" class="text-sm md:text-base font-black" style="color:#FFF500;">3조 3,620억</span>
                     </div>
                     <div class="flex items-baseline justify-between">
-                        <span class="text-[11px] text-gray-400 font-bold">신청 거절</span>
-                        <span id="heroStat87" class="text-sm md:text-base font-black text-red-400">87%</span>
+                        <span class="text-[11px] text-white font-bold">신청 거절</span>
+                        <span id="heroStat87" class="text-sm md:text-base font-black" style="color:#FFF500;">87%</span>
                     </div>
                     <div class="flex items-baseline justify-between">
-                        <span class="text-[11px] text-gray-400 font-bold">신청 포기</span>
-                        <span id="heroStat63" class="text-sm md:text-base font-black text-orange-400">63%</span>
+                        <span class="text-[11px] text-white font-bold">신청 포기</span>
+                        <span id="heroStat63" class="text-sm md:text-base font-black" style="color:#FFF500;">63%</span>
                     </div>
                     <div class="flex items-baseline justify-between">
-                        <span class="text-[11px] text-gray-400 font-bold">실제 수혜</span>
-                        <span id="heroStat39" class="text-sm md:text-base font-black text-yellow-300">3.9%</span>
+                        <span class="text-[11px] text-white font-bold">실제 수혜</span>
+                        <span id="heroStat39" class="text-sm md:text-base font-black" style="color:#FFF500;">3.9%</span>
                     </div>
                 </div>
                 <!-- Mini bar chart row -->
-                <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between gap-3">
-                    <span class="text-[10px] text-gray-400">실시간 데이터</span>
+                <div class="mt-3 pt-3 border-t border-white/20 flex items-center justify-between gap-3">
+                    <span class="text-[10px] text-white">실시간 데이터</span>
                     <svg width="100" height="20" viewBox="0 0 100 20">
-                        <rect x="0"  y="14" width="14" height="6"  fill="#fde047" class="hero-bar hero-bar-1" rx="1"/>
-                        <rect x="18" y="10" width="14" height="10" fill="#facc15" class="hero-bar hero-bar-2" rx="1"/>
-                        <rect x="36" y="6"  width="14" height="14" fill="#eab308" class="hero-bar hero-bar-3" rx="1"/>
-                        <rect x="54" y="8"  width="14" height="12" fill="#fde047" class="hero-bar hero-bar-4" rx="1"/>
-                        <rect x="72" y="2"  width="14" height="18" fill="#facc15" class="hero-bar hero-bar-5" rx="1"/>
+                        <rect x="0"  y="14" width="14" height="6"  fill="#f87171" class="hero-bar hero-bar-1" rx="1"/>
+                        <rect x="18" y="10" width="14" height="10" fill="#ef4444" class="hero-bar hero-bar-2" rx="1"/>
+                        <rect x="36" y="6"  width="14" height="14" fill="#dc2626" class="hero-bar hero-bar-3" rx="1"/>
+                        <rect x="54" y="8"  width="14" height="12" fill="#ef4444" class="hero-bar hero-bar-4" rx="1"/>
+                        <rect x="72" y="2"  width="14" height="18" fill="#f87171" class="hero-bar hero-bar-5" rx="1"/>
                     </svg>
                 </div>
             </div>
@@ -1834,6 +1766,31 @@ document.querySelectorAll('input[name="phone"]').forEach(input => {
         }
     });
 });
+</script>
+
+<script>
+    // 실제 현재 시간으로 배경 시계 바늘 회전
+    function updateRealClock() {
+        const now = new Date();
+        const h = now.getHours() % 12;
+        const m = now.getMinutes();
+        const s = now.getSeconds();
+
+        const secDeg  = s * 6;
+        const minDeg  = m * 6 + s * 0.1;
+        const hourDeg = h * 30 + m * 0.5;
+
+        const hourHand = document.getElementById('realClockHour');
+        const minHand  = document.getElementById('realClockMinute');
+        const secHand  = document.getElementById('realClockSecond');
+
+        if (hourHand) hourHand.setAttribute('transform', `rotate(${hourDeg}, 50, 50)`);
+        if (minHand)  minHand.setAttribute('transform',  `rotate(${minDeg}, 50, 50)`);
+        if (secHand)  secHand.setAttribute('transform',  `rotate(${secDeg}, 50, 50)`);
+    }
+
+    updateRealClock();
+    setInterval(updateRealClock, 1000);
 </script>
 
 </body>
