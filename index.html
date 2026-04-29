@@ -214,18 +214,31 @@
         .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
-        /* Hero background bars - continuous oscillation */
-        @keyframes heroBar1 { 0%,100% { transform: scaleY(0.25); } 50% { transform: scaleY(0.45); } }
-        @keyframes heroBar2 { 0%,100% { transform: scaleY(0.5); }  50% { transform: scaleY(0.7); } }
-        @keyframes heroBar3 { 0%,100% { transform: scaleY(0.75); } 50% { transform: scaleY(0.9); } }
-        @keyframes heroBar4 { 0%,100% { transform: scaleY(0.6); }  50% { transform: scaleY(0.85); } }
-        @keyframes heroBar5 { 0%,100% { transform: scaleY(0.85); } 50% { transform: scaleY(1); } }
+        /* Hero background bars - dramatic dynamic oscillation */
+        @keyframes heroBar1 { 0%,100% { transform: scaleY(0.15); } 50% { transform: scaleY(0.7); } }
+        @keyframes heroBar2 { 0%,100% { transform: scaleY(0.85); } 50% { transform: scaleY(0.25); } }
+        @keyframes heroBar3 { 0%,100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+        @keyframes heroBar4 { 0%,100% { transform: scaleY(0.95); } 50% { transform: scaleY(0.4); } }
+        @keyframes heroBar5 { 0%,100% { transform: scaleY(0.3); }  50% { transform: scaleY(1); } }
         .hero-bar { transform-origin: bottom center; transform-box: fill-box; }
-        .hero-bar-1 { animation: heroBar1 2.8s ease-in-out infinite; }
-        .hero-bar-2 { animation: heroBar2 3.2s ease-in-out infinite 0.4s; }
-        .hero-bar-3 { animation: heroBar3 2.6s ease-in-out infinite 0.7s; }
-        .hero-bar-4 { animation: heroBar4 3.0s ease-in-out infinite 1.0s; }
-        .hero-bar-5 { animation: heroBar5 2.4s ease-in-out infinite 1.3s; }
+        .hero-bar-1 { animation: heroBar1 1.4s ease-in-out infinite; }
+        .hero-bar-2 { animation: heroBar2 1.6s ease-in-out infinite 0.15s; }
+        .hero-bar-3 { animation: heroBar3 1.2s ease-in-out infinite 0.3s; }
+        .hero-bar-4 { animation: heroBar4 1.5s ease-in-out infinite 0.45s; }
+        .hero-bar-5 { animation: heroBar5 1.3s ease-in-out infinite 0.6s; }
+        /* Live data stat numbers - pulse to feel alive */
+        @keyframes statPulse {
+            0%, 100% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.08); filter: brightness(1.25); }
+        }
+        #heroBudget, #heroStat87, #heroStat63, #heroStat39 {
+            display: inline-block;
+            animation: statPulse 1.8s ease-in-out infinite;
+        }
+        #heroStat87 { animation-delay: 0s; }
+        #heroBudget { animation-delay: 0.4s; }
+        #heroStat63 { animation-delay: 0.8s; }
+        #heroStat39 { animation-delay: 1.2s; }
         /* Real clock hands — rotated via JS */
         /* Funnel bars - continuous breathing animation */
         @keyframes funnel100 { 0%, 100% { width: 100%; } 50% { width: 88%; } }
@@ -433,7 +446,7 @@
                 z-index: 50;
                 box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
             }
-            body { padding-bottom: 80px; }
+            body { padding-bottom: 56px; }
         }
     </style>
 </head>
@@ -474,7 +487,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-5 animate-fade-in-up">
             소상공인 정책자금<br>
             <span class="fluo-yellow-glow">최소 3천만 ~ 최대 5억</span><br>
-            지원받는 법
+            <span class="block text-2xl md:text-3xl lg:text-4xl whitespace-nowrap">사업자등록증만 있으면 가능!</span>
         </h1>
 
         </div>
@@ -519,9 +532,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             <!-- Live data dashboard panel below photo -->
             <div class="mt-5 bg-slate-900/70 backdrop-blur border border-white/10 rounded-2xl px-4 py-4">
-                <div class="flex items-center gap-2 text-xs mb-3">
-                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                    <span class="font-bold" style="color:#2979ff;">2026 정책자금 현황</span>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="font-bold text-base" style="color:#2979ff;">2026 정책자금 현황</span>
                 </div>
                 <div class="grid grid-cols-2 gap-x-4 gap-y-2">
                     <div class="flex items-baseline justify-between">
@@ -529,15 +542,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span id="heroBudget" class="text-sm md:text-base font-black" style="color:#FFF500;">3조 3,620억</span>
                     </div>
                     <div class="flex items-baseline justify-between">
-                        <span class="text-[11px] text-white font-bold">신청 거절</span>
-                        <span id="heroStat87" class="text-sm md:text-base font-black" style="color:#FFF500;">87%</span>
+                        <span class="text-[11px] text-white font-bold">신청 거절 😢</span>
+                        <span id="heroStat87" class="text-sm md:text-base font-black" style="color:#94a3b8;">87%</span>
                     </div>
                     <div class="flex items-baseline justify-between">
-                        <span class="text-[11px] text-white font-bold">신청 포기</span>
-                        <span id="heroStat63" class="text-sm md:text-base font-black" style="color:#FFF500;">63%</span>
+                        <span class="text-[11px] text-white font-bold">신청 포기 😞</span>
+                        <span id="heroStat63" class="text-sm md:text-base font-black" style="color:#94a3b8;">63%</span>
                     </div>
                     <div class="flex items-baseline justify-between">
-                        <span class="text-[11px] text-white font-bold">실제 수혜</span>
+                        <span class="text-[11px] text-white font-bold">실제 수혜 😊</span>
                         <span id="heroStat39" class="text-sm md:text-base font-black" style="color:#FFF500;">3.9%</span>
                     </div>
                 </div>
@@ -1060,7 +1073,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <!-- Animated line chart (compact) -->
         <div class="mt-8 bg-white rounded-2xl shadow-xl p-4 md:p-6 border border-gray-100 max-w-3xl mx-auto">
-            <h3 class="text-base md:text-lg font-black text-slate-900 mb-1 text-center">📈 5년 누적 이자 추이 (1억 기준)</h3>
+            <h3 class="text-base md:text-lg font-black text-slate-900 mb-1 text-center">📈 5년 누적 이자 변화 (1억 기준)</h3>
             <p class="text-center text-xs text-gray-500 mb-3">시간이 흐를수록 차이가 커집니다</p>
 
             <div class="relative">
@@ -1142,14 +1155,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </svg>
 
                 <!-- Legend -->
-                <div class="flex justify-center gap-6 mt-2">
+                <div class="flex justify-center gap-4 md:gap-6 mt-2 flex-wrap">
                     <div class="flex items-center gap-2">
-                        <span class="w-4 h-1 bg-red-600 rounded"></span>
-                        <span class="text-sm font-bold text-red-600">일반 대출 (이자 7~15%)</span>
+                        <span class="w-4 h-1 bg-red-600 rounded flex-shrink-0"></span>
+                        <span class="text-xs md:text-sm font-bold text-red-600 leading-tight">
+                            일반 대출<br class="md:hidden">
+                            <span class="md:ml-1">(이자 7~15%)</span>
+                        </span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="w-4 h-1 bg-blue-600 rounded"></span>
-                        <span class="text-sm font-bold text-blue-600">정책자금 (이자 1~3%)</span>
+                        <span class="w-4 h-1 bg-blue-600 rounded flex-shrink-0"></span>
+                        <span class="text-xs md:text-sm font-bold text-blue-600 leading-tight">
+                            정책자금<br class="md:hidden">
+                            <span class="md:ml-1">(이자 1~3%)</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -1568,11 +1587,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============================================
      MOBILE STICKY CTA
 ============================================ -->
-<div class="mobile-sticky-cta md:hidden bg-white border-t border-gray-200 p-3 flex gap-2">
-    <a href="tel:1666-0266" class="flex-1 bg-blue-700 text-white font-bold py-3 rounded-xl text-center">
-        📞 1666-0266
-    </a>
-    <a href="#apply-form" class="flex-[2] bg-orange-500 text-white font-bold py-3 rounded-xl text-center">
+<div class="mobile-sticky-cta md:hidden bg-white border-t border-gray-200 px-3 py-2">
+    <a href="#apply-form" class="block bg-orange-500 text-white font-bold py-2.5 rounded-lg text-center text-sm">
         👉 무료 상담 신청
     </a>
 </div>
