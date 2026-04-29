@@ -480,28 +480,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="relative max-w-6xl mx-auto px-5 py-12 md:py-16">
         <div class="grid md:grid-cols-2 gap-8 items-stretch">
-        <div class="flex flex-col">
-        <!-- Top group: vertically centered within available space (aligns with photo) -->
-        <div class="flex-1 flex flex-col justify-center">
-        <div>
-        <!-- Top badge -->
-        <div class="inline-flex items-center gap-1.5 bg-yellow-400/15 border border-yellow-400/40 rounded-full px-3 py-1 mb-6 animate-fade-in-up whitespace-nowrap">
+        <div class="flex flex-col min-h-[600px] md:min-h-0">
+        <!-- 1. Badge at TOP -->
+        <div class="inline-flex self-start items-center gap-1.5 bg-yellow-400/15 border border-yellow-400/40 rounded-full px-3 py-1 animate-fade-in-up whitespace-nowrap">
             <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse flex-shrink-0"></span>
             <span class="text-[11px] md:text-sm text-yellow-300 font-medium">📢 26년 정책자금 신청 마감까지 <span id="countdown" class="font-black text-yellow-300">--:--:--</span> 남았습니다</span>
         </div>
 
-        <!-- Main headline -->
-        <h1 class="text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-5 animate-fade-in-up">
+        <!-- 2. Headline pushed down to middle-lower (mt-auto absorbs space above) -->
+        <h1 class="mt-auto text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-5 animate-fade-in-up">
             소상공인 정책자금<br>
             <span class="fluo-yellow-glow">최소 3천만 ~ 최대 5억</span><br>
             <span class="block text-2xl md:text-3xl lg:text-4xl whitespace-nowrap">사업자등록증만 있으면 가능!</span>
         </h1>
 
-        </div>
-        </div>
-
-        <!-- Bottom group: pushed to bottom of left column to align with right column dashboard -->
-        <div class="mt-6">
+        <!-- 3. CTA group pushed to BOTTOM (another mt-auto) -->
+        <div class="mt-auto">
             <!-- Primary CTA -->
             <div class="flex flex-col sm:flex-row gap-3">
                 <a href="#apply-form"
