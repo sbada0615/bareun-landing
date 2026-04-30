@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="바른정책자금연구소 — 상담부터 자금 수령까지. 정확성·현장성·실효성의 3대 원칙으로 대표님의 자금 확보를 끝까지 함께합니다.">
+    <title>진행절차 | 바른정책자금연구소</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eff6ff', 500:'#2563eb', 600:'#1d4ed8', 700:'#1e40af' },
+                        accent: { 500:'#f97316', 600:'#ea580c' }
+                    },
+                    fontFamily: { sans: ['Pretendard', 'system-ui', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', system-ui, sans-serif; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+        html { scroll-behavior: smooth; }
+        .nav-scrolled { background-color: rgba(15,23,42,0.95); backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (min-width: 768px) {
+            section h1, section h2, section h3 { letter-spacing: -0.02em; }
+        }
+        .quote-mark::before {
+            content: '"';
+            font-size: 1.5em;
+            color: #1d4ed8;
+            font-weight: 900;
+            margin-right: 0.2em;
+            vertical-align: -0.1em;
+        }
+        .quote-mark::after {
+            content: '"';
+            font-size: 1.5em;
+            color: #1d4ed8;
+            font-weight: 900;
+            margin-left: 0.2em;
+            vertical-align: -0.1em;
+        }
+        /* dotted vertical line decoration */
+        .dotted-line {
+            display: inline-block;
+            width: 4px;
+            height: 60px;
+            background-image: radial-gradient(circle, #94a3b8 1px, transparent 1.5px);
+            background-size: 4px 8px;
+            background-repeat: repeat-y;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- ============================================
+     STICKY NAV
+============================================ -->
+<nav id="topNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+        <a href="home.html" class="flex items-center gap-2 flex-shrink-0">
+            <img src="images/바른정책자금로고.png" alt="바른정책자금연구소" class="h-8 w-auto">
+            <span class="text-white font-normal text-sm tracking-tight whitespace-nowrap">바른정책자금연구소</span>
+        </a>
+        <div class="hidden md:flex items-center gap-7 text-white text-sm font-medium">
+            <a href="about.html" class="hover:text-yellow-300 transition">회사소개</a>
+            <a href="process.html" class="text-yellow-300 font-bold">진행절차</a>
+            <a href="cases.html" class="hover:text-yellow-300 transition">성공사례</a>
+            <a href="home.html#contact" class="hover:text-yellow-300 transition">문의</a>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="tel:1666-0266" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">
+                📞 1666-0266
+            </a>
+            <button id="mobileMenuBtn" class="md:hidden text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden bg-slate-900/95 backdrop-blur border-t border-white/10">
+        <div class="px-5 py-3 flex flex-col gap-1 text-white text-sm">
+            <a href="about.html" class="py-2.5 hover:text-yellow-300">회사소개</a>
+            <a href="process.html" class="py-2.5 text-yellow-300 font-bold">진행절차</a>
+            <a href="cases.html" class="py-2.5 hover:text-yellow-300">성공사례</a>
+            <a href="home.html#contact" class="py-2.5 hover:text-yellow-300">문의</a>
+            <a href="tel:1666-0266" class="py-2.5 text-yellow-300 font-bold">📞 1666-0266</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================
+     1. HERO 사진
+============================================ -->
+<section class="relative pt-16 md:pt-20 bg-white">
+    <div class="max-w-2xl mx-auto px-5">
+        <img src="images/6단체사진2.jpg" alt="바른정책자금연구소 팀" class="w-full h-auto rounded-2xl shadow-lg block">
+    </div>
+</section>
+
+<!-- ============================================
+     2. 두 가지 고민
+============================================ -->
+<section class="relative bg-white pt-12 pb-12 md:pt-16 md:pb-16">
+    <div class="max-w-4xl mx-auto px-5">
+        <div class="text-center reveal">
+            <div class="inline-block w-20 h-1.5 bg-brand-700 mb-8"></div>
+            <p class="text-lg md:text-2xl font-bold text-slate-900 mb-3 quote-mark">
+                당장 운영비가 부족한데, 어디서 자금을 마련하지?
+            </p>
+            <p class="text-lg md:text-2xl font-bold text-slate-900 mb-10 quote-mark">
+                은행은 금리도 높고 까다롭다는데, 다른 방법은 없을까?
+            </p>
+            <p class="text-base md:text-xl font-bold text-slate-900 leading-relaxed">
+                이런 고민이 있다면,<br>
+                이 글을 끝까지 읽어보시는 걸 추천드립니다.
+            </p>
+            <div class="flex justify-center mt-10">
+                <span class="dotted-line"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     2. 검정 배너
+============================================ -->
+<section class="bg-white pb-12 md:pb-16">
+    <div class="max-w-4xl mx-auto px-5">
+        <div class="reveal bg-slate-900 text-white text-center py-5 px-7 md:px-10 rounded-full text-sm md:text-base">
+            <strong class="text-yellow-300">'바른정책자금연구소'</strong>는 상담부터 자금 수령까지, 모든 과정을 함께합니다. 막막하시다면 언제든 연락주세요.
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     3. 인트로 + 비교표
+============================================ -->
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+        <p class="text-center text-base md:text-lg text-gray-700 mb-10 md:mb-14 reveal">
+            사업에는 늘 예상 못한 자금들을 필요로 하게 됩니다.<br>
+            이때 많은 분들이 놓치고 있는 해법이 있습니다.
+        </p>
+
+        <!-- 비교표 - 정책자금만 다크 네이비 카드로 위/아래 튀어나오고 다른 셀은 흰 배경 -->
+        <div class="reveal overflow-x-auto">
+            <div class="relative min-w-[720px] py-14 md:py-16">
+                <!-- 다크 네이비 카드 (정책자금 칼럼 영역, 위/아래로 튀어나옴) -->
+                <div class="absolute rounded-3xl shadow-2xl pointer-events-none"
+                     style="background-color: #1e3a8a; left: 14%; width: 30%; top: 0; bottom: 0;"></div>
+
+                <!-- 테이블 (카드 위에 위치) -->
+                <table class="relative w-full text-sm md:text-base border-collapse" style="z-index: 2; table-layout: fixed;">
+                    <colgroup>
+                        <col style="width: 14%">
+                        <col style="width: 30%">
+                        <col style="width: 28%">
+                        <col style="width: 28%">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th class="bg-white border border-slate-300 py-6 px-3"></th>
+                            <th class="text-white text-center font-bold py-7 px-4">
+                                <div class="text-lg md:text-2xl">정책자금</div>
+                                <div class="text-xs md:text-sm font-normal opacity-95 mt-1">(정부지원)</div>
+                            </th>
+                            <th class="bg-red-500 text-white text-center font-bold py-6 px-4 border border-red-600">
+                                <div class="text-lg md:text-2xl">1금융권</div>
+                                <div class="text-xs md:text-sm font-normal opacity-90 mt-1">(은행)</div>
+                            </th>
+                            <th class="bg-teal-500 text-white text-center font-bold py-6 px-4 border border-teal-600">
+                                <div class="text-lg md:text-2xl">2금융권</div>
+                                <div class="text-xs md:text-sm font-normal opacity-90 mt-1">(캐피탈, 대부, 저축은행)</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center py-6 px-3 text-slate-600 font-medium border border-slate-300 bg-white">금리수준</td>
+                            <td class="text-center py-6 px-4 text-white font-bold border-t border-white/20">연 2%대 고정금리부터 시작</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">보통 5~7%대 (변동금리)</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">보통 9~19%대 (고정or변동)</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center py-6 px-3 text-slate-600 font-medium border border-slate-300 bg-white">대상</td>
+                            <td class="text-center py-6 px-4 text-white font-bold border-t border-white/20">중소기업, 창업자, 특정 정책 대상</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">일반 개인 및 기업</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">신용등급 낮은 개인 및 기업</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center py-6 px-3 text-slate-600 font-medium border border-slate-300 bg-white">상환 조건</td>
+                            <td class="text-center py-6 px-4 text-white font-bold border-t border-white/20">장기 상환, 유예 가능</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">원금 + 이자 매월 상환</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">원리금균등, 상환압박 큼</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center py-6 px-3 text-slate-600 font-medium border border-slate-300 bg-white">심사기준</td>
+                            <td class="text-center py-6 px-4 text-white font-bold border-t border-white/20">정책 목적에 따른 적합성, 필요성</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">신용등급, 소득, 상환능력</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">신용등급 낮거나 담보 제공 가능한 경우</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center py-6 px-3 text-slate-600 font-medium border border-slate-300 bg-white">지원한도</td>
+                            <td class="text-center py-6 px-4 text-white font-bold border-t border-white/20">한도가 명확히 설정되어 있음</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">신용도와 담보에 따라 유동적</td>
+                            <td class="text-center py-6 px-4 text-gray-700 border border-slate-300 bg-white">상대적으로 적음</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     4. 정책자금의 장점
+============================================ -->
+<section class="py-12 md:py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-5">
+        <div class="reveal flex gap-3 md:gap-4 mb-8">
+            <span class="flex-shrink-0 mt-1 text-brand-600 text-2xl">➤</span>
+            <p class="text-base md:text-lg text-gray-800 leading-relaxed">
+                <strong>이런 조건이기에 수많은 사업자들이 이미 활용하고 있습니다.</strong><br>
+                그런데도 아직 '몰라서' 못 받는 분들이 너무 많습니다.
+            </p>
+        </div>
+        <div class="reveal bg-gradient-to-r from-brand-50 to-blue-50 border-l-4 border-brand-700 rounded-r-2xl p-6 md:p-7">
+            <p class="text-base md:text-lg text-slate-900 leading-relaxed">
+                <strong class="text-brand-700">정책자금의 장점</strong> : 최대 <strong>연 2%대 금리</strong>, 최대 <strong>100억 원</strong>까지 지원이 가능하며, 담보나 신용이 부족해도 충분히 받을 수 있습니다. 정부지원제도를 활용해 자금을 확보해보세요.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     5. 300여 개 정책자금
+============================================ -->
+<section class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="text-center mb-10 reveal">
+            <div class="inline-flex items-center gap-3 mb-3">
+                <svg class="w-8 h-8 md:w-10 md:h-10 text-brand-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                <h2 class="text-xl md:text-3xl font-bold text-slate-900">전국에만 300여 개 이상의 정책자금 다 파악하고 계신가요?</h2>
+            </div>
+        </div>
+
+        <!-- Sample policy fund table -->
+        <div class="reveal bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden mb-10">
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs md:text-sm">
+                    <thead class="bg-slate-50 border-b border-slate-200">
+                        <tr class="text-slate-600">
+                            <th class="py-3 px-2 md:px-4 font-medium">번호</th>
+                            <th class="py-3 px-2 md:px-4 font-medium">지원분야</th>
+                            <th class="py-3 px-2 md:px-4 font-medium text-left">지원사업명</th>
+                            <th class="py-3 px-2 md:px-4 font-medium hidden md:table-cell">신청기간</th>
+                            <th class="py-3 px-2 md:px-4 font-medium hidden lg:table-cell">소관부처·지자체</th>
+                            <th class="py-3 px-2 md:px-4 font-medium hidden lg:table-cell">사업수행기관</th>
+                            <th class="py-3 px-2 md:px-4 font-medium">등록일</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="text-gray-700">
+                            <td class="py-3 px-2 md:px-4 text-center">256</td>
+                            <td class="py-3 px-2 md:px-4 text-center">경영</td>
+                            <td class="py-3 px-2 md:px-4">[경북] 포항시 2026년 소상공인 카드수수료 지원사업 참여업체 모집 공고</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden md:table-cell">예산 소진시까지</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">경상북도</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">경상북도경제진흥원</td>
+                            <td class="py-3 px-2 md:px-4 text-center text-gray-500">2026-04-29</td>
+                        </tr>
+                        <tr class="text-gray-700">
+                            <td class="py-3 px-2 md:px-4 text-center">255</td>
+                            <td class="py-3 px-2 md:px-4 text-center">경영</td>
+                            <td class="py-3 px-2 md:px-4">[인천] 2026년 지피지기 투자유치 지원사업 참여기업 모집 공고</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden md:table-cell">2026-04-27 ~ 2026-05-15</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">인천광역시</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">인천테크노파크</td>
+                            <td class="py-3 px-2 md:px-4 text-center text-gray-500">2026-04-29</td>
+                        </tr>
+                        <tr class="text-gray-700">
+                            <td class="py-3 px-2 md:px-4 text-center">254</td>
+                            <td class="py-3 px-2 md:px-4 text-center">경영</td>
+                            <td class="py-3 px-2 md:px-4">[부산] 2026 화장품뷰티산업 사업화 지원사업 지원기업 모집 공고</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden md:table-cell">2026-04-21 ~ 2026-05-06</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">부산광역시</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">부산테크노파크</td>
+                            <td class="py-3 px-2 md:px-4 text-center text-gray-500">2026-04-29</td>
+                        </tr>
+                        <tr class="text-gray-700">
+                            <td class="py-3 px-2 md:px-4 text-center">253</td>
+                            <td class="py-3 px-2 md:px-4 text-center">경영</td>
+                            <td class="py-3 px-2 md:px-4">[제주] 2026년 다양성영화 기획개발 멘토링 지원사업 공고</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden md:table-cell">2026-05-11 ~ 2026-05-22</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">제주특별자치도</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">제주콘텐츠진흥원</td>
+                            <td class="py-3 px-2 md:px-4 text-center text-gray-500">2026-04-29</td>
+                        </tr>
+                        <tr class="text-gray-700">
+                            <td class="py-3 px-2 md:px-4 text-center">252</td>
+                            <td class="py-3 px-2 md:px-4 text-center">경영</td>
+                            <td class="py-3 px-2 md:px-4">[경기] 2026년 문화기술 콘텐츠 제작지원 지원기업 모집 공고</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden md:table-cell">2026-04-24 ~ 2026-05-12</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">경기도</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">경기콘텐츠진흥원</td>
+                            <td class="py-3 px-2 md:px-4 text-center text-gray-500">2026-04-29</td>
+                        </tr>
+                        <tr class="text-gray-700">
+                            <td class="py-3 px-2 md:px-4 text-center">251</td>
+                            <td class="py-3 px-2 md:px-4 text-center">경영</td>
+                            <td class="py-3 px-2 md:px-4">[경북] 구미시 2026년 소상공인 카드수수료 지원사업 참여 점포 모집 공고</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden md:table-cell">예산 소진시까지</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">경상북도</td>
+                            <td class="py-3 px-2 md:px-4 text-center hidden lg:table-cell">경상북도경제진흥원</td>
+                            <td class="py-3 px-2 md:px-4 text-center text-gray-500">2026-04-29</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="reveal flex gap-3 md:gap-4">
+            <span class="flex-shrink-0 mt-1 text-brand-600 text-2xl">➤</span>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                정책자금은 전국적으로 <strong class="text-slate-900">300여 개 이상</strong> 운영되고 있으며, 담당 기관만 해도 <strong class="text-slate-900">10곳이 넘습니다.</strong><br><br>
+                사업장 상황에 꼭 맞는 자금이 있고, 어떤 자금을 선택하느냐에 따라 대출 한도와 금리가 달라지는데, 매일 바쁘게 사업을 운영하는 대표님이 이 많은 정보를 하나하나 확인하고 비교하는 건 쉽지 않습니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     6. 신뢰 - 국세청 정식 등록
+============================================ -->
+<section class="py-16 md:py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-5">
+        <div class="reveal flex gap-3 md:gap-4 items-start mb-10">
+            <svg class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 text-brand-600 mt-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            <div>
+                <p class="text-sm md:text-base text-gray-600 mb-2">정책자금을 정부가 대신 신청·진행해 주는 직업은 존재하지 않습니다.</p>
+                <p class="text-lg md:text-2xl font-bold text-slate-900 leading-relaxed mb-2">
+                    그러나 바른정책자금연구소는 <span class="text-brand-700">국세청에 정식 등록된 사업체</span>로,<br>
+                    <span class="text-brand-700">정확성·현장성·실효성의 3대 원칙</span>을 지키며
+                </p>
+                <p class="text-base md:text-lg text-gray-700">
+                    대표님의 자금 확보를 끝까지 함께합니다.
+                </p>
+            </div>
+        </div>
+
+        <!-- 3대 원칙 카드 -->
+        <div class="grid md:grid-cols-3 gap-4 md:gap-5 mb-12">
+            <div class="reveal bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+                <div class="w-12 h-12 mx-auto rounded-full bg-brand-700 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2">정확성</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">300여 개 정책자금 중 사업에 가장 잘 맞는 자금을 정확히 매칭</p>
+            </div>
+            <div class="reveal bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+                <div class="w-12 h-12 mx-auto rounded-full bg-orange-500 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0L6.343 16.657A8 8 0 1117.657 16.657zM12 11a2 2 0 100-4 2 2 0 000 4z"/></svg>
+                </div>
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2">현장성</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">기관 현장 실사부터 서류 작성까지 — 책상이 아닌 현장에서 답을 찾는다</p>
+            </div>
+            <div class="reveal bg-slate-50 rounded-2xl p-6 text-center border border-slate-200">
+                <div class="w-12 h-12 mx-auto rounded-full bg-emerald-600 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-2">실효성</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">승인율 99%, 누적 900억 — 결과로 증명하는 컨설팅</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     7. 8단계 진행절차
+============================================ -->
+<section class="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center mb-14 md:mb-20 reveal">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                상담부터 사후관리까지<br>
+                <span class="text-yellow-300">8단계 진행절차</span>
+            </h2>
+            <p class="text-base md:text-lg text-blue-100/80 max-w-2xl mx-auto">
+                자금 실행이 끝이 아닙니다. 1년간 책임지고 관리해드립니다.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+            <div class="reveal bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-bold text-sm mb-2">STEP 01</div>
+                <h4 class="text-base md:text-lg font-bold mb-1.5">상담 신청</h4>
+                <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">전화·홈페이지로 무료 상담 접수</p>
+            </div>
+            <div class="reveal bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-bold text-sm mb-2">STEP 02</div>
+                <h4 class="text-base md:text-lg font-bold mb-1.5">사업 진단</h4>
+                <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">매출·업종·사업기간 분석</p>
+            </div>
+            <div class="reveal bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-bold text-sm mb-2">STEP 03</div>
+                <h4 class="text-base md:text-lg font-bold mb-1.5">자금 매칭</h4>
+                <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">300여 개 중 최적 자금 선정</p>
+            </div>
+            <div class="reveal bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-bold text-sm mb-2">STEP 04</div>
+                <h4 class="text-base md:text-lg font-bold mb-1.5">서류 준비</h4>
+                <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">사업계획서·증빙서류 작성 지원</p>
+            </div>
+            <div class="reveal bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-bold text-sm mb-2">STEP 05</div>
+                <h4 class="text-base md:text-lg font-bold mb-1.5">신청 접수</h4>
+                <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">기관 접수 및 진행상황 관리</p>
+            </div>
+            <div class="reveal bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-bold text-sm mb-2">STEP 06</div>
+                <h4 class="text-base md:text-lg font-bold mb-1.5">현장 심사</h4>
+                <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">기관 현장실사 동행 및 대응</p>
+            </div>
+            <div class="reveal bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-bold text-sm mb-2">STEP 07</div>
+                <h4 class="text-base md:text-lg font-bold mb-1.5">자금 실행</h4>
+                <p class="text-xs md:text-sm text-blue-100/80 leading-relaxed">승인 후 통장 입금 확인</p>
+            </div>
+            <div class="reveal bg-gradient-to-br from-orange-500 to-red-600 border border-white/15 rounded-2xl p-5 md:p-6 shadow-xl">
+                <div class="text-yellow-100 font-bold text-sm mb-2">STEP 08 ⭐</div>
+                <h4 class="text-base md:text-lg font-bold mb-1.5 text-white">사후관리</h4>
+                <p class="text-xs md:text-sm text-white/90 leading-relaxed">1년간 자금 관리 + 추가자금 컨설팅</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     8. 마무리 약속 + CTA
+============================================ -->
+<section class="py-20 md:py-28 bg-white">
+    <div class="max-w-4xl mx-auto px-5 text-center">
+        <div class="reveal flex justify-center mb-6">
+            <svg class="w-12 h-12 md:w-14 md:h-14 text-brand-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-5 leading-tight reveal">
+            바른정책자금연구소는<br>
+            대표님의 <span class="text-brand-700">오늘을 이해</span>하고,
+            <span class="text-brand-700">내일을 설계</span>하며,<br>
+            반드시 실행까지 <span class="text-brand-700">믿을 수 있게 책임</span>지겠습니다.
+        </h2>
+        <p class="text-base md:text-lg text-gray-600 mb-10 mt-8 reveal">
+            대표가 직접 검토하고 1영업일 내 회신드립니다.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center reveal">
+            <a href="home.html#contact" class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">
+                무료 상담 신청
+            </a>
+            <a href="tel:1666-0266" class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold px-8 py-4 rounded-xl transition">
+                📞 1666-0266
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+============================================ -->
+<footer class="bg-slate-950 text-slate-400 py-5">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+                <img src="images/바른정책자금로고.png" class="h-6 w-auto">
+                <span class="text-white font-bold text-sm">바른정책자금연구소</span>
+            </div>
+            <div class="text-slate-500 leading-relaxed flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>대표 강정균</span>
+                <span class="text-slate-700">|</span>
+                <span>292-54-01028</span>
+                <span class="text-slate-700">|</span>
+                <span class="inline-flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                    1666-0266
+                </span>
+                <span class="text-slate-700">|</span>
+                <span class="inline-flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                    kjgman0711@gmail.com
+                </span>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 mt-4 pt-3 text-center text-xs text-slate-600">
+            © 2025 바른정책자금연구소. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    const nav = document.getElementById('topNav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) nav.classList.add('nav-scrolled');
+        else nav.classList.remove('nav-scrolled');
+    });
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    reveals.forEach(r => obs.observe(r));
+</script>
+
+</body>
+</html>

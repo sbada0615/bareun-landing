@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="기업부설연구소 — 신고 제도, 인적·물적 요건, 설립 절차, 세제 혜택까지. 한국산업기술진흥협회(KOITA) 인정 절차 전문 컨설팅.">
+    <title>기업부설연구소 | 바른정책자금연구소</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#eff6ff',500:'#2563eb',600:'#1d4ed8',700:'#1e40af'},accent:{500:'#f97316',600:'#ea580c'}},fontFamily:{sans:['Pretendard','system-ui','sans-serif']}}}}</script>
+    <style>
+        body{font-family:'Pretendard',system-ui,sans-serif;-webkit-font-smoothing:antialiased;word-break:keep-all}
+        html{scroll-behavior:smooth}
+        .nav-scrolled{background-color:rgba(15,23,42,0.95);backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+        @media(min-width:768px){section h1,section h2,section h3{letter-spacing:-0.02em}}
+        .info-table th,.info-table td{padding:14px 16px;border:1px solid #e2e8f0;text-align:left;vertical-align:top}
+        .info-table th{background:#f1f5f9;font-weight:700;color:#0f172a;width:30%}
+        .info-table td{background:white;color:#374151}
+        @media(max-width:640px){.info-table th{width:38%;font-size:13px;padding:12px 10px}.info-table td{font-size:13px;padding:12px 10px}}
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- NAV -->
+<nav id="topNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+        <a href="home.html" class="flex items-center gap-2"><img src="images/바른정책자금로고.png" alt="" class="h-8 w-auto"><span class="text-white font-normal text-sm whitespace-nowrap">바른정책자금연구소</span></a>
+        <div class="hidden md:flex items-center gap-7 text-white text-sm font-medium">
+            <a href="about.html" class="text-yellow-300 font-bold">회사소개</a>
+            <a href="process.html" class="hover:text-yellow-300 transition">진행절차</a>
+            <a href="cases.html" class="hover:text-yellow-300 transition">성공사례</a>
+            <a href="home.html#contact" class="hover:text-yellow-300 transition">문의</a>
+        </div>
+        <a href="tel:1666-0266" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">📞 1666-0266</a>
+        <button id="mobileMenuBtn" class="md:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden bg-slate-900/95 backdrop-blur border-t border-white/10"><div class="px-5 py-3 flex flex-col gap-1 text-white text-sm">
+        <a href="about.html" class="py-2.5 text-yellow-300 font-bold">회사소개</a>
+        <a href="process.html" class="py-2.5 hover:text-yellow-300">진행절차</a>
+        <a href="cases.html" class="py-2.5 hover:text-yellow-300">성공사례</a>
+        <a href="home.html#contact" class="py-2.5 hover:text-yellow-300">문의</a>
+        <a href="tel:1666-0266" class="py-2.5 text-yellow-300 font-bold">📞 1666-0266</a>
+    </div></div>
+</nav>
+
+<!-- HEADER -->
+<section class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white pt-28 pb-14 md:pt-32 md:pb-20">
+    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.6),transparent_50%),radial-gradient(circle_at_70%_60%,rgba(124,58,237,0.5),transparent_50%)]"></div>
+    <div class="relative max-w-5xl mx-auto px-5">
+        <a href="about.html" class="inline-flex items-center gap-1 text-blue-200 hover:text-yellow-300 text-sm mb-5 transition">← 회사소개로 돌아가기</a>
+        <div class="text-center">
+            <div class="inline-flex items-center gap-2 bg-yellow-400/15 border border-yellow-400/40 rounded-full px-4 py-1.5 mb-5"><span class="text-sm text-yellow-300 font-medium">기업 인증</span></div>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5"><span class="text-yellow-300">기업부설연구소</span></h1>
+            <p class="text-base md:text-lg text-blue-100/90 leading-relaxed max-w-2xl mx-auto">세제 혜택과 R&D 지원의 시작점.<br>한국산업기술진흥협회(KOITA) 신고제도 전문 컨설팅.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 1. 제도의 개관 -->
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-5">
+        <div class="reveal">
+            <div class="inline-block w-12 h-1 bg-brand-700 mb-3"></div>
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-6">제도의 개관 <span class="text-base md:text-lg font-medium text-gray-500">(신고제도)</span></h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-8">
+                기업부설연구소는 <strong class="text-slate-900">「기초연구진흥 및 기술개발지원에 관한 법률」</strong>에 근거해 운영되는 정부 신고 제도입니다. 일정 요건을 갖춘 기업이 한국산업기술진흥협회(KOITA)에 신고하면 인정받게 되며, 인정된 연구소·전담부서는 <strong class="text-brand-700">조세·관세·자금·병역 등 다양한 정부 혜택</strong>을 받을 수 있습니다.
+            </p>
+            <table class="info-table w-full text-sm md:text-base">
+                <tbody>
+                    <tr><th>제도 취지</th><td>과학기술 또는 서비스 분야의 연구개발활동을 촉진하기 위해 일정 요건을 갖춘 연구소·전담부서를 신고하는 제도</td></tr>
+                    <tr><th>법적 근거</th><td>기초연구진흥 및 기술개발지원에 관한 법률 제14조의2 및 동법 시행령 제16조의2</td></tr>
+                    <tr><th>신고 주체</th><td>연구소 또는 전담부서를 신고하고자 하는 기업 (개인기업 포함)</td></tr>
+                    <tr><th>신고 절차</th><td>한국산업기술진흥협회(KOITA) 온라인 시스템 접수 — <strong>先설립 / 後신고</strong></td></tr>
+                    <tr><th>처리 기간</th><td>법정기한 <strong class="text-brand-700">10일 이내</strong></td></tr>
+                    <tr><th>운영 기관</th><td>사단법인 한국산업기술진흥협회 (KOITA, 위탁 수행)</td></tr>
+                    <tr><th>인정 요건</th><td>인적요건 + 물적요건 (둘 다 충족 필수)</td></tr>
+                    <tr><th>준수 사항</th><td>매년 4월 말까지 연구개발활동조사표 제출 의무</td></tr>
+                    <tr><th>사후 관리</th><td>상시적 관리 — 변경 사항 발생 시 <strong class="text-brand-700">30일 이내</strong> 변경신고 의무</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 2. 제도의 목적 -->
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="text-center mb-10 reveal">
+            <div class="inline-block w-12 h-1 bg-brand-700 mb-3"></div>
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3">제도의 <span class="text-brand-700">목적</span></h2>
+            <p class="text-base text-gray-600">정부가 기업부설연구소 제도를 운영하는 4가지 이유</p>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+            <div class="reveal bg-white rounded-2xl p-6 border border-slate-200"><div class="text-brand-700 font-black text-2xl mb-2">01</div><h3 class="font-bold text-slate-900 mb-2">지원 혜택 부여</h3><p class="text-sm text-gray-600 leading-relaxed">일정 요건을 갖춘 기업의 R&D 전담조직에 세제·자금·인력 지원 혜택을 부여합니다.</p></div>
+            <div class="reveal bg-white rounded-2xl p-6 border border-slate-200"><div class="text-brand-700 font-black text-2xl mb-2">02</div><h3 class="font-bold text-slate-900 mb-2">R&D 활동 촉진</h3><p class="text-sm text-gray-600 leading-relaxed">기업의 연구개발 활동을 촉진하고 창조적 연구 역량의 축적을 도모합니다.</p></div>
+            <div class="reveal bg-white rounded-2xl p-6 border border-slate-200"><div class="text-brand-700 font-black text-2xl mb-2">03</div><h3 class="font-bold text-slate-900 mb-2">기술경쟁력 강화</h3><p class="text-sm text-gray-600 leading-relaxed">기업의 기술경쟁력을 한 단계 끌어올려 글로벌 경쟁력을 확보합니다.</p></div>
+            <div class="reveal bg-white rounded-2xl p-6 border border-slate-200"><div class="text-brand-700 font-black text-2xl mb-2">04</div><h3 class="font-bold text-slate-900 mb-2">법정 기준 인정</h3><p class="text-sm text-gray-600 leading-relaxed">법률 기준을 충족하는 기업부설연구기관·전담부서를 공식 인정합니다.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. 설립 혜택 -->
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="reveal">
+            <div class="inline-block w-12 h-1 bg-brand-700 mb-3"></div>
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3">기업부설연구소 <span class="text-brand-700">설립 혜택</span></h2>
+            <p class="text-base text-gray-600 mb-8">조세·관세·자금·병역 — 4대 영역에서의 정부 혜택</p>
+        </div>
+        <div class="reveal overflow-x-auto">
+            <table class="w-full text-sm md:text-base border-collapse min-w-[640px]">
+                <thead>
+                    <tr class="bg-brand-700 text-white">
+                        <th class="border border-brand-800 px-4 py-3 text-left w-24">구분</th>
+                        <th class="border border-brand-800 px-4 py-3 text-left">내용</th>
+                        <th class="border border-brand-800 px-4 py-3 text-left">해당 분야</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="bg-white"><td class="border border-slate-200 px-4 py-4 font-bold text-brand-700">조세</td><td class="border border-slate-200 px-4 py-4">연구·인력개발비 세액공제, 연구·인력개발용 설비투자 세액공제, 부동산 지방세 감면</td><td class="border border-slate-200 px-4 py-4 text-gray-600 text-sm">기업부설연구소, 연구개발 전담부서(일부)</td></tr>
+                    <tr class="bg-slate-50"><td class="border border-slate-200 px-4 py-4 font-bold text-brand-700">관세</td><td class="border border-slate-200 px-4 py-4">학술연구용품에 대한 관세 감면</td><td class="border border-slate-200 px-4 py-4 text-gray-600 text-sm">기업부설연구소, 연구개발 전담부서</td></tr>
+                    <tr class="bg-white"><td class="border border-slate-200 px-4 py-4 font-bold text-brand-700">자금</td><td class="border border-slate-200 px-4 py-4">국가연구개발사업 신청·우선 선정</td><td class="border border-slate-200 px-4 py-4 text-gray-600 text-sm">기업부설연구소, 연구개발 전담부서(일부)</td></tr>
+                    <tr class="bg-slate-50"><td class="border border-slate-200 px-4 py-4 font-bold text-brand-700">병역</td><td class="border border-slate-200 px-4 py-4">전문연구요원 제도 (병역특례)</td><td class="border border-slate-200 px-4 py-4 text-gray-600 text-sm">기업부설연구소</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="reveal text-sm text-gray-500 mt-4">※ 자세한 세액공제율·감면 한도는 매년 세법 개정에 따라 변동될 수 있으니, 상담 시 최신 정보로 안내드립니다.</p>
+    </div>
+</section>
+
+<!-- 4. 설립요건 - 인적요건 -->
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="reveal mb-8">
+            <div class="inline-block w-12 h-1 bg-brand-700 mb-3"></div>
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3">설립 요건 <span class="text-brand-700">①</span> <span class="text-base md:text-2xl text-slate-700">인적 요건</span></h2>
+            <p class="text-base text-gray-600">기업 규모별로 요구되는 연구전담요원 수와 자격 기준</p>
+        </div>
+
+        <!-- 기업규모별 인원 -->
+        <div class="reveal mb-10">
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-4">📊 기업규모별 요구 연구전담요원 수</h3>
+            <div class="overflow-x-auto"><table class="w-full text-sm md:text-base border-collapse">
+                <thead><tr class="bg-slate-200 text-slate-900"><th class="border border-slate-300 px-4 py-3 text-left">기업 구분</th><th class="border border-slate-300 px-4 py-3 text-center">필요 인원</th></tr></thead>
+                <tbody>
+                    <tr class="bg-white"><td class="border border-slate-200 px-4 py-3">벤처기업, 연구원창업 중소기업</td><td class="border border-slate-200 px-4 py-3 text-center font-bold text-brand-700">2명 이상</td></tr>
+                    <tr class="bg-white"><td class="border border-slate-200 px-4 py-3">소기업</td><td class="border border-slate-200 px-4 py-3 text-center font-bold text-brand-700">3명 이상 <span class="text-xs text-gray-500">(창업 3년 이내 2명 이상)</span></td></tr>
+                    <tr class="bg-white"><td class="border border-slate-200 px-4 py-3">중기업</td><td class="border border-slate-200 px-4 py-3 text-center font-bold text-brand-700">5명 이상</td></tr>
+                    <tr class="bg-white"><td class="border border-slate-200 px-4 py-3">중견기업</td><td class="border border-slate-200 px-4 py-3 text-center font-bold text-brand-700">7명 이상</td></tr>
+                    <tr class="bg-white"><td class="border border-slate-200 px-4 py-3">대기업</td><td class="border border-slate-200 px-4 py-3 text-center font-bold text-brand-700">10명 이상</td></tr>
+                    <tr class="bg-blue-50"><td class="border border-slate-200 px-4 py-3 font-medium">연구개발전담부서</td><td class="border border-slate-200 px-4 py-3 text-center font-bold text-brand-700">기업규모 관계없이 1명 이상</td></tr>
+                </tbody>
+            </table></div>
+        </div>
+
+        <!-- 연구전담요원 자격 -->
+        <div class="reveal mb-8">
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-4">🎓 연구전담요원 자격 (기업규모 관계없이 인정)</h3>
+            <div class="bg-white border border-slate-200 rounded-2xl p-6">
+                <ul class="space-y-2 text-base text-gray-700">
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span><strong class="text-slate-900">자연계열</strong>(자연과학·공학·의학) <strong>학사 이상</strong></span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>국가기술자격법에 따른 <strong class="text-slate-900">기술·기능분야 기사 이상</strong></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 중소기업에만 인정 -->
+        <div class="reveal mb-8">
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-4">🏢 중소기업에만 인정되는 추가 자격</h3>
+            <div class="bg-white border border-slate-200 rounded-2xl p-6">
+                <ul class="space-y-2 text-base text-gray-700">
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>자연계분야 <strong class="text-slate-900">전문학사</strong>로 2년 이상 연구 경력 (3년제는 1년 이상)</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>국가기술자격 <strong class="text-slate-900">산업기사</strong>로 2년 이상 경력</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>마이스터고·특성화고 졸업 후 <strong class="text-slate-900">4년 이상</strong> 경력</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>기능사 자격증 + <strong class="text-slate-900">4년 이상</strong> 경력</span></li>
+                    <li class="flex gap-2 pt-2 border-t border-slate-100 mt-3"><span class="text-accent-500 font-bold">★</span><span class="text-sm"><strong class="text-accent-600">특례:</strong> 창업 3년 미만 소기업 대표이사가 자격을 갖춘 경우 인정 가능</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 산업디자인·서비스 분야 -->
+        <div class="reveal mb-8">
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-4">🎨 산업디자인·서비스분야 주업종 기업</h3>
+            <div class="bg-white border border-slate-200 rounded-2xl p-6">
+                <p class="text-sm text-gray-500 mb-3">자연계 전공이 아니어도 가능한 자격 기준:</p>
+                <ul class="space-y-2 text-base text-gray-700">
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span><strong class="text-slate-900">학사 이상</strong> (전공 무관)</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>전문학사로 <strong class="text-slate-900">2년 이상</strong> 연구 경력</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>서비스분야 <strong class="text-slate-900">1급 이상</strong> 자격</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>서비스분야 2급 + <strong class="text-slate-900">2년 이상</strong> 경력</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 편입 불가 인원 -->
+        <div class="reveal">
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-4">⚠️ 연구전담요원으로 편입될 수 없는 인원</h3>
+            <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+                <ul class="space-y-2 text-base text-gray-700">
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>건강보험·국민연금 명부로 직원 증명이 안 되는 자</span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>일반대학원(주간) 학위과정 수학자 (단, 박사학위과정으로 연구 지장 없으면 가능)</span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>6개월 이상 연구개발활동을 수행할 수 없는 자</span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>대표이사·감사·비상임이사 등 상시 전담이 어려운 자</span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>산업연수생, 산업기능요원 등</span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>상시 출근하지 않는 자문직, 6개월 이하 단기근로자</span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>다른 업무를 겸직하는 자</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. 설립요건 - 물적요건 -->
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="reveal mb-8">
+            <div class="inline-block w-12 h-1 bg-brand-700 mb-3"></div>
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3">설립 요건 <span class="text-brand-700">②</span> <span class="text-base md:text-2xl text-slate-700">물적 요건</span></h2>
+            <p class="text-base text-gray-600">독립된 연구공간과 연구기자재 구비 필수</p>
+        </div>
+
+        <!-- 연구공간 -->
+        <div class="reveal mb-8">
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-4">🏗️ 연구공간 요건</h3>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 mb-5">
+                <ul class="space-y-3 text-base text-gray-700">
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>사방이 다른 부서와 구분되도록 <strong class="text-slate-900">고정된 벽체</strong>로 구분</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span><strong class="text-slate-900">별도의 출입문</strong> 필수</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>면적: 연구기자재 구비 및 연구개발에 적절한 크기</span></li>
+                </ul>
+                <div class="mt-5 pt-5 border-t border-slate-200">
+                    <p class="text-sm font-bold text-accent-600 mb-2">★ 예외 (50㎡ 이하 칸막이 가능)</p>
+                    <ul class="space-y-1.5 text-sm text-gray-600">
+                        <li>· 과학기술·서비스분야 중기업·소기업·벤처기업·연구원창업 중소기업</li>
+                        <li>· 서비스분야 대기업·중견기업 (정보서비스 또는 SW 개발공급 업종만)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 연구공간 비교 다이어그램 (인정 vs 불인정) -->
+            <div class="grid sm:grid-cols-2 gap-4 mt-6">
+                <!-- 인정 케이스 -->
+                <div class="bg-white border-2 border-emerald-300 rounded-2xl p-5">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-emerald-500 text-white font-bold text-sm">○</span>
+                        <span class="font-bold text-emerald-700">인정 — 독립된 연구공간</span>
+                    </div>
+                    <!-- SVG 다이어그램 -->
+                    <svg viewBox="0 0 280 180" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                        <!-- 사무실 외곽 -->
+                        <rect x="10" y="20" width="260" height="150" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+                        <text x="140" y="14" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">사무실</text>
+                        <!-- 연구소 (실선, 출입문 있음) -->
+                        <rect x="25" y="40" width="130" height="115" rx="4" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+                        <text x="90" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="#047857">연구소</text>
+                        <!-- 출입문 표시 (하단 절개) -->
+                        <rect x="78" y="153" width="24" height="4" fill="#fff" stroke="#10b981" stroke-width="1.5"/>
+                        <text x="90" y="168" text-anchor="middle" font-size="9" fill="#047857" font-weight="600">출입문</text>
+                        <!-- 기자재 (현미경 아이콘 3개) -->
+                        <g transform="translate(40,75)" fill="#10b981"><circle cx="6" cy="6" r="5"/><rect x="4" y="11" width="4" height="14"/></g>
+                        <g transform="translate(75,75)" fill="#10b981"><circle cx="6" cy="6" r="5"/><rect x="4" y="11" width="4" height="14"/></g>
+                        <g transform="translate(110,75)" fill="#10b981"><circle cx="6" cy="6" r="5"/><rect x="4" y="11" width="4" height="14"/></g>
+                        <text x="90" y="125" text-anchor="middle" font-size="9" fill="#475569">연구 기자재</text>
+                        <!-- 사업부서 -->
+                        <rect x="170" y="40" width="90" height="115" rx="4" fill="#fff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+                        <text x="215" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">사업부서</text>
+                    </svg>
+                    <p class="text-xs text-gray-600 mt-3 leading-relaxed">고정 벽체 + 별도 출입문으로 사업부서와 명확히 분리</p>
+                </div>
+
+                <!-- 불인정 케이스 -->
+                <div class="bg-white border-2 border-red-300 rounded-2xl p-5">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-red-500 text-white font-bold text-sm">✗</span>
+                        <span class="font-bold text-red-700">불인정 — 구분되지 않은 공간</span>
+                    </div>
+                    <svg viewBox="0 0 280 180" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="10" y="20" width="260" height="150" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="2"/>
+                        <text x="140" y="14" text-anchor="middle" font-size="12" font-weight="700" fill="#475569">사무실</text>
+                        <!-- 연구소 (점선, 출입문 없음) -->
+                        <rect x="25" y="40" width="130" height="115" rx="4" fill="#fef2f2" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,4"/>
+                        <text x="90" y="55" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">연구소</text>
+                        <!-- 점선 표시 (벽 없음 강조) -->
+                        <line x1="155" y1="40" x2="155" y2="155" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,4"/>
+                        <text x="90" y="170" text-anchor="middle" font-size="9" fill="#b91c1c" font-weight="600">출입문 없음</text>
+                        <g transform="translate(40,75)" fill="#ef4444"><circle cx="6" cy="6" r="5" opacity="0.7"/><rect x="4" y="11" width="4" height="14" opacity="0.7"/></g>
+                        <g transform="translate(75,75)" fill="#ef4444"><circle cx="6" cy="6" r="5" opacity="0.7"/><rect x="4" y="11" width="4" height="14" opacity="0.7"/></g>
+                        <g transform="translate(110,75)" fill="#ef4444"><circle cx="6" cy="6" r="5" opacity="0.7"/><rect x="4" y="11" width="4" height="14" opacity="0.7"/></g>
+                        <text x="90" y="125" text-anchor="middle" font-size="9" fill="#475569">연구 기자재</text>
+                        <rect x="170" y="40" width="90" height="115" rx="4" fill="#fff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+                        <text x="215" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#64748b">사업부서</text>
+                    </svg>
+                    <p class="text-xs text-gray-600 mt-3 leading-relaxed">칸막이만 있거나 별도 출입문 없음 → 인정 불가</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 연구기자재 -->
+        <div class="reveal mb-8">
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-4">⚙️ 연구기자재 요건</h3>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                <ul class="space-y-2 text-base text-gray-700">
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>연구전담요원 또는 연구보조원이 <strong class="text-slate-900">연구개발용으로만</strong> 사용</span></li>
+                    <li class="flex gap-2"><span class="text-brand-700 font-bold">·</span><span>연구소·전담부서 <strong class="text-slate-900">내부에 위치</strong>해야 함</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 장소 제한 -->
+        <div class="reveal">
+            <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-4">🚫 연구소 설치 장소 제한사항</h3>
+            <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+                <ul class="space-y-2 text-base text-gray-700">
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>무허가건물, 가건물 불가</span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span><strong class="text-slate-900">주거용 건물(아파트 포함) 불가</strong></span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>1개층을 복층으로 개조한 2층(복층) 설립 불가</span></li>
+                    <li class="flex gap-2"><span class="text-red-500 font-bold">✗</span><span>연구기관·대학의 연구공간 사용 시 배타적 권한 필요</span></li>
+                </ul>
+                <div class="mt-5 pt-5 border-t border-red-200">
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        <strong class="text-slate-900">참고:</strong> 주소재지·부소재지로 구분해 2개 장소 신고 가능. 1개 기업이 연구분야·소재지가 다른 2개 이상의 연구소·전담부서 설치 가능. 단, <strong>2개 이상 기업의 공동 설립·신고는 불가</strong>합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. 설립 절차 -->
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-5">
+        <div class="text-center mb-10 reveal">
+            <div class="inline-block w-12 h-1 bg-brand-700 mb-3"></div>
+            <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-3">설립 <span class="text-brand-700">절차 흐름도</span></h2>
+            <p class="text-base text-gray-600">선설립·후신고 — 기업이 거치는 6단계</p>
+        </div>
+
+        <!-- 6단계 흐름도: 카드 사이에 화살표 -->
+        <div class="reveal grid sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6 relative">
+            <!-- 1 -->
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 relative">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-brand-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5"/></svg>
+                    </div>
+                    <span class="text-xs text-gray-400 font-bold">STEP 01</span>
+                </div>
+                <h3 class="font-bold text-slate-900 mb-1.5">기업 진단</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">사전 설립 상담 — 인력·공간 보유 현황 분석</p>
+            </div>
+            <!-- 2 -->
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-brand-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+                    </div>
+                    <span class="text-xs text-gray-400 font-bold">STEP 02</span>
+                </div>
+                <h3 class="font-bold text-slate-900 mb-1.5">연구소 설립</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">先설립 — 연구공간 분리·기자재 배치·연구원 채용</p>
+            </div>
+            <!-- 3 -->
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-brand-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/></svg>
+                    </div>
+                    <span class="text-xs text-gray-400 font-bold">STEP 03</span>
+                </div>
+                <h3 class="font-bold text-slate-900 mb-1.5">신고서 작성</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">연구개발계획서 + 인적·물적 자료 작성</p>
+            </div>
+            <!-- 4 -->
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-brand-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    </div>
+                    <span class="text-xs text-gray-400 font-bold">STEP 04</span>
+                </div>
+                <h3 class="font-bold text-slate-900 mb-1.5">온라인 접수</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">KOITA 공식 시스템 — 後신고 접수</p>
+            </div>
+            <!-- 5 -->
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-brand-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </div>
+                    <span class="text-xs text-gray-400 font-bold">STEP 05</span>
+                </div>
+                <h3 class="font-bold text-slate-900 mb-1.5">심사·검수</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">법정 10일 이내 — 보완 요청 시 즉시 대응</p>
+            </div>
+            <!-- 6 (강조) -->
+            <div class="bg-gradient-to-br from-accent-500 to-accent-600 rounded-2xl p-5 shadow-lg text-white">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <span class="text-xs text-yellow-200 font-bold">STEP 06 ⭐</span>
+                </div>
+                <h3 class="font-bold mb-1.5">인정 + 사후관리</h3>
+                <p class="text-sm text-white/90 leading-relaxed">KOITA 인정서 발급 + 매년 4월 활동조사표 / 변경 시 30일 내 신고</p>
+            </div>
+        </div>
+
+        <!-- 절차 안내 박스 -->
+        <div class="reveal mt-8 bg-blue-50 border-l-4 border-brand-700 rounded-r-2xl p-5">
+            <p class="text-sm md:text-base text-slate-700 leading-relaxed">
+                <strong class="text-brand-700">⚡ 보완사항이 발생하면?</strong> 심사 중 보완 요청이 오면 <strong>10일 이내 대응</strong>해야 합니다. 바른과 함께하면 보완 요청 자체가 거의 발생하지 않으며, 발생하더라도 즉시 처리합니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- CTA -->
+<section class="py-16 md:py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white">
+    <div class="max-w-4xl mx-auto px-5 text-center">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4 reveal">기업부설연구소 설립<br>지금 바로 상담받으세요</h2>
+        <p class="text-base md:text-lg text-blue-100/80 mb-8 reveal">대표가 직접 검토하고 1영업일 내 회신드립니다.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center reveal">
+            <a href="home.html#contact" class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">무료 상담 신청</a>
+            <a href="tel:1666-0266" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur border-2 border-white/30 text-white font-bold px-8 py-4 rounded-xl transition">📞 1666-0266</a>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-slate-950 text-slate-400 py-5">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2"><img src="images/바른정책자금로고.png" class="h-6 w-auto"><span class="text-white font-bold text-sm">바른정책자금연구소</span></div>
+            <div class="text-slate-500 flex flex-wrap items-center gap-x-2"><span>대표 강정균</span><span class="text-slate-700">|</span><span>292-54-01028</span><span class="text-slate-700">|</span><span>1666-0266</span></div>
+        </div>
+    </div>
+</footer>
+
+<script>
+const nav=document.getElementById('topNav');window.addEventListener('scroll',()=>{if(window.scrollY>50)nav.classList.add('nav-scrolled');else nav.classList.remove('nav-scrolled')});
+document.getElementById('mobileMenuBtn').addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('hidden'));
+const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
+</body></html>

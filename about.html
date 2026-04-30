@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="바른정책자금연구소 회사소개 — 기업의 시작부터 성장까지. 기업 인증, 정책자금, 법인 설립까지 한곳에서.">
+    <title>회사소개 | 바른정책자금연구소</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: {
+                colors: { brand: { 50:'#eff6ff', 500:'#2563eb', 600:'#1d4ed8', 700:'#1e40af' }, accent: { 500:'#f97316', 600:'#ea580c' } },
+                fontFamily: { sans: ['Pretendard', 'system-ui', 'sans-serif'] }
+            }}
+        }
+    </script>
+    <style>
+        body { font-family: 'Pretendard', system-ui, sans-serif; -webkit-font-smoothing: antialiased; word-break: keep-all; }
+        html { scroll-behavior: smooth; }
+        .nav-scrolled { background-color: rgba(15,23,42,0.95); backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        @media (min-width: 768px) {
+            section h1, section h2, section h3 { letter-spacing: -0.02em; }
+        }
+        /* 사이드바 카드 hover */
+        .sidebar-card { transition: all 0.3s; }
+        .sidebar-card:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12); }
+        .sidebar-card:hover .sidebar-arrow { transform: translateX(4px); color: #1d4ed8; }
+        .sidebar-arrow { transition: all 0.3s; }
+        .simple-link:hover { background-color: #1e40af; color: white; border-color: #1e40af; }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- ============================================
+     STICKY NAV
+============================================ -->
+<nav id="topNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+        <a href="home.html" class="flex items-center gap-2 flex-shrink-0">
+            <img src="images/바른정책자금로고.png" alt="바른정책자금연구소" class="h-8 w-auto">
+            <span class="text-white font-normal text-sm tracking-tight whitespace-nowrap">바른정책자금연구소</span>
+        </a>
+        <div class="hidden md:flex items-center gap-7 text-white text-sm font-medium">
+            <a href="about.html" class="text-yellow-300 font-bold">회사소개</a>
+            <a href="process.html" class="hover:text-yellow-300 transition">진행절차</a>
+            <a href="cases.html" class="hover:text-yellow-300 transition">성공사례</a>
+            <a href="home.html#contact" class="hover:text-yellow-300 transition">문의</a>
+        </div>
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="tel:1666-0266" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">📞 1666-0266</a>
+            <button id="mobileMenuBtn" class="md:hidden text-white p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+        </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden bg-slate-900/95 backdrop-blur border-t border-white/10">
+        <div class="px-5 py-3 flex flex-col gap-1 text-white text-sm">
+            <a href="about.html" class="py-2.5 text-yellow-300 font-bold">회사소개</a>
+            <a href="process.html" class="py-2.5 hover:text-yellow-300">진행절차</a>
+            <a href="cases.html" class="py-2.5 hover:text-yellow-300">성공사례</a>
+            <a href="home.html#contact" class="py-2.5 hover:text-yellow-300">문의</a>
+            <a href="tel:1666-0266" class="py-2.5 text-yellow-300 font-bold">📞 1666-0266</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================
+     HEADER
+============================================ -->
+<section class="relative text-white pt-28 pb-14 md:pt-32 md:pb-16 overflow-hidden">
+    <!-- 배경: 비즈니스 악수 사진 -->
+    <img src="images/악수2.png" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover">
+    <!-- 어두운 그라데이션 오버레이 (글자 가독성 보장) -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-blue-900/75 to-slate-900/90"></div>
+    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.4),transparent_50%),radial-gradient(circle_at_70%_60%,rgba(124,58,237,0.3),transparent_50%)]"></div>
+
+    <div class="relative max-w-5xl mx-auto px-5 text-center">
+        <div class="inline-flex items-center gap-2 bg-yellow-400/15 border border-yellow-400/40 rounded-full px-4 py-1.5 mb-5">
+            <span class="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+            <span class="text-sm text-yellow-300 font-medium">바른정책자금연구소</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-5 drop-shadow-lg">회사소개</h1>
+        <p class="text-base md:text-lg text-blue-100/90 leading-relaxed max-w-2xl mx-auto drop-shadow">
+            기업의 <strong class="text-white">시작부터 성장</strong>까지<br>
+            바른정책자금연구소가 함께합니다.
+        </p>
+    </div>
+</section>
+
+<!-- ============================================
+     좌우 분할 레이아웃: 본문 + 사이드바
+============================================ -->
+<section class="py-16 md:py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="grid lg:grid-cols-[1fr_360px] gap-10 lg:gap-14">
+
+            <!-- ===== LEFT: 회사소개 본문 ===== -->
+            <article class="reveal">
+                <!-- 단체사진 -->
+                <div class="mb-12">
+                    <img src="images/6단체사진2.jpg" alt="바른정책자금연구소 팀" class="w-full h-auto rounded-2xl shadow-lg block">
+                </div>
+
+                <!-- 인사말 -->
+                <div class="mb-12">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="text-3xl md:text-5xl text-slate-300 font-light leading-none select-none">&lt;</span>
+                        <h2 class="text-2xl md:text-4xl font-bold text-slate-900 leading-tight flex-1">
+                            정책자금을<br>
+                            <span class="text-brand-700">누구보다 깊이 연구했습니다.</span>
+                        </h2>
+                        <span class="text-3xl md:text-5xl text-slate-300 font-light leading-none select-none">&gt;</span>
+                    </div>
+                    <div class="space-y-5 text-base md:text-lg text-gray-700 leading-relaxed">
+                        <p>
+                            수많은 사업자의 상황을 함께 고민하며<br>
+                            실제로 정책자금 심사에서 어떤 것이 중요한지,<br>
+                            무엇이 결과를 바꾸는지 매일 연구해왔습니다.
+                        </p>
+                        <p>
+                            단순히 정보를 전달하는 것을 넘어서<br>
+                            <strong class="text-slate-900">받을 수 있는 자금을 실제로 받게 만드는 일</strong>이 제 역할입니다.
+                        </p>
+                        <p>
+                            <strong class="text-slate-900">현장의 언어로 설명</strong>하고,<br>
+                            <strong class="text-slate-900">기관의 기준으로 설득</strong>하며,<br>
+                            <strong class="text-slate-900">결과로 증명합니다.</strong>
+                        </p>
+                        <p>
+                            사업을 혼자 감당하지 마세요. 저는<br>
+                            <strong class="text-slate-900">정책자금을 함께 고민하고, 끝까지 책임집니다.</strong>
+                        </p>
+                        <p class="text-right text-slate-900 font-bold pt-2">— 바른정책자금연구소 대표 강정균</p>
+                    </div>
+                </div>
+
+                <!-- 미션·비전 -->
+                <div class="mb-12">
+                    <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">바른의 미션</h2>
+                    <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
+                        300여 개에 달하는 정책자금 중 사장님 사업과 가장 잘 맞는 자금을 매칭하고, 단순 신청을 넘어 <strong class="text-slate-900">실행과 사후관리까지 책임</strong>지는 것이 저희의 미션입니다.
+                    </p>
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                            <div class="w-10 h-10 rounded-lg bg-brand-700 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-1">정확성</h3>
+                            <p class="text-sm text-gray-600">사업에 가장 잘 맞는 자금 매칭</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                            <div class="w-10 h-10 rounded-lg bg-orange-500 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0L6.343 16.657A8 8 0 1117.657 16.657z"/></svg>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-1">현장성</h3>
+                            <p class="text-sm text-gray-600">기관 실사부터 서류까지 동행</p>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-600 flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <h3 class="font-bold text-slate-900 mb-1">실효성</h3>
+                            <p class="text-sm text-gray-600">99% 승인, 누적 900억</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 핵심 통계 -->
+                <div class="mb-12">
+                    <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">결과로 말합니다</h2>
+                    <div class="grid grid-cols-3 gap-3 md:gap-5">
+                        <div class="bg-gradient-to-br from-brand-50 to-blue-100 border border-brand-200 rounded-2xl p-5 text-center">
+                            <div class="text-3xl md:text-4xl font-black text-brand-700">99%</div>
+                            <div class="text-xs md:text-sm text-gray-600 mt-1">승인 성공율</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-brand-50 to-blue-100 border border-brand-200 rounded-2xl p-5 text-center">
+                            <div class="text-3xl md:text-4xl font-black text-brand-700">2,000<span class="text-base md:text-lg">건</span></div>
+                            <div class="text-xs md:text-sm text-gray-600 mt-1">누적 승인 건수</div>
+                        </div>
+                        <div class="bg-gradient-to-br from-brand-50 to-blue-100 border border-brand-200 rounded-2xl p-5 text-center">
+                            <div class="text-3xl md:text-4xl font-black text-brand-700">900<span class="text-base md:text-lg">억</span></div>
+                            <div class="text-xs md:text-sm text-gray-600 mt-1">누적 승인 금액</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 회사 정보 -->
+                <div>
+                    <h2 class="text-2xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">회사 정보</h2>
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-7">
+                        <dl class="grid sm:grid-cols-2 gap-x-6 gap-y-4 text-sm md:text-base">
+                            <div><dt class="text-gray-500 mb-1">상호</dt><dd class="font-bold text-slate-900">바른정책자금연구소</dd></div>
+                            <div><dt class="text-gray-500 mb-1">대표</dt><dd class="font-bold text-slate-900">강정균</dd></div>
+                            <div><dt class="text-gray-500 mb-1">사업자등록번호</dt><dd class="font-bold text-slate-900">292-54-01028</dd></div>
+                            <div><dt class="text-gray-500 mb-1">대표전화</dt><dd class="font-bold text-slate-900">1666-0266</dd></div>
+                            <div class="sm:col-span-2"><dt class="text-gray-500 mb-1">소재지</dt><dd class="font-medium text-slate-900">인천광역시 연수구 송도동 214 송도비알씨스마트밸리지식산업센터 D동 1603호</dd></div>
+                            <div class="sm:col-span-2"><dt class="text-gray-500 mb-1">이메일</dt><dd class="font-medium text-slate-900">kjgman0711@gmail.com</dd></div>
+                        </dl>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ===== RIGHT: 사이드바 (사업영역 클릭 메뉴) ===== -->
+            <aside class="lg:sticky lg:top-24 lg:self-start">
+                <div class="bg-slate-900 text-white rounded-3xl p-6 md:p-7 shadow-xl">
+                    <h3 class="text-lg md:text-xl font-bold mb-1">사업영역</h3>
+                    <p class="text-xs md:text-sm text-blue-200/80 mb-5">항목 클릭하여 자세히 보기</p>
+
+                    <!-- 인증 카테고리 -->
+                    <div class="mb-5">
+                        <div class="text-xs text-yellow-300 font-bold mb-2.5 tracking-wider">기업 인증</div>
+                        <div class="space-y-2">
+                            <a href="about-lab.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>기업부설연구소</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                            <a href="about-venture.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>벤처기업 인증</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                            <a href="about-innobiz.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>이노비즈 인증</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                            <a href="about-mainbiz.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>메인비즈 인증</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                            <a href="about-sobujang.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>소부장 전문기업</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 자금/설립 카테고리 -->
+                    <div>
+                        <div class="text-xs text-yellow-300 font-bold mb-2.5 tracking-wider">자금·설립</div>
+                        <div class="space-y-2">
+                            <a href="about-working-capital.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>운전자금</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                            <a href="about-facility.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>시설자금</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                            <a href="about-rd.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>R&amp;D 지원</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                            <a href="about-incorporation.html" class="sidebar-card flex items-center justify-between bg-white/8 hover:bg-white/15 border border-white/10 rounded-xl px-4 py-3 text-sm font-medium">
+                                <span>법인설립</span><span class="sidebar-arrow text-white/50">→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="mt-6 pt-5 border-t border-white/10">
+                        <a href="home.html#contact" class="block bg-accent-500 hover:bg-accent-600 text-white text-center font-bold py-3 rounded-xl transition">
+                            무료 상담 신청
+                        </a>
+                        <a href="tel:1666-0266" class="block text-center text-sm text-yellow-300 font-bold mt-3 hover:text-yellow-200">
+                            📞 1666-0266
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+============================================ -->
+<footer class="bg-slate-950 text-slate-400 py-5">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+                <img src="images/바른정책자금로고.png" class="h-6 w-auto">
+                <span class="text-white font-bold text-sm">바른정책자금연구소</span>
+            </div>
+            <div class="text-slate-500 leading-relaxed flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>대표 강정균</span><span class="text-slate-700">|</span>
+                <span>292-54-01028</span><span class="text-slate-700">|</span>
+                <span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>1666-0266</span>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 mt-4 pt-3 text-center text-xs text-slate-600">© 2025 바른정책자금연구소. All rights reserved.</div>
+    </div>
+</footer>
+
+<script>
+    const nav = document.getElementById('topNav');
+    window.addEventListener('scroll', () => { if (window.scrollY > 50) nav.classList.add('nav-scrolled'); else nav.classList.remove('nav-scrolled'); });
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }); }, { threshold: 0.15 });
+    reveals.forEach(r => obs.observe(r));
+</script>
+
+</body>
+</html>
