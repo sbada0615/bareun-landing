@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="referrer" content="no-referrer">
     <meta name="description" content="바른정책자금연구소 정책자금 승인 사례 모음 — 실제 대표님들의 자금 확보 후기를 한눈에 확인하세요.">
     <title>승인사례 | 바른정책자금연구소</title>
 
@@ -33,30 +34,61 @@
         }
     </script>
     <style>
-        body { font-family: 'Pretendard', system-ui, sans-serif; -webkit-font-smoothing: antialiased; word-break: keep-all; }
         html { scroll-behavior: smooth; }
+        body { font-family: 'Pretendard', system-ui, sans-serif; -webkit-font-smoothing: antialiased; word-break: keep-all; }
         .nav-scrolled { background-color: rgba(15,23,42,0.95); backdrop-filter: blur(12px); box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
-        .case-card { transition: transform 0.3s, box-shadow 0.3s; }
-        .case-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(37,99,235,0.12); }
+
+        /* ── 모바일 카드: 썸네일 왼쪽 + 텍스트 오른쪽 ── */
+        .ccard {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            width: 100%;
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+            text-decoration: none;
+            color: inherit;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+        .ccard:hover { box-shadow: 0 4px 20px rgba(37,99,235,0.12); }
+
+        /* 썸네일: 고정 너비 */
+        .ccard-img {
+            width: 108px;
+            min-height: 90px;
+            flex-shrink: 0;
+            background: #e2e8f0;
+            overflow: hidden;
+        }
+        .ccard-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* 텍스트 영역 */
+        .ccard-body { padding: 11px 13px; display: flex; flex-direction: column; justify-content: center; flex: 1; min-width: 0; }
+        .ccard-badge { display: inline-block; font-size: 9px; font-weight: 700; color: #1d4ed8; background: #eff6ff; padding: 1px 7px; border-radius: 999px; margin-bottom: 5px; }
+        .ccard-title { font-size: 13px; font-weight: 800; color: #0f172a; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 5px; }
+        .ccard-desc { font-size: 11px; color: #6b7280; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .ccard-btn { display: none; }
+
+        /* ── 데스크탑(768px+): 이미지 왼쪽 크게, 텍스트 오른쪽 ── */
+        @media (min-width: 768px) {
+            .ccard { border-radius: 16px; }
+            .ccard-img { width: 288px; min-height: 210px; }
+            .ccard-body { padding: 28px; justify-content: space-between; }
+            .ccard-badge { font-size: 11px; padding: 2px 10px; margin-bottom: 8px; }
+            .ccard-title { font-size: 18px; -webkit-line-clamp: 3; margin-bottom: 10px; }
+            .ccard-desc { font-size: 14px; -webkit-line-clamp: 4; }
+            .ccard-btn { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; background: #0f172a; color: #fff; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 8px; align-self: flex-start; }
+        }
+
+        /* ── 사이드바 ── */
         .sidebar-item.active { background-color: #eff6ff; border-left: 4px solid #1d4ed8; padding-left: 16px; }
         .sidebar-item.active .sidebar-title { color: #1d4ed8; font-weight: 700; }
-        /* Hide scrollbar in sidebar */
         .sidebar-scroll::-webkit-scrollbar { width: 6px; }
         .sidebar-scroll::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
         .sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
-        /* Truncate description text to 4 lines */
-        .line-clamp-4 {
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-900">
@@ -64,35 +96,38 @@
 <!-- ============================================
      STICKY NAV
 ============================================ -->
-<nav id="topNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-scrolled">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-        <a href="home.html" class="flex items-center gap-2">
-            <div class="w-9 h-9 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center shadow-lg">
-                <span class="text-white font-black text-base">바</span>
-            </div>
-            <span class="text-white font-black text-lg tracking-tight">바른정책자금연구소</span>
+<nav id="topNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+        <!-- 로고 -->
+        <a href="home.html" class="flex items-center gap-2 flex-shrink-0">
+            <img src="images/바른정책자금로고.png" alt="바른정책자금연구소" class="h-8 w-auto">
+            <span class="text-white font-normal text-sm tracking-tight whitespace-nowrap">바른정책자금연구소</span>
         </a>
-        <div class="hidden md:flex items-center gap-7 text-white/90 text-sm font-medium">
+        <!-- 데스크탑 메뉴 -->
+        <div class="hidden md:flex items-center gap-7 text-white text-sm font-medium">
             <a href="about.html" class="hover:text-yellow-300 transition">회사소개</a>
-            <a href="home.html#fund" class="hover:text-yellow-300 transition">정책자금</a>
             <a href="process.html" class="hover:text-yellow-300 transition">진행절차</a>
             <a href="cases.html" class="text-yellow-300 font-bold">성공사례</a>
-            <a href="home.html#contact" class="hover:text-yellow-300 transition">문의</a>
+            <a href="contact.html" class="hover:text-yellow-300 transition">문의</a>
         </div>
-        <a href="tel:1666-0266" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">
-            📞 1666-0266
-        </a>
-        <button id="mobileMenuBtn" class="md:hidden text-white p-2">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
+        <!-- 전화 + 햄버거 -->
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="tel:1666-0266" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                1666-0266
+            </a>
+            <button id="mobileMenuBtn" class="md:hidden text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
     </div>
+    <!-- 모바일 메뉴 -->
     <div id="mobileMenu" class="md:hidden hidden bg-slate-900/95 backdrop-blur border-t border-white/10">
         <div class="px-5 py-3 flex flex-col gap-1 text-white text-sm">
             <a href="about.html" class="py-2.5 hover:text-yellow-300">회사소개</a>
-            <a href="home.html#fund" class="py-2.5 hover:text-yellow-300">정책자금</a>
             <a href="process.html" class="py-2.5 hover:text-yellow-300">진행절차</a>
             <a href="cases.html" class="py-2.5 text-yellow-300 font-bold">성공사례</a>
-            <a href="home.html#contact" class="py-2.5 hover:text-yellow-300">문의</a>
+            <a href="contact.html" class="py-2.5 hover:text-yellow-300">문의</a>
             <a href="tel:1666-0266" class="py-2.5 text-yellow-300 font-bold">📞 1666-0266</a>
         </div>
     </div>
@@ -110,8 +145,8 @@
         </div>
         <h1 class="text-3xl md:text-5xl lg:text-6xl font-black mb-4">정책자금 <span class="text-yellow-300">승인사례</span></h1>
         <p class="text-base md:text-lg text-blue-100/90 max-w-2xl mx-auto leading-relaxed">
-            대표님 한 분 한 분의 실제 자금 확보 스토리.<br class="hidden md:block">
-            <strong class="text-white">총 <span id="caseCount">21</span>건</strong>의 승인 사례를 한눈에 확인하세요.
+            대표님 한 분 한 분의 실제 자금 확보 스토리.<br>
+            승인 사례를 한눈에 확인하세요.
         </p>
     </div>
 </section>
@@ -119,7 +154,7 @@
 <!-- ============================================
      MAIN: Sidebar + Cards
 ============================================ -->
-<section class="max-w-7xl mx-auto px-5 py-10 md:py-14">
+<section class="max-w-7xl mx-auto px-5 py-10 md:py-14" style="overflow:hidden;">
     <div class="grid lg:grid-cols-[280px_1fr] gap-8">
 
         <!-- LEFT: Sidebar (sticky on desktop) -->
@@ -136,31 +171,33 @@
         </aside>
 
         <!-- RIGHT: Cases -->
-        <div>
-            <!-- Mobile: horizontal scroll list of titles -->
-            <div class="lg:hidden mb-5 -mx-5 px-5 overflow-x-auto scrollbar-hide">
-                <div id="mobileSidebar" class="flex gap-2 pb-2 whitespace-nowrap">
-                    <!-- Items injected by JS -->
-                </div>
-            </div>
+        <div style="min-width:0;overflow:hidden;">
+            <!-- Mobile 사이드바 pill 제거 (가로스크롤 원인) -->
+            <div id="mobileSidebar" class="hidden"></div>
 
-            <div id="caseGrid" class="space-y-6">
+            <!-- 카드 그리드 -->
+            <div id="caseGrid" class="space-y-4">
                 <!-- Cards injected by JS -->
             </div>
 
-            <!-- Bottom CTA -->
-            <div class="mt-12 bg-gradient-to-br from-slate-900 to-blue-900 rounded-3xl p-8 md:p-10 text-white text-center">
-                <h3 class="text-2xl md:text-3xl font-black mb-3">대표님의 사례도 만들어드립니다</h3>
-                <p class="text-blue-100/90 mb-6">무료 상담 후 1영업일 내 회신드립니다.</p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                    <a href="home.html#contact" class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold px-7 py-3.5 rounded-xl shadow-xl transition transform hover:scale-105">
-                        무료 상담 신청
-                    </a>
-                    <a href="tel:1666-0266" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur border-2 border-white/30 text-white font-bold px-7 py-3.5 rounded-xl transition">
-                        📞 1666-0266
-                    </a>
-                </div>
-            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     BOTTOM CTA
+============================================ -->
+<section style="background:#f8fafc;padding:0 16px 36px;">
+    <div style="max-width:720px;margin:0 auto;background:linear-gradient(135deg,#0f172a 0%,#1e3a8a 100%);border-radius:18px;padding:24px 20px;text-align:center;">
+        <p style="font-size:16px;font-weight:900;color:#ffffff;margin:0 0 6px;line-height:1.4;">대표님의 사례도 만들어드립니다</p>
+        <p style="font-size:12px;color:#bfdbfe;margin:0 0 16px;">무료 상담 후 1영업일 내 회신드립니다.</p>
+        <div style="display:flex;gap:8px;justify-content:center;">
+            <a href="contact.html" style="display:inline-flex;align-items:center;background:#f97316;color:#ffffff;font-size:13px;font-weight:700;padding:10px 20px;border-radius:10px;text-decoration:none;">
+                무료 상담 신청
+            </a>
+            <a href="tel:1666-0266" style="display:inline-flex;align-items:center;border:1.5px solid rgba(255,255,255,0.35);color:#ffffff;font-size:13px;font-weight:700;padding:10px 20px;border-radius:10px;text-decoration:none;">
+                📞 1666-0266
+            </a>
         </div>
     </div>
 </section>
@@ -168,26 +205,21 @@
 <!-- ============================================
      FOOTER
 ============================================ -->
-<footer class="bg-slate-950 text-slate-400 py-10">
+<footer class="bg-slate-950 text-slate-400 py-5">
     <div class="max-w-6xl mx-auto px-5">
-        <div class="grid md:grid-cols-3 gap-6 text-sm">
-            <div>
-                <div class="flex items-center gap-2 mb-3">
-                    <div class="w-8 h-8 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center"><span class="text-white font-black text-sm">바</span></div>
-                    <span class="text-white font-bold">바른정책자금연구소</span>
-                </div>
-                <p class="text-xs leading-relaxed">소상공인·중소기업 정책자금 컨설팅 전문</p>
+        <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+                <img src="images/바른정책자금로고.png" class="h-6 w-auto">
+                <span class="text-white font-bold text-sm">바른정책자금연구소</span>
             </div>
-            <div>
-                <h4 class="text-white font-bold mb-2 text-sm">연락처</h4>
-                <p class="text-xs leading-relaxed">📞 1666-0266<br>✉️ kjgman0711@gmail.com</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold mb-2 text-sm">사업자 정보</h4>
-                <p class="text-xs leading-relaxed">대표 강정균 | 292-54-01028<br>인천 연수구 송도동 214 송도비알씨스마트밸리 D동 1603호</p>
+            <div class="text-slate-500 leading-relaxed flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>대표 강정균</span><span class="text-slate-700">|</span>
+                <span>292-54-01028</span><span class="text-slate-700">|</span>
+                <span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>1666-0266</span><span class="text-slate-700">|</span>
+                <span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>kjgman0711@gmail.com</span>
             </div>
         </div>
-        <div class="border-t border-slate-800 mt-7 pt-5 text-center text-xs">© 2025 바른정책자금연구소. All rights reserved.</div>
+        <div class="border-t border-slate-800 mt-4 pt-3 text-center text-xs text-slate-600">© 2025 바른정책자금연구소. 무단 전재 및 재배포 금지.</div>
     </div>
 </footer>
 
@@ -259,32 +291,28 @@ function renderCases() {
     const grid = document.getElementById('caseGrid');
     grid.innerHTML = '';
     cases.forEach((c, i) => {
-        const card = document.createElement('article');
+        const card = document.createElement('a');
         card.id = `case-${i}`;
-        card.className = 'case-card scroll-mt-24 bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100';
-        card.innerHTML = `
-            <div class="md:flex">
-                <div class="md:w-72 md:flex-shrink-0 aspect-video md:aspect-auto bg-slate-100 overflow-hidden">
-                    <img src="${c.img}" alt="${c.title}" class="w-full h-full object-cover" loading="lazy"
-                         onerror="this.style.display='none'">
-                </div>
-                <div class="p-6 md:p-7 flex flex-col justify-between">
-                    <div>
-                        <div class="flex items-center gap-2 mb-2">
-                            <span class="inline-flex items-center text-xs font-bold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">CASE ${String(i+1).padStart(2,'0')}</span>
-                            <span class="text-xs text-gray-500">${formatDate(c.date)}</span>
-                        </div>
-                        <h2 class="text-lg md:text-xl font-black text-slate-900 leading-snug mb-3">${c.title}</h2>
-                        <p class="text-sm md:text-[15px] text-gray-600 leading-relaxed line-clamp-4 mb-5">${c.desc}</p>
-                    </div>
-                    <a href="${c.link}" target="_blank" rel="noopener"
-                       class="self-start inline-flex items-center gap-2 bg-slate-900 hover:bg-brand-600 text-white text-sm font-bold px-5 py-2.5 rounded-lg transition">
-                        네이버 블로그에서 전체 글 보기
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
-                    </a>
-                </div>
-            </div>
-        `;
+        card.href = c.link;
+        card.target = '_blank';
+        card.rel = 'noopener';
+        card.className = 'ccard scroll-mt-24';
+        card.innerHTML =
+            '<div class="ccard-img">' +
+                '<img src="' + c.img + '" alt="' + c.title + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.style.background=\'#e2e8f0\'">' +
+            '</div>' +
+            '<div class="ccard-body">' +
+                '<div>' +
+                    '<span class="ccard-badge">CASE ' + String(i+1).padStart(2,'0') + '</span>' +
+                    '<span class="ccard-date">' + formatDate(c.date) + '</span>' +
+                    '<div class="ccard-title">' + c.title + '</div>' +
+                    '<div class="ccard-desc">' + c.desc + '</div>' +
+                '</div>' +
+                '<div class="ccard-btn">' +
+                    '네이버 블로그에서 보기 ' +
+                    '<svg width="13" height="13" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>' +
+                '</div>' +
+            '</div>';
         grid.appendChild(card);
     });
     document.getElementById('caseCount').textContent = cases.length;

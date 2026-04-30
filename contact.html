@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="바른정책자금연구소 무료 상담 신청 — 대표가 직접 검토하고 1영업일 내 회신드립니다.">
+    <title>무료 상담 신청 | 바른정책자금연구소</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{brand:{50:'#eff6ff',500:'#2563eb',600:'#1d4ed8',700:'#1e40af'},accent:{500:'#f97316',600:'#ea580c'}},fontFamily:{sans:['Pretendard','system-ui','sans-serif']}}}}</script>
+    <style>
+        body{font-family:'Pretendard',system-ui,sans-serif;-webkit-font-smoothing:antialiased;word-break:keep-all}
+        html{scroll-behavior:smooth}
+        .nav-scrolled{background-color:rgba(15,23,42,0.95);backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+        .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+        .reveal.visible{opacity:1;transform:translateY(0)}
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<nav id="topNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+        <a href="home.html" class="flex items-center gap-2">
+            <img src="images/바른정책자금로고.png" alt="" class="h-8 w-auto">
+            <span class="text-white font-normal text-sm whitespace-nowrap">바른정책자금연구소</span>
+        </a>
+        <div class="hidden md:flex items-center gap-7 text-white text-sm font-medium">
+            <a href="about.html" class="hover:text-yellow-300 transition">회사소개</a>
+            <a href="process.html" class="hover:text-yellow-300 transition">진행절차</a>
+            <a href="cases.html" class="hover:text-yellow-300 transition">성공사례</a>
+            <a href="contact.html" class="text-yellow-300 font-bold">문의</a>
+        </div>
+        <a href="tel:1666-0266" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">📞 1666-0266</a>
+        <button id="mobileMenuBtn" class="md:hidden text-white p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden bg-slate-900/95 backdrop-blur border-t border-white/10">
+        <div class="px-5 py-3 flex flex-col gap-1 text-white text-sm">
+            <a href="about.html" class="py-2.5 hover:text-yellow-300">회사소개</a>
+            <a href="process.html" class="py-2.5 hover:text-yellow-300">진행절차</a>
+            <a href="cases.html" class="py-2.5 hover:text-yellow-300">성공사례</a>
+            <a href="contact.html" class="py-2.5 text-yellow-300 font-bold">문의</a>
+            <a href="tel:1666-0266" class="py-2.5 text-yellow-300 font-bold">📞 1666-0266</a>
+        </div>
+    </div>
+</nav>
+
+<!-- 헤더 -->
+<section class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white pt-28 pb-14 md:pt-32 md:pb-20">
+    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_40%,rgba(59,130,246,0.6),transparent_50%),radial-gradient(circle_at_70%_60%,rgba(124,58,237,0.5),transparent_50%)]"></div>
+    <div class="absolute inset-0 pointer-events-none">
+        <img src="images/대한민국.gif" alt="" class="w-full h-full object-cover opacity-20">
+    </div>
+    <div class="relative max-w-5xl mx-auto px-5 text-center">
+        <div class="inline-flex items-center gap-2 bg-yellow-400/15 border border-yellow-400/40 rounded-full px-4 py-1.5 mb-5">
+            <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></span>
+            <span class="text-sm text-yellow-300 font-medium">무료 상담 · 1영업일 내 회신</span>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">
+            <span class="text-yellow-300">2026년 정책자금</span>,<br>
+            예산이 빠르게 소진되고 있습니다
+        </h1>
+        <p class="text-base md:text-lg text-blue-100/90 leading-relaxed">
+            중소기업 4조 5천억 + 소상공인 3조 7천억.<br>
+            매년 조기 마감되니 <strong class="text-yellow-300">서둘러 신청하세요.</strong>
+        </p>
+    </div>
+</section>
+
+<!-- 연락처 빠른 안내 -->
+<section class="py-8 bg-white border-b border-slate-100">
+    <div class="max-w-3xl mx-auto px-5">
+        <div class="grid grid-cols-3 gap-2 text-center">
+            <a href="tel:1666-0266" class="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-slate-50 hover:bg-brand-50 border border-slate-200 hover:border-brand-300 transition group">
+                <div class="w-8 h-8 rounded-full bg-brand-700 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                </div>
+                <div>
+                    <div class="text-[10px] text-gray-500">전화 상담</div>
+                    <div class="text-xs font-bold text-slate-900 group-hover:text-brand-700">1666-0266</div>
+                </div>
+            </a>
+            <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="w-8 h-8 rounded-full bg-slate-600 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                </div>
+                <div>
+                    <div class="text-[10px] text-gray-500">이메일</div>
+                    <div class="text-[10px] font-bold text-slate-900 break-all">kjgman0711@gmail.com</div>
+                </div>
+            </div>
+            <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-slate-50 border border-slate-200">
+                <div class="w-8 h-8 rounded-full bg-slate-600 flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div>
+                    <div class="text-[10px] text-gray-500">응답 시간</div>
+                    <div class="text-xs font-bold text-slate-900">1영업일 내</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 상담 신청 폼 -->
+<section class="py-16 md:py-20 bg-slate-50">
+    <div class="max-w-2xl mx-auto px-5">
+        <div class="text-center mb-10 reveal">
+            <div class="inline-block w-12 h-1 bg-brand-700 mb-3"></div>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">무료 상담 신청</h2>
+            <p class="text-sm text-gray-500">아래 양식을 작성해 주시면 담당자가 직접 연락드립니다.</p>
+        </div>
+
+        <div class="reveal">
+            <form id="contactForm" class="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-slate-100 text-slate-900">
+                <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-1.5">성함 *</label>
+                        <input type="text" name="name" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none" placeholder="홍길동">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-1.5">연락처 *</label>
+                        <input type="tel" name="phone" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none" placeholder="010-1234-5678">
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-1.5">상호 *</label>
+                        <input type="text" name="company_name" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none" placeholder="예) 바른상사">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-1.5">업종 *</label>
+                        <select name="industry" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white">
+                            <option value="">선택해주세요</option>
+                            <option value="음식·카페">음식·카페</option>
+                            <option value="서비스업">서비스업</option>
+                            <option value="IT·디지털">IT·디지털</option>
+                            <option value="제조업">제조업</option>
+                            <option value="건설·인테리어">건설·인테리어</option>
+                            <option value="운수업">운수업</option>
+                            <option value="도매·유통업">도매·유통업</option>
+                            <option value="숙박·여가">숙박·여가</option>
+                            <option value="소매·판매업">소매·판매업</option>
+                            <option value="농·축·수산업">농·축·수산업</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <label class="block text-sm font-bold mb-1.5">연매출 *</label>
+                        <select name="annual_revenue" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white">
+                            <option value="">선택해주세요</option>
+                            <option value="5천 이하">5천 이하</option>
+                            <option value="1억 이하">1억 이하</option>
+                            <option value="1~2억">1~2억</option>
+                            <option value="2~3억">2~3억</option>
+                            <option value="3~5억">3~5억</option>
+                            <option value="5~10억">5~10억</option>
+                            <option value="10억 이상">10억 이상</option>
+                            <option value="50억 이상">50억 이상</option>
+                            <option value="100억 이상">100억 이상</option>
+                        </select>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-bold mb-1">국세 체납 여부 *</label>
+                        <p class="text-xs text-red-500 mb-2">세금 체납 중에는 신청이 불가합니다</p>
+                        <div class="flex flex-col gap-2">
+                            <label class="flex items-center justify-between px-4 py-3 border border-slate-300 rounded-lg cursor-pointer hover:border-brand-500 hover:bg-brand-50 transition has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
+                                <span class="text-sm text-gray-700">네, 현재 체납 중입니다. <span class="text-red-500 font-medium">(신청불가)</span></span>
+                                <input type="radio" name="tax_status" value="있음" required class="w-4 h-4 text-brand-500">
+                            </label>
+                            <label class="flex items-center justify-between px-4 py-3 border border-slate-300 rounded-lg cursor-pointer hover:border-brand-500 hover:bg-brand-50 transition has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
+                                <span class="text-sm text-gray-700">아니요, 문제 없습니다.</span>
+                                <input type="radio" name="tax_status" value="없음" class="w-4 h-4 text-brand-500">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <label class="flex items-start gap-2 mb-5 text-sm text-gray-600">
+                    <input type="checkbox" name="agreement" required checked class="mt-0.5">
+                    <span>개인정보 수집·이용에 동의합니다 (상담 목적 외 사용하지 않음)</span>
+                </label>
+                <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-black text-lg py-4 rounded-xl shadow-lg transition transform hover:scale-[1.02]">
+                    무료 상담 신청
+                </button>
+            </form>
+        </div>
+
+        <!-- 안심 문구 -->
+        <div class="reveal mt-6 grid sm:grid-cols-3 gap-3 text-center text-xs text-gray-500">
+            <div class="bg-white rounded-xl p-3 border border-slate-100">✅ 상담 비용 <strong class="text-slate-700">무료</strong></div>
+            <div class="bg-white rounded-xl p-3 border border-slate-100">🔒 개인정보 <strong class="text-slate-700">안전 보호</strong></div>
+            <div class="bg-white rounded-xl p-3 border border-slate-100">⚡ <strong class="text-slate-700">1영업일 내</strong> 회신</div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-slate-950 text-slate-400 py-5">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+                <img src="images/바른정책자금로고.png" class="h-6 w-auto">
+                <span class="text-white font-bold text-sm">바른정책자금연구소</span>
+            </div>
+            <div class="text-slate-500 flex flex-wrap items-center gap-x-2">
+                <span>대표 강정균</span><span class="text-slate-700">|</span>
+                <span>292-54-01028</span><span class="text-slate-700">|</span>
+                <span>1666-0266</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const nav = document.getElementById('topNav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) nav.classList.add('nav-scrolled');
+        else nav.classList.remove('nav-scrolled');
+    });
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    const obs = new IntersectionObserver((es) => es.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const data = Object.fromEntries(fd.entries());
+        data.source = 'contact-page';
+        try {
+            await fetch('https://hooks.zapier.com/hooks/catch/23898261/urtjt4m/', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(data)
+            });
+            alert('상담 신청이 접수되었습니다. 1영업일 내 연락드리겠습니다.');
+            e.target.reset();
+        } catch (err) {
+            alert('전송 중 오류가 발생했습니다. 1666-0266으로 연락주세요.');
+        }
+    });
+</script>
+</body>
+</html>
