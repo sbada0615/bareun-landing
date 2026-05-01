@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <title>바른정책자금연구소</title>
     <script>
-        // 구 Wix URL → 새 페이지 리다이렉트
-        const path = window.location.pathname.toLowerCase();
-        const map = {
-            '회사소개':     '/about',
-            'about':        '/about',
-            '바른서비스':   '/about',
-            '서비스':       '/about',
-            '문의하기':     '/contact',
-            '문의':         '/contact',
-            '뉴우스':       '/cases',
-            '뉴스':         '/cases',
-            '성공사례':     '/cases',
-            '진행절차':     '/process',
-            'process':      '/process',
-            'contact':      '/contact',
-            'cases':        '/cases',
-        };
+        // 한국어 URL 디코딩 후 리다이렉트
+        const path = decodeURIComponent(window.location.pathname).toLowerCase();
+
+        const map = [
+            ['회사소개',    '/about'],
+            ['바른서비스',  '/about'],
+            ['서비스',      '/about'],
+            ['문의하기',    '/contact'],
+            ['문의',        '/contact'],
+            ['뉴우스',      '/cases'],
+            ['뉴스',        '/cases'],
+            ['성공사례',    '/cases'],
+            ['cases',       '/cases'],
+            ['진행절차',    '/process'],
+            ['process',     '/process'],
+            ['about',       '/about'],
+            ['contact',     '/contact'],
+        ];
 
         let redirectTo = '/';
-        for (const [key, val] of Object.entries(map)) {
+        for (const [key, val] of map) {
             if (path.includes(key)) { redirectTo = val; break; }
         }
 
