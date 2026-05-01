@@ -973,6 +973,7 @@
         const fd = new FormData(e.target);
         const data = Object.fromEntries(fd.entries());
         data.source = 'home-contact';
+        data.submitted_at = new Date().toISOString();
         try {
             await fetch('https://hooks.zapier.com/hooks/catch/23898261/urtjt4m/', {
                 method: 'POST',

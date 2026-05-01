@@ -1760,7 +1760,7 @@ const setupForm = (formId, btnId, textId, spinnerId, sourceLabel, defaultText) =
             tax_status: formData.get('tax_status') || '',
             company_name: formData.get('company_name') || '',
             agreement: formData.get('agreement') ? '동의' : '미동의',
-            submitted_at: new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' }),
+            submitted_at: new Date().toISOString(),
             source: sourceLabel,
         };
 
