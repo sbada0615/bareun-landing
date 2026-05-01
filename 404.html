@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <title>바른정책자금연구소</title>
     <script>
-        // 한국어 URL 디코딩 후 리다이렉트
+        // 한국어/영어 URL 디코딩 후 리다이렉트
         const path = decodeURIComponent(window.location.pathname).toLowerCase();
 
         const map = [
-            ['회사소개',    '/about'],
-            ['바른서비스',  '/about'],
-            ['서비스',      '/about'],
-            ['문의하기',    '/contact'],
-            ['문의',        '/contact'],
-            ['뉴우스',      '/cases'],
-            ['뉴스',        '/cases'],
-            ['성공사례',    '/cases'],
-            ['cases',       '/cases'],
-            ['진행절차',    '/process'],
-            ['process',     '/process'],
-            ['about',       '/about'],
-            ['contact',     '/contact'],
+            ['회사소개',    '/회사소개'],
+            ['about',       '/회사소개'],
+            ['바른서비스',  '/바른서비스'],
+            ['진행절차',    '/바른서비스'],
+            ['process',     '/바른서비스'],
+            ['서비스',      '/바른서비스'],
+            ['성공사례',    '/성공사례'],
+            ['승인사례',    '/성공사례'],
+            ['뉴우스',      '/성공사례'],
+            ['뉴스',        '/성공사례'],
+            ['cases',       '/성공사례'],
+            ['문의하기',    '/문의하기'],
+            ['문의',        '/문의하기'],
+            ['contact',     '/문의하기'],
         ];
 
         let redirectTo = '/';
