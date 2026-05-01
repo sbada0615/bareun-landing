@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 | 바른정책자금</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <style>
+        .fade-in { animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans">
+
+    <!-- ── 로그인 화면 ── -->
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-sm fade-in">
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-14 h-14 bg-blue-600 rounded-2xl mb-4">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-800">관리자 로그인</h1>
+                <p class="text-gray-400 text-sm mt-1">바른정책자금 상담 신청 현황</p>
+            </div>
+            <form onsubmit="handleLogin(event)">
+                <input type="password" id="pwInput"
+                    placeholder="비밀번호를 입력하세요"
+                    class="w-full border border-gray-200 rounded-xl px-4 py-3 mb-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                    autofocus>
+                <p id="loginError" class="text-red-500 text-sm mb-3 hidden text-center">비밀번호가 올바르지 않습니다.</p>
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition">
+                    로그인
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ── 대시보드 ── -->
+    <div id="dashboard" class="hidden min-h-screen">
+
+        <!-- 상단 네비 -->
+        <nav class="bg-white border-b border-gray-100 sticky top-0 z-10">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-base font-bold text-gray-800">바른정책자금 관리자</h1>
+                        <p class="text-xs text-gray-400">상담 신청 현황</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span id="lastUpdated" class="text-xs text-gray-400"></span>
+                    <button onclick="loadData()"
+                        class="flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        새로고침
+                    </button>
+                    <button onclick="logout()"
+                        class="text-gray-400 hover:text-gray-600 text-sm transition">
+                        로그아웃
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="max-w-7xl mx-auto px-6 py-6">
+
+            <!-- 통계 카드 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-50">
+                    <p class="text-gray-400 text-xs font-medium uppercase tracking-wide">총 신청</p>
+                    <p id="totalCount" class="text-3xl font-bold text-gray-800 mt-2">-</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-50">
+                    <p class="text-blue-400 text-xs font-medium uppercase tracking-wide">오늘 신청</p>
+                    <p id="todayCount" class="text-3xl font-bold text-blue-600 mt-2">-</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-50">
+                    <p class="text-green-400 text-xs font-medium uppercase tracking-wide">이번달 신청</p>
+                    <p id="monthCount" class="text-3xl font-bold text-green-600 mt-2">-</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-50">
+                    <p class="text-purple-400 text-xs font-medium uppercase tracking-wide">최근 신청</p>
+                    <p id="latestTime" class="text-sm font-semibold text-purple-600 mt-2 leading-tight">-</p>
+                </div>
+            </div>
+
+            <!-- 검색 + 필터 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-50 p-4 mb-4 flex flex-col md:flex-row gap-3">
+                <div class="relative flex-1">
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="이름, 연락처, 사업자명 검색..."
+                        oninput="filterData()"
+                        class="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                </div>
+                <select id="industryFilter" onchange="filterData()"
+                    class="border border-gray-200 rounded-xl px-4 py-2.5 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+                    <option value="">전체 업종</option>
+                    <option>음식·카페</option>
+                    <option>서비스업</option>
+                    <option>IT·디지털</option>
+                    <option>제조업</option>
+                    <option>건설·인테리어</option>
+                    <option>운수업</option>
+                    <option>도매·유통업</option>
+                    <option>숙박·여가</option>
+                    <option>소매·판매업</option>
+                    <option>농·축·수산업</option>
+                    <option>기타</option>
+                </select>
+                <div id="resultCount" class="flex items-center text-sm text-gray-400 whitespace-nowrap"></div>
+            </div>
+
+            <!-- 테이블 -->
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-50 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-100">
+                                <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide whitespace-nowrap">신청일시</th>
+                                <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">이름</th>
+                                <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">연락처</th>
+                                <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">사업자명</th>
+                                <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">업종</th>
+                                <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">연매출</th>
+                                <th class="text-left px-5 py-3.5 text-xs font-semibold text-gray-500 uppercase tracking-wide">국세체납여부</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr>
+                                <td colspan="7" class="text-center py-16 text-gray-300">
+                                    <svg class="w-8 h-8 mx-auto mb-2 animate-spin" fill="none" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                                    </svg>
+                                    불러오는 중...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // ── 설정 ───────────────────────────────────────
+        const ADMIN_PW = 'bareun2026';  // 비밀번호 (변경 가능)
+
+        // 구글시트 → 파일 → 웹에 게시 → CSV 링크 붙여넣기
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSbveDAMDcYXxgu_g5RHbrBKQD2xHGPjeiQ47wgYMN4xczzOMDBMvdmxfFqMLZDYLwLf_MHfhk7mFK5/pub?gid=0&single=true&output=csv';
+        // ────────────────────────────────────────────────
+
+        let allData = [];
+
+        // ── 로그인 ──
+        function handleLogin(e) {
+            e.preventDefault();
+            const pw = document.getElementById('pwInput').value;
+            if (pw === ADMIN_PW) {
+                sessionStorage.setItem('bareun_admin', '1');
+                showDashboard();
+            } else {
+                document.getElementById('loginError').classList.remove('hidden');
+                document.getElementById('pwInput').value = '';
+                document.getElementById('pwInput').focus();
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem('bareun_admin');
+            location.reload();
+        }
+
+        function showDashboard() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            loadData();
+        }
+
+        // ── 데이터 로드 ──
+        async function loadData() {
+            document.getElementById('tableBody').innerHTML = `
+                <tr><td colspan="7" class="text-center py-16 text-gray-300">
+                    <svg class="w-8 h-8 mx-auto mb-2 animate-spin" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+                    </svg>불러오는 중...</td></tr>`;
+
+            try {
+                const res = await fetch(SHEET_CSV_URL + '&t=' + Date.now());
+                const text = await res.text();
+                const result = Papa.parse(text, { header: true, skipEmptyLines: true });
+                allData = result.data.reverse(); // 최신순
+                updateStats(allData);
+                filterData();
+                document.getElementById('lastUpdated').textContent =
+                    '업데이트: ' + new Date().toLocaleTimeString('ko-KR');
+            } catch (err) {
+                document.getElementById('tableBody').innerHTML =
+                    '<tr><td colspan="7" class="text-center py-16 text-red-300">데이터를 불러올 수 없습니다.<br><span class="text-xs">구글시트 URL을 확인해주세요.</span></td></tr>';
+            }
+        }
+
+        // ── 통계 ──
+        function updateStats(data) {
+            const today = new Date().toISOString().slice(0, 10);
+            const month = new Date().toISOString().slice(0, 7);
+            document.getElementById('totalCount').textContent = data.length;
+            document.getElementById('todayCount').textContent =
+                data.filter(r => (r['신청일시'] || '').startsWith(today)).length;
+            document.getElementById('monthCount').textContent =
+                data.filter(r => (r['신청일시'] || '').startsWith(month)).length;
+
+            if (data.length > 0) {
+                const latest = data[0]['신청일시'] || '';
+                document.getElementById('latestTime').textContent =
+                    latest ? latest.slice(0, 16).replace('T', ' ') : '-';
+            }
+        }
+
+        // ── 검색 / 필터 ──
+        function filterData() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            const industry = document.getElementById('industryFilter').value;
+
+            const filtered = allData.filter(r => {
+                const matchQ = !q || [r['이름'], r['연락처'], r['사업자명']]
+                    .some(v => (v || '').toLowerCase().includes(q));
+                const matchIndustry = !industry || (r['업종'] || '') === industry;
+                return matchQ && matchIndustry;
+            });
+
+            document.getElementById('resultCount').textContent =
+                `${filtered.length}건`;
+            renderTable(filtered);
+        }
+
+        // ── 테이블 렌더링 ──
+        function renderTable(data) {
+            const tbody = document.getElementById('tableBody');
+            if (!data.length) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center py-16 text-gray-300">검색 결과가 없습니다.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = data.map((r, i) => {
+                const dt = (r['신청일시'] || '').slice(0, 16).replace('T', ' ');
+                const taxBadge = (r['국세체납여부'] || '') === '없음'
+                    ? '<span class="inline-block bg-green-50 text-green-600 text-xs px-2 py-0.5 rounded-full">없음</span>'
+                    : (r['국세체납여부'] ? `<span class="inline-block bg-red-50 text-red-500 text-xs px-2 py-0.5 rounded-full">${r['국세체납여부']}</span>` : '-');
+
+                return `
+                <tr class="border-b border-gray-50 hover:bg-blue-50/30 transition">
+                    <td class="px-5 py-4 text-gray-500 whitespace-nowrap">${dt || '-'}</td>
+                    <td class="px-5 py-4 font-semibold text-gray-800">${r['이름'] || '-'}</td>
+                    <td class="px-5 py-4 text-gray-600">${r['연락처'] || '-'}</td>
+                    <td class="px-5 py-4 text-gray-600">${r['사업자명'] || '-'}</td>
+                    <td class="px-5 py-4">
+                        ${r['업종'] ? `<span class="inline-block bg-blue-50 text-blue-600 text-xs px-2 py-0.5 rounded-full">${r['업종']}</span>` : '-'}
+                    </td>
+                    <td class="px-5 py-4 text-gray-600">${r['연매출'] || '-'}</td>
+                    <td class="px-5 py-4">${taxBadge}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        // ── 자동 로그인 (세션 유지) ──
+        if (sessionStorage.getItem('bareun_admin') === '1') {
+            showDashboard();
+        }
+    </script>
+</body>
+</html>
