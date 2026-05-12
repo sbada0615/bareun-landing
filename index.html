@@ -755,6 +755,9 @@
         <div class="max-w-2xl mx-auto">
             <div class="reveal">
                 <form id="contactForm" class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl text-slate-900">
+                    <!-- 봇 차단용 honeypot (사람 눈에 안 보임) -->
+                    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+                        style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none">
                     <div class="grid sm:grid-cols-2 gap-4 mb-4">
                         <div>
                             <label class="block text-sm font-bold mb-1.5">성함 *</label>
@@ -973,6 +976,14 @@
         e.preventDefault();
         const fd = new FormData(e.target);
         const data = Object.fromEntries(fd.entries());
+
+        // 봇 차단: honeypot 필드(website)에 값이 있으면 봇으로 판정
+        if (data.website) {
+            alert('상담 신청이 접수되었습니다. 1영업일 내 연락드리겠습니다.');
+            e.target.reset();
+            return;
+        }
+
         data.source = 'home-contact';
         data.submitted_at = new Date().toISOString();
         try {
