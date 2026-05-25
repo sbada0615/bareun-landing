@@ -975,6 +975,7 @@
         const fd = new FormData(e.target);
         const data = Object.fromEntries(fd.entries());
         data.source = 'home-contact';
+        data.submitted_at = new Date().toISOString();
         try {
             await fetch('https://바른정책자금연구소.com/api/submit', {
                 method: 'POST',
