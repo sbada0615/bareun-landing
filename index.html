@@ -649,8 +649,8 @@
                 </h4>
             </div>
 
-            <!-- 비포애프터 스테이지 -->
-            <div class="relocation-stage relative h-[420px] md:h-[560px]">
+            <!-- 비포애프터 스테이지 (카드 스와핑) -->
+            <div class="relocation-stage relative h-[340px] md:h-[410px]">
                 <!-- 구 사업자등록증 -->
                 <div class="relocation-old">
                     <div class="text-center mb-2">
@@ -662,15 +662,6 @@
                         <img src="images/사업자등록증_구_송도.jpg"
                              alt="이전 사업자등록증 (인천 연수구 송도)"
                              class="block rounded" />
-                    </div>
-                </div>
-
-                <!-- 화살표 -->
-                <div class="relocation-arrow">
-                    <div class="bg-gradient-to-r from-amber-400 to-amber-500 text-white rounded-full p-3 md:p-4 shadow-2xl">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-7 h-7 md:w-10 md:h-10">
-                            <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
                     </div>
                 </div>
 
@@ -697,16 +688,18 @@
         </div>
 
         <style>
-        /* ===== 사업장 이전 비포애프터 애니메이션 ===== */
+        /* ===== 사업장 이전 비포애프터 애니메이션 (카드 스와핑) ===== */
         .relocation-stage {
             position: relative;
             width: 100%;
+            perspective: 1200px;
         }
-        .relocation-old, .relocation-new, .relocation-arrow {
+        .relocation-old, .relocation-new {
             position: absolute;
             top: 50%;
             left: 50%;
-            transition: transform 1.4s cubic-bezier(0.45, 0, 0.15, 1), opacity 1.2s ease-out, filter 1.4s ease-out;
+            transform-origin: center center;
+            transition: transform 1.5s cubic-bezier(0.45, 0, 0.15, 1), opacity 1.3s ease-out, filter 1.5s ease-out;
             will-change: transform, opacity;
         }
         .relocation-old img, .relocation-new img {
@@ -716,52 +709,39 @@
             margin: 0 auto;
         }
         @media (max-width: 768px) {
-            .relocation-old img, .relocation-new img { max-height: 220px; }
+            .relocation-old img, .relocation-new img { max-height: 280px; }
         }
 
-        /* 초기: 구 사업자등록증 가운데, 신/화살표 숨김 */
+        /* 초기: 구 사업자등록증 가운데, 신은 살짝 뒤에 숨겨짐 */
         .relocation-old {
-            transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1) rotate(0deg);
             opacity: 1;
             z-index: 2;
         }
         .relocation-new {
-            transform: translate(-50%, -50%) scale(0.7);
+            transform: translate(-50%, -50%) scale(0.85);
             opacity: 0;
             z-index: 1;
         }
-        .relocation-arrow {
-            transform: translate(-50%, -50%) scale(0);
-            opacity: 0;
+
+        /* 활성: 구는 뒤로 살짝 빠져나와 보이고, 신이 가운데로 또렷하게 */
+        .relocation-stage.activated .relocation-old {
+            transform: translate(calc(-50% - 130px), calc(-50% - 70px)) scale(0.7) rotate(-9deg);
+            opacity: 0.75;
+            filter: grayscale(55%) blur(0.5px);
+            z-index: 1;
+        }
+        .relocation-stage.activated .relocation-new {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
             z-index: 3;
         }
 
-        /* 활성: 구는 왼쪽 작게, 신은 오른쪽 크게, 화살표 중앙 */
-        .relocation-stage.activated .relocation-old {
-            transform: translate(calc(-50% - 200px), -50%) scale(0.55);
-            opacity: 0.5;
-            filter: grayscale(70%);
-        }
-        .relocation-stage.activated .relocation-new {
-            transform: translate(calc(-50% + 200px), -50%) scale(1);
-            opacity: 1;
-            z-index: 2;
-        }
-        .relocation-stage.activated .relocation-arrow {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-
-        /* 모바일: 위아래 배치 */
+        /* 모바일: 뒤로 가는 정도 조금 줄임 (화면 좁아서) */
         @media (max-width: 768px) {
             .relocation-stage.activated .relocation-old {
-                transform: translate(-50%, calc(-50% - 130px)) scale(0.55);
-            }
-            .relocation-stage.activated .relocation-new {
-                transform: translate(-50%, calc(-50% + 105px)) scale(0.92);
-            }
-            .relocation-stage.activated .relocation-arrow {
-                transform: translate(-50%, calc(-50% - 40px)) rotate(90deg) scale(0.65);
+                transform: translate(calc(-50% - 68px), calc(-50% - 50px)) scale(0.65) rotate(-8deg);
+                opacity: 0.7;
             }
         }
         </style>
@@ -818,6 +798,144 @@
                 바른정책자금연구소는<br>
                 <strong class="text-slate-900">검단법조타운의 핵심 입지</strong>에 자리잡아<br>
                 <strong class="text-brand-600">법·제도에 기반한 정확한 정책자금 컨설팅</strong>으로 보답하겠습니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     2.8 AI 데이터 전문성 — 정책자금 컨설팅의 새 기준
+============================================ -->
+<section id="ai-expertise" class="relative py-20 md:py-28 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 overflow-hidden">
+    <!-- 배경 장식 (테크 느낌) -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+        <div class="absolute top-10 left-10 w-72 h-72 bg-blue-500 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-indigo-500 rounded-full blur-3xl"></div>
+    </div>
+    <!-- 격자 패턴 -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+         style="background-image: linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px); background-size: 40px 40px;"></div>
+
+    <div class="relative max-w-6xl mx-auto px-5">
+
+        <!-- 헤더 -->
+        <div class="text-center mb-12 md:mb-16 reveal">
+            <div class="inline-flex items-center gap-1.5 bg-blue-500/15 backdrop-blur border border-blue-400/50 text-blue-300 text-[10px] md:text-xs font-bold px-3.5 py-1.5 rounded-full mb-4 tracking-wider shadow-lg">
+                <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></span>
+                🤖 AI 데이터 기반 컨설팅
+            </div>
+            <h3 class="text-3xl md:text-5xl font-black text-white mb-4 leading-tight drop-shadow-lg break-keep">
+                <span class="text-blue-300">AI 전문가</span>가<br class="md:hidden">
+                직접 분석하는 정책자금
+            </h3>
+            <p class="text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed break-keep">
+                강정균 대표는 <strong class="text-white">국가공인 AI 전문 자격 2종</strong>과 <strong class="text-white">명지대학교 산학협력 인증</strong>을 보유하고 있습니다.<br>
+                <strong class="text-blue-300 font-semibold">감(感)이 아닌, 데이터로 매칭합니다.</strong>
+            </p>
+        </div>
+
+        <!-- 자격증 3개 (모바일: 2+1 / 데스크탑: 3열) -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6 max-w-5xl mx-auto mb-12 md:mb-14">
+
+            <!-- 자격증 1: 인공지능(AI)전문가 -->
+            <div class="reveal flex flex-col items-center">
+                <div class="relative bg-white rounded-xl md:rounded-2xl shadow-2xl border-2 border-blue-300/60 ring-2 md:ring-4 ring-blue-500/10 p-1.5 md:p-3 mb-3 md:mb-4 hover:scale-105 transition-transform duration-500">
+                    <!-- 코너 장식 -->
+                    <div class="absolute -top-1 -left-1 md:-top-1.5 md:-left-1.5 w-3 h-3 md:w-5 md:h-5 border-t-2 border-l-2 border-blue-400 rounded-tl"></div>
+                    <div class="absolute -top-1 -right-1 md:-top-1.5 md:-right-1.5 w-3 h-3 md:w-5 md:h-5 border-t-2 border-r-2 border-blue-400 rounded-tr"></div>
+                    <div class="absolute -bottom-1 -left-1 md:-bottom-1.5 md:-left-1.5 w-3 h-3 md:w-5 md:h-5 border-b-2 border-l-2 border-blue-400 rounded-bl"></div>
+                    <div class="absolute -bottom-1 -right-1 md:-bottom-1.5 md:-right-1.5 w-3 h-3 md:w-5 md:h-5 border-b-2 border-r-2 border-blue-400 rounded-br"></div>
+
+                    <img src="images/자격증_2.png" alt="인공지능(AI)전문가 1급 자격증" class="block rounded w-full h-auto md:h-[420px] md:object-contain" loading="lazy" />
+                </div>
+                <div class="text-center">
+                    <div class="inline-flex items-center gap-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[9px] md:text-xs font-bold px-2 md:px-3 py-0.5 md:py-1 rounded-full shadow-md mb-1.5 md:mb-2">
+                        🏆 국가공인 1급
+                    </div>
+                    <h4 class="font-bold text-white text-sm md:text-lg tracking-tight">인공지능(AI)전문가</h4>
+                    <p class="text-[10px] md:text-xs text-slate-400 mt-1 leading-tight break-keep">AI 모델·알고리즘<br>활용 전문 자격</p>
+                </div>
+            </div>
+
+            <!-- 자격증 2: AI데이터전문가 -->
+            <div class="reveal flex flex-col items-center">
+                <div class="relative bg-white rounded-xl md:rounded-2xl shadow-2xl border-2 border-blue-300/60 ring-2 md:ring-4 ring-blue-500/10 p-1.5 md:p-3 mb-3 md:mb-4 hover:scale-105 transition-transform duration-500">
+                    <!-- 코너 장식 -->
+                    <div class="absolute -top-1 -left-1 md:-top-1.5 md:-left-1.5 w-3 h-3 md:w-5 md:h-5 border-t-2 border-l-2 border-blue-400 rounded-tl"></div>
+                    <div class="absolute -top-1 -right-1 md:-top-1.5 md:-right-1.5 w-3 h-3 md:w-5 md:h-5 border-t-2 border-r-2 border-blue-400 rounded-tr"></div>
+                    <div class="absolute -bottom-1 -left-1 md:-bottom-1.5 md:-left-1.5 w-3 h-3 md:w-5 md:h-5 border-b-2 border-l-2 border-blue-400 rounded-bl"></div>
+                    <div class="absolute -bottom-1 -right-1 md:-bottom-1.5 md:-right-1.5 w-3 h-3 md:w-5 md:h-5 border-b-2 border-r-2 border-blue-400 rounded-br"></div>
+
+                    <img src="images/자격증_1.png" alt="AI데이터전문가 1급 자격증" class="block rounded w-full h-auto md:h-[420px] md:object-contain" loading="lazy" />
+                </div>
+                <div class="text-center">
+                    <div class="inline-flex items-center gap-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-[9px] md:text-xs font-bold px-2 md:px-3 py-0.5 md:py-1 rounded-full shadow-md mb-1.5 md:mb-2">
+                        🏆 국가공인 1급
+                    </div>
+                    <h4 class="font-bold text-white text-sm md:text-lg tracking-tight">AI데이터전문가</h4>
+                    <p class="text-[10px] md:text-xs text-slate-400 mt-1 leading-tight break-keep">빅데이터 분석·활용<br>전문 자격</p>
+                </div>
+            </div>
+
+            <!-- 자격증 3: 명지대학교 가족회사 (모바일에서 col-span-2로 가운데 정렬) -->
+            <div class="reveal flex flex-col items-center col-span-2 md:col-span-1">
+                <div class="w-[calc(50%-6px)] md:w-full flex flex-col items-center mx-auto">
+                    <div class="relative bg-white rounded-xl md:rounded-2xl shadow-2xl border-2 border-emerald-300/60 ring-2 md:ring-4 ring-emerald-500/10 p-1.5 md:p-3 mb-3 md:mb-4 hover:scale-105 transition-transform duration-500 w-full">
+                        <!-- 코너 장식 -->
+                        <div class="absolute -top-1 -left-1 md:-top-1.5 md:-left-1.5 w-3 h-3 md:w-5 md:h-5 border-t-2 border-l-2 border-emerald-400 rounded-tl"></div>
+                        <div class="absolute -top-1 -right-1 md:-top-1.5 md:-right-1.5 w-3 h-3 md:w-5 md:h-5 border-t-2 border-r-2 border-emerald-400 rounded-tr"></div>
+                        <div class="absolute -bottom-1 -left-1 md:-bottom-1.5 md:-left-1.5 w-3 h-3 md:w-5 md:h-5 border-b-2 border-l-2 border-emerald-400 rounded-bl"></div>
+                        <div class="absolute -bottom-1 -right-1 md:-bottom-1.5 md:-right-1.5 w-3 h-3 md:w-5 md:h-5 border-b-2 border-r-2 border-emerald-400 rounded-br"></div>
+
+                        <img src="images/명지대학.jpg" alt="명지대학교 가족회사 증서" class="block rounded w-full h-auto md:h-[420px] md:object-contain" loading="lazy" />
+                    </div>
+                    <div class="text-center">
+                        <div class="inline-flex items-center gap-1 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-[9px] md:text-xs font-bold px-2 md:px-3 py-0.5 md:py-1 rounded-full shadow-md mb-1.5 md:mb-2">
+                            🎓 산학협력 인증
+                        </div>
+                        <h4 class="font-bold text-white text-sm md:text-lg tracking-tight">명지대학교 가족회사</h4>
+                        <p class="text-[10px] md:text-xs text-slate-400 mt-1 leading-tight break-keep">산학협력 협약 체결<br>학계 네트워크 보유 기업</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3가지 가치 카드 -->
+        <div class="grid grid-cols-3 gap-3 md:gap-5 max-w-4xl mx-auto mb-10">
+
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 md:p-6 text-center hover:bg-white/10 hover:border-blue-400/40 transition-all duration-300">
+                <div class="text-2xl md:text-4xl mb-2 md:mb-3">📊</div>
+                <h5 class="font-bold text-white text-xs md:text-base mb-1 md:mb-2 tracking-tight">데이터 매칭</h5>
+                <p class="text-[10px] md:text-sm text-slate-300 leading-snug break-keep hidden md:block">
+                    감(感) 아닌 데이터로<br>우리 사업 맞춤 자금 추출
+                </p>
+                <p class="text-[10px] text-slate-300 leading-snug md:hidden">데이터 기반<br>자금 추출</p>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 md:p-6 text-center hover:bg-white/10 hover:border-blue-400/40 transition-all duration-300">
+                <div class="text-2xl md:text-4xl mb-2 md:mb-3">⚡</div>
+                <h5 class="font-bold text-white text-xs md:text-base mb-1 md:mb-2 tracking-tight">즉시 분석</h5>
+                <p class="text-[10px] md:text-sm text-slate-300 leading-snug break-keep hidden md:block">
+                    수천 개 정책자금 중<br>적합한 것을 빠르게
+                </p>
+                <p class="text-[10px] text-slate-300 leading-snug md:hidden">수천 자금<br>빠른 매칭</p>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 md:p-6 text-center hover:bg-white/10 hover:border-blue-400/40 transition-all duration-300">
+                <div class="text-2xl md:text-4xl mb-2 md:mb-3">🎯</div>
+                <h5 class="font-bold text-white text-xs md:text-base mb-1 md:mb-2 tracking-tight">높은 정확도</h5>
+                <p class="text-[10px] md:text-sm text-slate-300 leading-snug break-keep hidden md:block">
+                    자격 요건 사전 검증<br>신청 거절 최소화
+                </p>
+                <p class="text-[10px] text-slate-300 leading-snug md:hidden">사전 검증<br>거절 최소화</p>
+            </div>
+        </div>
+
+        <!-- 마무리 메시지 -->
+        <div class="reveal text-center max-w-3xl mx-auto">
+            <p class="text-base md:text-xl text-white leading-relaxed font-medium break-keep">
+                <span class="text-blue-300 font-bold">전통 컨설팅 + AI 데이터 분석</span>의 결합으로,<br>
+                <strong class="text-white">대표님 사업에 가장 적합한 정책자금</strong>을 찾아드립니다.
             </p>
         </div>
     </div>
