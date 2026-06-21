@@ -1628,6 +1628,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      FORM SUBMISSION SCRIPT
 ============================================ -->
 <script>
+// === 유입 추적 (외부 진입 referrer + UTM 파라미터 캡처) ===
+(function() {
+    const ref = document.referrer;
+    const isExternal = ref && !ref.includes(window.location.hostname);
+    if (isExternal && !sessionStorage.getItem('first_referrer')) {
+        sessionStorage.setItem('first_referrer', ref);
+        sessionStorage.setItem('first_landing', window.location.pathname);
+    }
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(key => {
+        const val = params.get(key);
+        if (val) sessionStorage.setItem(key, val);
+    });
+})();
+
 // === Scroll-triggered fade-up animation ===
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1801,6 +1816,11 @@ const setupForm = (formId, btnId, textId, spinnerId, sourceLabel, defaultText) =
             agreement: formData.get('agreement') ? '동의' : '미동의',
             submitted_at: new Date().toISOString(),
             source: sourceLabel,
+            referrer: sessionStorage.getItem('first_referrer') || document.referrer || '(직접 접속)',
+            first_landing: sessionStorage.getItem('first_landing') || window.location.pathname,
+            utm_source: sessionStorage.getItem('utm_source') || '',
+            utm_medium: sessionStorage.getItem('utm_medium') || '',
+            utm_campaign: sessionStorage.getItem('utm_campaign') || '',
         };
 
         try {

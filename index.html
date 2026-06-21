@@ -1342,6 +1342,21 @@
 </footer>
 
 <script>
+    // === 유입 추적 (외부 진입 referrer + UTM 파라미터 캡처) ===
+    (function() {
+        const ref = document.referrer;
+        const isExternal = ref && !ref.includes(window.location.hostname);
+        if (isExternal && !sessionStorage.getItem('first_referrer')) {
+            sessionStorage.setItem('first_referrer', ref);
+            sessionStorage.setItem('first_landing', window.location.pathname);
+        }
+        const params = new URLSearchParams(window.location.search);
+        ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(key => {
+            const val = params.get(key);
+            if (val) sessionStorage.setItem(key, val);
+        });
+    })();
+
     // Sticky nav scroll effect
     const nav = document.getElementById('topNav');
     window.addEventListener('scroll', () => {
@@ -1449,6 +1464,11 @@
         const data = Object.fromEntries(fd.entries());
         data.source = 'home-contact';
         data.submitted_at = new Date().toISOString();
+        data.referrer = sessionStorage.getItem('first_referrer') || document.referrer || '(직접 접속)';
+        data.first_landing = sessionStorage.getItem('first_landing') || window.location.pathname;
+        data.utm_source = sessionStorage.getItem('utm_source') || '';
+        data.utm_medium = sessionStorage.getItem('utm_medium') || '';
+        data.utm_campaign = sessionStorage.getItem('utm_campaign') || '';
         try {
             await fetch('https://바른정책자금연구소.com/api/submit', {
                 method: 'POST',
