@@ -183,7 +183,7 @@
         </div>
         <!-- 오른쪽: 전화 + 모바일 햄버거 -->
         <div class="flex items-center gap-2 flex-shrink-0">
-            <a href="tel:1666-0266" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">
+            <a href="tel:1666-0266" onclick="slTrackConversion()" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
                 1666-0266
             </a>
@@ -199,7 +199,7 @@
             <a href="바른서비스" class="py-2.5 hover:text-yellow-300">바른서비스</a>
             <a href="성공사례" class="py-2.5 hover:text-yellow-300">성공사례</a>
             <a href="문의하기" class="py-2.5 hover:text-yellow-300">문의하기</a>
-            <a href="tel:1666-0266" class="py-2.5 text-yellow-300 font-bold">📞 1666-0266</a>
+            <a href="tel:1666-0266" onclick="slTrackConversion()" class="py-2.5 text-yellow-300 font-bold">📞 1666-0266</a>
         </div>
     </div>
 </nav>
@@ -277,11 +277,11 @@
 
     <!-- CTA buttons (데스크톱: 통계 카드 위 가운데) -->
     <div class="hidden md:flex relative max-w-6xl mx-auto px-5 pb-4 justify-center gap-3">
-        <a href="문의하기"
+        <a href="문의하기" onclick="slTrackConversion()"
            class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">
             무료 상담 신청
         </a>
-        <a href="tel:1666-0266"
+        <a href="tel:1666-0266" onclick="slTrackConversion()"
            class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur border-2 border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl transition">
             📞 1666-0266
         </a>
@@ -303,10 +303,10 @@
             300여개 정책자금 중 사업에 꼭 맞는 자금을 찾아드립니다.
         </p>
         <div class="flex flex-col gap-3">
-            <a href="문의하기" class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold text-base px-7 py-4 rounded-xl shadow-lg transition">
+            <a href="문의하기" onclick="slTrackConversion()" class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold text-base px-7 py-4 rounded-xl shadow-lg transition">
                 무료 상담 신청
             </a>
-            <a href="tel:1666-0266" class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-base px-7 py-3 rounded-xl transition">
+            <a href="tel:1666-0266" onclick="slTrackConversion()" class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-base px-7 py-3 rounded-xl transition">
                 📞 1666-0266
             </a>
         </div>
@@ -1297,7 +1297,7 @@
                         <input type="checkbox" name="agreement" required checked class="mt-0.5">
                         <span>개인정보 수집·이용에 동의합니다 (상담 목적 외 사용하지 않음)</span>
                     </label>
-                    <button type="submit" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-black text-lg py-4 rounded-xl shadow-lg transition transform hover:scale-[1.02]">
+                    <button type="submit" onclick="slTrackConversion()" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-black text-lg py-4 rounded-xl shadow-lg transition transform hover:scale-[1.02]">
                         무료 상담 신청
                     </button>
                 </form>
@@ -1482,6 +1482,18 @@
         }
     });
 
+</script>
+
+<script>
+(function () {
+  var ENDPOINT = 'https://www.sangsaenglink.com/api/track/landing';
+  var PAGE = 'homepage';
+  function qp(k){ return new URLSearchParams(location.search).get(k) || ''; }
+  function vid(){ try { var v=localStorage.getItem('sl_vid'); if(!v){ v=Date.now().toString(36)+Math.random().toString(36).slice(2); localStorage.setItem('sl_vid',v);} return v; } catch(e){ return ''; } }
+  function send(ev){ try { fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,body:JSON.stringify({event:ev,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),visitor_id:vid(),page:PAGE,referrer:document.referrer})}).catch(function(){}); } catch(e){} }
+  send('visit');
+  window.slTrackConversion = function(){ send('conversion'); };
+})();
 </script>
 
 </body>
