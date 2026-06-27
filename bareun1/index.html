@@ -572,7 +572,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Phone number below dashboard panel -->
-            <a href="tel:1666-0266" class="block mt-3 text-center text-sm text-white/80 hover:text-yellow-300 transition">
+            <a href="tel:1666-0266" onclick="slTrackConversion()" class="block mt-3 text-center text-sm text-white/80 hover:text-yellow-300 transition">
                 📞 상담 전화: <span class="text-yellow-300 font-bold">1666-0266</span>
             </a>
         </div>
@@ -674,7 +674,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <strong>[필수]</strong> 개인정보 수집·이용에 동의합니다.
                     </span>
                 </label>
-                <button type="submit" id="heroSubmitBtn"
+                <button type="submit" id="heroSubmitBtn" onclick="slTrackConversion()"
                         class="pulse-glow w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-black text-base md:text-lg py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-xl flex items-center justify-center gap-2">
                     <span id="heroSubmitText">👉 무료 자격조회 신청하기</span>
                     <span id="heroSubmitSpinner" class="hidden">
@@ -1576,7 +1576,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </p>
             </div>
 
-            <button type="submit" id="submitBtn"
+            <button type="submit" id="submitBtn" onclick="slTrackConversion()"
                     class="pulse-glow w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-black text-lg py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-xl flex items-center justify-center gap-2">
                 <span id="submitText">👉 무료 상담 신청하기</span>
                 <span id="submitSpinner" class="hidden">
@@ -1619,7 +1619,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      MOBILE STICKY CTA
 ============================================ -->
 <div class="mobile-sticky-cta md:hidden bg-white border-t border-gray-200 px-3 py-2">
-    <a href="#apply-form" class="block bg-orange-500 text-white font-bold py-2.5 rounded-lg text-center text-sm">
+    <a href="#apply-form" onclick="slTrackConversion()" class="block bg-orange-500 text-white font-bold py-2.5 rounded-lg text-center text-sm">
         👉 무료 상담 신청
     </a>
 </div>
@@ -1888,6 +1888,18 @@ document.querySelectorAll('input[name="phone"]').forEach(input => {
 
     updateRealClock();
     setInterval(updateRealClock, 1000);
+</script>
+
+<script>
+(function () {
+  var ENDPOINT = 'https://www.sangsaenglink.com/api/track/landing';
+  var PAGE = 'bareun1';
+  function qp(k){ return new URLSearchParams(location.search).get(k) || ''; }
+  function vid(){ try { var v=localStorage.getItem('sl_vid'); if(!v){ v=Date.now().toString(36)+Math.random().toString(36).slice(2); localStorage.setItem('sl_vid',v);} return v; } catch(e){ return ''; } }
+  function send(ev){ try { fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,body:JSON.stringify({event:ev,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),visitor_id:vid(),page:PAGE,referrer:document.referrer})}).catch(function(){}); } catch(e){} }
+  send('visit');
+  window.slTrackConversion = function(){ send('conversion'); };
+})();
 </script>
 
 </body>
