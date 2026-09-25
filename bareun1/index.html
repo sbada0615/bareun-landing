@@ -655,11 +655,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-1.5">국세체납여부 <span class="text-red-500">*</span></label>
-                        <select name="tax_status" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm bg-white">
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">지역 <span class="text-red-500">*</span></label>
+                        <select name="region" required data-region-select class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm bg-white">
                             <option value="">선택해주세요</option>
-                            <option value="없음">체납 없음</option>
-                            <option value="있음">체납 있음</option>
+                            <option value="기타">기타</option>
                         </select>
                     </div>
                     <div>
@@ -667,6 +666,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <input type="text" name="company_name" required placeholder="예) 바른가게"
                                class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm">
                     </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">국세체납여부 <span class="text-red-500">*</span></label>
+                    <select name="tax_status" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 transition text-sm bg-white">
+                        <option value="">선택해주세요</option>
+                        <option value="없음">체납 없음</option>
+                        <option value="있음">체납 있음</option>
+                    </select>
                 </div>
                 <label class="flex items-start gap-3 cursor-pointer bg-gray-50 p-3 rounded-xl border border-gray-200">
                     <input type="checkbox" name="agreement" required checked class="mt-0.5 w-4 h-4 text-blue-500 border-2 border-gray-300 rounded focus:ring-blue-500">
@@ -1558,6 +1565,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div>
+                <label class="block text-sm font-bold text-navy-900 mb-2">지역 <span class="text-red-500">*</span></label>
+                <select name="region" required data-region-select
+                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-gold-500 transition bg-white">
+                    <option value="">선택해주세요</option>
+                    <option value="기타">기타</option>
+                </select>
+            </div>
+
+            <div>
                 <label class="block text-sm font-bold text-navy-900 mb-2">상호 <span class="text-red-500">*</span></label>
                 <input type="text" name="company_name" required
                        placeholder="예) 바른가게"
@@ -1640,6 +1656,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(key => {
         const val = params.get(key);
         if (val) sessionStorage.setItem(key, val);
+    });
+})();
+
+// === UTM 캠페인에서 지역 자동 감지 → 지역 드롭다운 자동 세팅 ===
+(function() {
+    const REGION_MAP = {
+        '서울': '서울특별시', '부산': '부산광역시', '대구': '대구광역시',
+        '인천': '인천광역시', '광주': '광주광역시', '대전': '대전광역시',
+        '울산': '울산광역시', '세종': '세종특별자치시', '경기': '경기도',
+        '강원': '강원특별자치도', '충북': '충청북도', '충남': '충청남도',
+        '전북': '전북특별자치도', '전남': '전라남도', '경북': '경상북도',
+        '경남': '경상남도', '제주': '제주특별자치도'
+    };
+    const params = new URLSearchParams(window.location.search);
+    const campaign = params.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || '';
+    // "부산(바른1)" 같은 형식에서 앞부분만 추출
+    let detected = '';
+    for (const key of Object.keys(REGION_MAP)) {
+        if (campaign.includes(key)) { detected = key; break; }
+    }
+
+    document.querySelectorAll('select[data-region-select]').forEach(sel => {
+        if (detected) {
+            // 감지된 지역 옵션 추가 (기타 위에)
+            const opt = document.createElement('option');
+            opt.value = detected;
+            opt.textContent = REGION_MAP[detected];
+            const etcOpt = sel.querySelector('option[value="기타"]');
+            sel.insertBefore(opt, etcOpt);
+            sel.value = detected; // 자동 선택
+        }
     });
 })();
 
@@ -1812,6 +1859,7 @@ const setupForm = (formId, btnId, textId, spinnerId, sourceLabel, defaultText) =
             industry: formData.get('industry') || '',
             annual_revenue: formData.get('annual_revenue') || '',
             tax_status: formData.get('tax_status') || '',
+            region: formData.get('region') || '',
             company_name: formData.get('company_name') || '',
             agreement: formData.get('agreement') ? '동의' : '미동의',
             submitted_at: new Date().toISOString(),
