@@ -1381,13 +1381,20 @@
             if (campaign.includes(key)) { detected = key; break; }
         }
         document.querySelectorAll('select[data-region-select]').forEach(sel => {
+            const etcOpt = sel.querySelector('option[value="기타"]');
             if (detected) {
                 const opt = document.createElement('option');
                 opt.value = detected;
                 opt.textContent = REGION_MAP[detected];
-                const etcOpt = sel.querySelector('option[value="기타"]');
                 sel.insertBefore(opt, etcOpt);
                 sel.value = detected;
+            } else {
+                Object.entries(REGION_MAP).forEach(([val, label]) => {
+                    const opt = document.createElement('option');
+                    opt.value = val;
+                    opt.textContent = label;
+                    sel.insertBefore(opt, etcOpt);
+                });
             }
         });
     })();

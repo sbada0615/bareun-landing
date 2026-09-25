@@ -1678,14 +1678,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     document.querySelectorAll('select[data-region-select]').forEach(sel => {
+        const etcOpt = sel.querySelector('option[value="기타"]');
         if (detected) {
-            // 감지된 지역 옵션 추가 (기타 위에)
+            // UTM 감지시: 감지된 지역만 + 자동 선택
             const opt = document.createElement('option');
             opt.value = detected;
             opt.textContent = REGION_MAP[detected];
-            const etcOpt = sel.querySelector('option[value="기타"]');
             sel.insertBefore(opt, etcOpt);
-            sel.value = detected; // 자동 선택
+            sel.value = detected;
+        } else {
+            // UTM 없으면: 17개 전체 표시
+            Object.entries(REGION_MAP).forEach(([val, label]) => {
+                const opt = document.createElement('option');
+                opt.value = val;
+                opt.textContent = label;
+                sel.insertBefore(opt, etcOpt);
+            });
         }
     });
 })();
