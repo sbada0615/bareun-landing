@@ -1,5 +1,0 @@
-# 유지보수 모드: 모든 요청을 maintenance.html로 보냄 (503)
-# 복구 방법: 이 파일 삭제 또는 아래 두 줄 주석 처리 (#) 후 푸시
-/robots.txt /robots.txt 200
-/maintenance.html /maintenance.html 200
-/* /maintenance.html 503
