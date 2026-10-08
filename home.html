@@ -2,87 +2,1414 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-    <meta name="googlebot" content="noindex, nofollow">
-    <meta http-equiv="refresh" content="0;url=about:blank" style="display:none">
-    <title>서비스 점검 중 | 바른정책자금연구소</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="바른정책자금연구소 — 소상공인·중소기업 정책자금 컨설팅 전문. 누적 승인 900억, 성공율 99%. 신뢰·결과·책임의 바른 시스템.">
+    <meta name="keywords" content="바른정책자금연구소, 정책자금 컨설팅, 소상공인 정책자금, 중소기업 정책자금, 강정균">
+
+    <meta property="og:title" content="바른정책자금연구소 | 정책자금 컨설팅 전문">
+    <meta property="og:description" content="신뢰·결과·책임. 누적 승인 900억, 성공율 99%의 바른 시스템.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/넥타이강정균.jpg">
+
+    <title>바른정책자금연구소 | 정책자금 컨설팅 전문</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#2563eb',
+                            600: '#1d4ed8',
+                            700: '#1e40af',
+                        },
+                        accent: {
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Pretendard', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
-            color: #fff;
-            padding: 20px;
+            font-family: 'Pretendard', system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            word-break: keep-all;
+            overflow-wrap: break-word;
         }
-        .container {
-            text-align: center;
-            max-width: 480px;
+        html { scroll-behavior: smooth; }
+        /* Reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        /* Sticky nav state */
+        .nav-scrolled {
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
-        .icon {
-            font-size: 64px;
-            margin-bottom: 24px;
+        /* Stat card hover */
+        .stat-card { transition: transform 0.3s, box-shadow 0.3s; }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37,99,235,0.15); }
+        /* Hero photo reveal from center */
+        @keyframes heroPhotoReveal {
+            0%   { clip-path: inset(0 50% 0 50%); filter: brightness(0) blur(8px); }
+            50%  { filter: brightness(0.65) blur(2px); }
+            100% { clip-path: inset(0 0% 0 0%); filter: brightness(1) blur(0px); }
         }
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
+        /* Golden aurora burst */
+        @keyframes auroraGlow {
+            0%   { opacity: 0; transform: scale(0.2);
+                   background: radial-gradient(ellipse at 50% 50%, rgba(255,210,0,1) 0%, rgba(255,160,20,0.6) 25%, rgba(255,100,0,0.2) 55%, transparent 75%); }
+            28%  { opacity: 1; transform: scale(1.1); }
+            60%  { opacity: 0.55; transform: scale(1.7); }
+            100% { opacity: 0; transform: scale(2.8);
+                   background: radial-gradient(ellipse at 50% 50%, rgba(255,210,0,0.3) 0%, transparent 60%); }
         }
-        p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.75);
-            margin-bottom: 32px;
+        /* 가로 스크롤 블로그 */
+        .cases-scroll { display:flex; overflow-x:auto; gap:16px; padding-bottom:12px; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+        .cases-scroll::-webkit-scrollbar { display:none; }
+        .cases-scroll > a { flex:0 0 260px; scroll-snap-align:start; cursor:pointer; -webkit-tap-highlight-color:rgba(0,0,0,0.08); }
+        /* Step 불빛 애니메이션 */
+        @keyframes stepLight {
+            0%   { background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.12); box-shadow:none; }
+            45%  { background:rgba(255,255,255,0.18); border-color:rgba(255,210,0,0.7);  box-shadow:0 0 22px rgba(255,210,0,0.35), inset 0 0 12px rgba(255,210,0,0.08); }
+            100% { background:rgba(255,255,255,0.10); border-color:rgba(255,255,255,0.2); box-shadow:0 0 6px rgba(255,210,0,0.12); }
         }
-        .contact {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 16px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
+        .step-card { opacity:0; transform:translateY(8px); transition: opacity 0.3s, transform 0.3s; }
+        .step-card.step-lit { opacity:1; transform:translateY(0); animation: stepLight 0.7s ease-out both; }
+        /* 마지막 주황 박스는 배경 유지 */
+        .step-card-last { opacity:0; transform:translateY(8px); transition: opacity 0.3s, transform 0.3s; }
+        .step-card-last.step-lit { opacity:1; transform:translateY(0); box-shadow:0 0 28px rgba(251,146,60,0.6); }
+
+        .hero-photo-reveal { animation: heroPhotoReveal 1.9s cubic-bezier(0.4,0,0.2,1) 0.25s both; }
+        .hero-aurora        { animation: auroraGlow     2.8s ease-out               0.2s  both; }
+        /* Ken Burns zoom-pan for video section background */
+        @keyframes kenBurns {
+            0%   { transform: scale(1) translate(0, 0); }
+            25%  { transform: scale(1.08) translate(-1%, -1.5%); }
+            50%  { transform: scale(1.12) translate(1%, 0); }
+            75%  { transform: scale(1.08) translate(0, 1%); }
+            100% { transform: scale(1) translate(0, 0); }
         }
-        .contact-label {
-            font-size: 12px;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 8px;
-            letter-spacing: 0.05em;
+        .ken-burns { animation: kenBurns 22s ease-in-out infinite; }
+        /* 한 글자씩 새겨지는 애니메이션 */
+        @keyframes charEngrave {
+            0%   { opacity: 0; transform: translateY(6px) scale(1.3); filter: blur(5px); }
+            60%  { opacity: 0.85; filter: blur(0.5px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
-        .contact-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #fbbf24;
-            text-decoration: none;
-            display: block;
+        .hero-text-engrave {
+            font-family: 'Noto Serif KR', serif;
+            font-weight: 900;
+            letter-spacing: 0.22em;
         }
-        .footer {
-            margin-top: 32px;
-            font-size: 12px;
-            color: rgba(255,255,255,0.35);
+        .hero-text-engrave .char {
+            display: inline-block;
+            opacity: 0;
+            animation: charEngrave 0.45s cubic-bezier(0.22,1,0.36,1) both;
+        }
+        /* Stepper line */
+        .step-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #cbd5e1, transparent);
+            transform: translateX(-50%);
+        }
+        @media (min-width: 768px) {
+            .step-line::before {
+                left: 0;
+                right: 0;
+                top: 32px;
+                bottom: auto;
+                width: auto;
+                height: 2px;
+                background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+                transform: none;
+            }
+        }
+        /* 승인사례 카드 스타일 */
+        .case-card-link { display: block; color: inherit; text-decoration: none; }
+        .case-card-link:hover { transform: translateY(-6px); transition: all 0.3s; box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15); }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        /* === 데스크톱 어른스러운 타이포그래피 === */
+        @media (min-width: 768px) {
+            /* 헤드라인 굵기 800 → 700 */
+            .desktop-mature h1, .desktop-mature h2, .desktop-mature h3 { font-weight: 700; letter-spacing: -0.02em; }
+            /* 데스크톱 섹션 큰 헤드라인 - font-black을 살짝 가볍게 */
+            section h2.font-black, section h3.font-black { font-weight: 700; letter-spacing: -0.02em; }
+            /* 노란 글자 빛나는 효과 제거 (데스크톱만) */
+            section h1 .text-yellow-300, section h2 .text-yellow-300, section h3 .text-yellow-300 { text-shadow: none !important; }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="icon">🔧</div>
-        <h1>서비스 점검 중입니다</h1>
-        <p>
-            더 나은 서비스 제공을 위해<br>
-            시스템 점검을 진행하고 있습니다.<br><br>
-            점검이 완료될 때까지 전화로 문의 주시면<br>
-            빠르게 도와드리겠습니다.
-        </p>
-        <div class="contact">
-            <div class="contact-label">상담 전화</div>
-            <a href="tel:1666-0266" class="contact-number">📞 1666-0266</a>
+<body class="bg-white text-gray-900">
+
+<!-- ============================================
+     STICKY NAV
+============================================ -->
+<nav id="topNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black">
+    <div class="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
+        <!-- 왼쪽: 로고 -->
+        <a href="#hero" class="flex items-center gap-2 flex-shrink-0">
+            <img src="images/바른정책자금로고.png" alt="바른정책자금연구소" class="h-8 w-auto">
+            <span class="text-white font-normal text-sm tracking-tight whitespace-nowrap">바른정책자금연구소</span>
+        </a>
+        <!-- 가운데: 메뉴 (데스크톱만) -->
+        <div class="hidden md:flex items-center gap-7 text-white text-sm font-medium">
+            <a href="회사소개" class="hover:text-yellow-300 transition">회사소개</a>
+            <a href="바른서비스" class="hover:text-yellow-300 transition">바른서비스</a>
+            <a href="성공사례" class="hover:text-yellow-300 transition">성공사례</a>
+            <a href="문의하기" class="hover:text-yellow-300 transition">문의하기</a>
         </div>
-        <div class="footer">
-            바른정책자금연구소
+        <!-- 오른쪽: 전화 + 모바일 햄버거 -->
+        <div class="flex items-center gap-2 flex-shrink-0">
+            <a href="tel:1666-0266" onclick="slTrackConversion()" class="hidden md:inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold px-4 py-2 rounded-full transition">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                1666-0266
+            </a>
+            <button id="mobileMenuBtn" class="md:hidden text-white p-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
     </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden bg-slate-900/95 backdrop-blur border-t border-white/10">
+        <div class="px-5 py-3 flex flex-col gap-1 text-white text-sm">
+            <a href="회사소개" class="py-2.5 hover:text-yellow-300">회사소개</a>
+            <a href="바른서비스" class="py-2.5 hover:text-yellow-300">바른서비스</a>
+            <a href="성공사례" class="py-2.5 hover:text-yellow-300">성공사례</a>
+            <a href="문의하기" class="py-2.5 hover:text-yellow-300">문의하기</a>
+            <a href="tel:1666-0266" onclick="slTrackConversion()" class="py-2.5 text-yellow-300 font-bold">📞 1666-0266</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ============================================
+     1. HERO
+============================================ -->
+<section id="hero" class="relative text-white overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.6),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(124,58,237,0.5),transparent_50%)] pointer-events-none"></div>
+
+    <!-- ===== MOBILE: 풀스크린 단체사진 히어로 ===== -->
+    <div class="md:hidden relative" style="padding-top:44px;">
+        <div class="relative w-full overflow-hidden">
+            <img src="images/단체사진7.jpg?v=2" alt="바른정책자금연구소 팀"
+                 class="hero-photo-reveal w-full h-auto block">
+            <!-- 금빛 오로라 -->
+            <div class="hero-aurora absolute inset-0 pointer-events-none"></div>
+            <!-- 바른정책자금연구소 새겨지는 텍스트 -->
+            <div class="absolute inset-x-0 pointer-events-none" style="top:52%;">
+                <p class="hero-text-engrave text-center font-black text-3xl"
+                   style="color:#111; text-shadow: 0 1px 4px rgba(255,255,255,0.7); letter-spacing:0.18em;">
+                    바른정책자금연구소
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== DESKTOP: 2컬럼 레이아웃 ===== -->
+    <div class="hidden md:block relative max-w-6xl mx-auto px-5 pt-20 pb-6">
+        <!-- 악수 이미지: 그리드 영역만 (단체사진 높이 매치), 왼쪽 화면 끝까지 bleed -->
+        <img src="images/악수.jpg" alt="" aria-hidden="true"
+             class="absolute top-0 bottom-0 object-cover opacity-80 pointer-events-none"
+             style="left: calc((100% - 100vw) / 2); width: 60vw; object-position: center top; mask-image: linear-gradient(to right, black 0%, black 50%, transparent 100%); -webkit-mask-image: linear-gradient(to right, black 0%, black 50%, transparent 100%);">
+        <!-- Dark overlay (그리드 영역만) -->
+        <div class="absolute top-0 bottom-0 bg-gradient-to-r from-slate-900/40 via-slate-900/30 to-slate-900/0 pointer-events-none"
+             style="left: calc((100% - 100vw) / 2); right: 0;"></div>
+
+        <div class="grid md:grid-cols-2 gap-10 items-center relative z-10">
+            <!-- LEFT: 텍스트 -->
+            <div>
+                <div class="inline-flex items-center gap-1.5 bg-yellow-400/15 border border-yellow-400/40 rounded-full px-3 py-1 mb-5">
+                    <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full animate-pulse"></span>
+                    <span class="text-sm text-yellow-300 font-medium">소상공인·중소기업 정책자금 컨설팅 전문</span>
+                </div>
+                <h1 class="text-5xl lg:text-6xl font-bold leading-tight mb-5 tracking-tight">
+                    <span class="block">소상공인·중소기업</span>
+                    <span class="block text-yellow-300">정책자금 전문 컨설팅</span>
+                </h1>
+                <p class="text-lg text-blue-100/90 leading-relaxed">
+                    복잡한 300여개 정책자금을 전문가가 분석해 맞춤 해답을 드립니다.
+                </p>
+            </div>
+
+            <!-- RIGHT: 단체사진 카드 + 애니메이션 -->
+            <div class="relative">
+                <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-white/5 border-2 border-yellow-400/30">
+                    <div class="hero-photo-reveal absolute inset-0">
+                        <img src="images/단체사진7.jpg?v=2" alt="바른정책자금연구소 강정균 대표 및 팀"
+                             class="w-full h-full object-cover">
+                    </div>
+                    <!-- 데스크탑 오로라 (카드 내부) -->
+                    <div class="hero-aurora absolute inset-0 pointer-events-none"></div>
+                    <div class="absolute bottom-4 left-0 right-0 flex justify-center px-2">
+                        <div class="bg-white/95 backdrop-blur text-slate-900 px-4 py-2 rounded-lg shadow-2xl inline-flex items-center gap-2 whitespace-nowrap">
+                            <span class="text-base text-blue-600 font-bold">바른정책자금연구소</span>
+                            <span class="text-2xl font-black">강정균 대표</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA buttons (데스크톱: 통계 카드 위 가운데) -->
+    <div class="hidden md:flex relative max-w-6xl mx-auto px-5 pb-4 justify-center gap-3">
+        <a href="문의하기" onclick="slTrackConversion()"
+           class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold text-lg px-8 py-4 rounded-xl shadow-xl transition transform hover:scale-105">
+            무료 상담 신청
+        </a>
+        <a href="tel:1666-0266" onclick="slTrackConversion()"
+           class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur border-2 border-white/30 text-white font-bold text-lg px-8 py-4 rounded-xl transition">
+            📞 1666-0266
+        </a>
+    </div>
+
+
+    <!-- 핵심 메시지 (모바일만, stats 아래) -->
+    <div class="md:hidden bg-white text-slate-900 px-5 pt-8 pb-7">
+        <div class="inline-flex items-center gap-1.5 bg-blue-50 border border-blue-200 rounded-full px-3 py-1 mb-4">
+            <span class="w-1.5 h-1.5 bg-brand-500 rounded-full animate-pulse"></span>
+            <span class="text-xs text-brand-600 font-semibold">소상공인·중소기업 정책자금 컨설팅 전문</span>
+        </div>
+        <h1 class="text-3xl font-black leading-tight mb-3">
+            <span class="block">소상공인·중소기업</span>
+            <span class="block text-brand-500">정책자금 전문 컨설팅</span>
+        </h1>
+        <p class="text-sm text-gray-600 leading-relaxed mb-5">
+            복잡한 300여개 정책자금을 전문가가 분석해 맞춤 해답을 드립니다.
+        </p>
+        <div class="flex flex-col gap-3">
+            <a href="문의하기" onclick="slTrackConversion()" class="inline-flex items-center justify-center gap-2 bg-accent-500 hover:bg-accent-600 text-white font-bold text-base px-7 py-4 rounded-xl shadow-lg transition">
+                무료 상담 신청
+            </a>
+            <a href="tel:1666-0266" onclick="slTrackConversion()" class="inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-base px-7 py-3 rounded-xl transition">
+                📞 1666-0266
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     2.7 SUCCESS CASES (블로그 후기)
+============================================ -->
+<section id="cases" class="py-20 md:py-28 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center mb-12 md:mb-16 reveal">
+            <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-4">
+                실제 승인 사례
+            </h2>
+            <p class="text-base md:text-lg text-gray-600">
+                네이버 블로그에 매주 새로운 후기가 올라옵니다.
+            </p>
+        </div>
+
+        <div class="flex md:grid md:grid-cols-3 gap-5 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 -mx-5 px-5 md:mx-0 md:px-0 scrollbar-hide">
+            <!-- Case 1 -->
+            <a href="https://blog.naver.com/kjgman77/224241384695" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/소진공 대리대출 확인서.png" alt="소진공 대리대출" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">소진공 긴급경영안정자금</span>
+                    <div class="text-white text-3xl font-black">3,000만원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">재단 부결 → 소진공 대리대출로 우회</h3>
+                    <p class="text-xs text-gray-500 mb-3">도소매업 · 긴급경영안정자금</p>
+                    <span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                </div>
+            </a>
+            <!-- Case 2 -->
+            <a href="https://blog.naver.com/kjgman77/224245660368" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/정책자금 기술보증.png" alt="기술보증" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">기술보증기금</span>
+                    <div class="text-white text-3xl font-black">1억원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">정밀 금속 제조 — 기술가치로 기보 통과</h3>
+                    <p class="text-xs text-gray-500 mb-3">정밀 금속 제조업 · 기보 보증부 자금</p>
+                    <span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                </div>
+            </a>
+            <!-- Case 3 -->
+            <a href="https://blog.naver.com/kjgman77/224243044909" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/정책자금 승인 사례.png" alt="정책자금 승인 사례" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">재단 + 혁신성장 동시 승인</span>
+                    <div class="text-white text-3xl font-black">7,000만원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">재단 3천 + 혁신성장 4천 동시 승인</h3>
+                    <p class="text-xs text-gray-500 mb-3">외식업 (경기도) · 운영자금</p>
+                    <span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                </div>
+            </a>
+            <!-- Case 4 -->
+            <a href="https://blog.naver.com/kjgman77/224240627145" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/정책자금 신청, 반송.png" alt="반송 사례" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">주소 검색 불가 → 우선 접수</span>
+                    <div class="text-white text-3xl font-black">실사 통과<span class="text-base text-yellow-300 font-normal ml-1">최종 승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">신축 입주, 주소 검색 안 됐지만 거주지로 우선 접수</h3>
+                    <p class="text-xs text-gray-500 mb-3">신축 건물 입주 사업자 · 운영자금</p>
+                    <span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                </div>
+            </a>
+            <!-- Case 5 -->
+            <a href="https://blog.naver.com/kjgman77/224265750874" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/정책자금특례보증.png" alt="특례보증" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">지역재단 정책자금 특례보증</span>
+                    <div class="text-white text-3xl font-black">3,000만원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">카드론 이력 부결 → 특례보증 3,000만원</h3>
+                    <p class="text-xs text-gray-500 mb-3">소상공인 · 지역재단 특례보증</p>
+                    <span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                </div>
+            </a>
+            <!-- Case 6 -->
+            <a href="https://blog.naver.com/kjgman77/224261320814" target="_blank" rel="noopener" class="case-card-link flex-shrink-0 w-[85%] md:w-auto snap-start bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all">
+                <div class="aspect-[16/10] bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden">
+                    <img src="images/제조업 정책자금.png" alt="제조업 자금" class="w-full h-full object-cover">
+                </div>
+                <div class="bg-gradient-to-r from-slate-900 to-slate-700 p-5">
+                    <span class="inline-block bg-yellow-300 text-slate-900 text-xs font-bold px-3 py-1 rounded-full mb-2">제조업 정책자금</span>
+                    <div class="text-white text-3xl font-black">1억원<span class="text-base text-yellow-300 font-normal ml-1">승인</span></div>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 mb-2 leading-snug">자가 자산 없이 제조업 1억 확보</h3>
+                    <p class="text-xs text-gray-500 mb-3">제조업 · 운영자금</p>
+                    <span class="inline-flex items-center gap-1 text-xs text-blue-700 font-bold">📖 자세한 후기 보기 →</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="text-center reveal">
+            <a href="성공사례"
+               class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold px-7 py-4 rounded-xl transition shadow-lg">
+                전체 승인 사례 보기 (21건+)
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     2.5 YOUTUBE VIDEO — 강정균 대표 직접 설명
+============================================ -->
+<section class="relative overflow-hidden text-white flex flex-col md:max-w-md md:mx-auto md:my-12 md:rounded-3xl md:shadow-2xl md:aspect-[9/16]" style="min-height: 600px;">
+    <!-- Background video (autoplay loop muted) -->
+    <video class="absolute inset-0 w-full h-full object-cover"
+           autoplay loop muted playsinline preload="auto"
+           poster="https://i.ytimg.com/vi/doww0Aaj8SM/maxresdefault.jpg">
+        <source src="images/3eok.mp4" type="video/mp4">
+    </video>
+    <img src="https://i.ytimg.com/vi/doww0Aaj8SM/maxresdefault.jpg"
+         alt="" class="ken-burns absolute inset-0 w-full h-full object-cover -z-10">
+
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/85 via-slate-900/10 to-slate-900/90"></div>
+
+    <!-- Top content -->
+    <div class="relative z-10 max-w-4xl mx-auto px-5 pt-8 md:pt-12 text-center">
+        <div class="inline-flex items-center gap-2 bg-red-600/90 backdrop-blur rounded-full px-4 py-1.5 mb-3 shadow-lg">
+            <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            <span class="text-xs text-white font-bold">📺 영상으로 보기</span>
+        </div>
+        <h2 class="text-2xl md:text-4xl font-black mb-3 drop-shadow-lg">
+            <span class="text-yellow-300">강정균 대표</span>가 직접 설명
+        </h2>
+        <p class="text-sm md:text-lg text-blue-100 drop-shadow">
+            글보다 영상이 편한 대표님은<br>
+            <strong class="text-white">1분 쇼츠</strong>로 빠르게 확인하세요.
+        </p>
+    </div>
+
+    <!-- Spacer -->
+    <div class="flex-1"></div>
+
+    <!-- Bottom CTA -->
+    <div class="relative z-10 max-w-4xl mx-auto w-full px-5 pb-8 md:pb-12 text-center">
+        <a href="https://youtube.com/shorts/doww0Aaj8SM" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-black px-7 py-3.5 rounded-xl shadow-2xl transition-all transform hover:scale-105">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5,3 19,12 5,21"/>
+            </svg>
+            1분 쇼츠 영상 보기
+        </a>
+    </div>
+</section>
+
+<!-- ============================================
+     2.7 사업장 이전 안내 — 송도 → 검단법조타운
+============================================ -->
+<section id="relocation" class="relative py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white overflow-hidden">
+    <div class="max-w-6xl mx-auto px-5">
+
+        <!-- 헤더 -->
+        <div class="text-center mb-12 md:mb-16 reveal">
+            <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-800 rounded-full px-4 py-1.5 mb-4 text-xs md:text-sm font-bold shadow-sm">
+                <span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span>
+                📢 사업장 이전 완료
+            </div>
+            <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-4 leading-tight">
+                검단법조타운으로,<br>
+                <span class="text-brand-600">더 큰 신뢰로 이전했습니다</span>
+            </h2>
+            <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed break-keep">
+                바른정책자금연구소가<br class="md:hidden"> 성장하여 새로운 보금자리로 옮겼습니다.<br>
+                <strong class="text-slate-900">인천 검단 법조타운에서 새 출발합니다.</strong>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- 법조타운 신뢰 박스 — 북부법원 조감도를 배경으로 -->
+    <div class="relative my-12 md:my-16 overflow-hidden min-h-[360px] md:min-h-[680px]">
+        <!-- 배경 이미지 + 오버레이 -->
+        <div class="absolute inset-0 z-0">
+            <img src="images/북부법원_조감도.webp"
+                 alt="인천지방법원 북부지원 · 인천지방검찰청 북부지청 조감도"
+                 class="w-full h-full object-cover" />
+            <!-- 다크 오버레이 (상단만 진하게, 하단은 배경 보이게) -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/40 to-slate-900/20"></div>
+        </div>
+
+        <!-- flex 컬럼: 헤더 위, 카드 아래 정렬 -->
+        <div class="relative z-10 max-w-5xl mx-auto px-5 pt-6 md:pt-8 pb-6 md:pb-8 min-h-[360px] md:min-h-[680px] flex flex-col">
+            <!-- 헤더 상단 (타이틀만) -->
+            <div class="text-center reveal">
+                <div class="inline-flex items-center gap-1.5 bg-yellow-300/15 backdrop-blur border border-yellow-300/50 text-yellow-300 text-[10px] md:text-xs font-bold px-3.5 py-1.5 rounded-full mb-4 tracking-wider shadow-lg">
+                    <span class="w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse"></span>
+                    🏛️ 검단법조타운 조감도 · 2028년 개원 예정
+                </div>
+                <h3 class="text-3xl md:text-5xl font-black text-white mb-4 drop-shadow-lg">
+                    왜 <span class="text-yellow-300">검단법조타운</span>인가?
+                </h3>
+            </div>
+
+            <!-- 스페이서 (배경 사진 더 잘 보이게) -->
+            <div class="flex-1"></div>
+
+            <!-- 헤더 하단 (부제 - 사진 아래쪽에 배치) -->
+            <div class="text-center reveal mb-6 md:mb-8">
+                <p class="text-sm md:text-base text-white max-w-2xl mx-auto leading-relaxed break-keep drop-shadow-lg">
+                    인천 북부지역의 핵심 법조 인프라가 들어서는 미래 중심지.<br>
+                    <strong class="text-white font-semibold">우리가 이곳을 선택한 이유입니다.</strong>
+                </p>
+            </div>
+
+            <!-- 3 카드 (데스크탑 전용 - 배경 위에 배치) -->
+            <div class="hidden md:grid md:grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto w-full">
+                <!-- 카드 1: 인천지방법원 북부지원 -->
+                <div class="bg-white/55 backdrop-blur-md rounded-xl p-4 md:p-5 shadow-2xl border border-white/60 ring-1 ring-white/20 text-center hover:bg-white/75 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-12 h-12 md:w-14 md:h-14 mx-auto mb-2.5 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-lg ring-2 ring-white/50">
+                        <svg class="w-6 h-6 md:w-7 md:h-7 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        </svg>
+                    </div>
+                    <div class="inline-block bg-amber-100 text-amber-700 text-[10px] md:text-xs font-bold px-2 py-0.5 rounded-full mb-1.5 border border-amber-200">
+                        2028년 개원 예정
+                    </div>
+                    <div class="font-semibold text-slate-900 text-sm md:text-base mb-1 leading-snug tracking-tight">
+                        인천지방법원<br>북부지원
+                    </div>
+                    <div class="text-[11px] md:text-xs text-slate-700 font-medium">서구 · 계양구 · 강화군 관할</div>
+                </div>
+
+                <!-- 카드 2: 인천지방검찰청 북부지청 -->
+                <div class="bg-white/55 backdrop-blur-md rounded-xl p-4 md:p-5 shadow-2xl border border-white/60 ring-1 ring-white/20 text-center hover:bg-white/75 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-12 h-12 md:w-14 md:h-14 mx-auto mb-2.5 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-lg ring-2 ring-white/50">
+                        <svg class="w-6 h-6 md:w-7 md:h-7 text-yellow-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                            <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="inline-block bg-amber-100 text-amber-700 text-[10px] md:text-xs font-bold px-2 py-0.5 rounded-full mb-1.5 border border-amber-200">
+                        2028년 개원 예정
+                    </div>
+                    <div class="font-semibold text-slate-900 text-sm md:text-base mb-1 leading-snug tracking-tight">
+                        인천지방검찰청<br>북부지청
+                    </div>
+                    <div class="text-[11px] md:text-xs text-slate-700 font-medium">서구 · 계양구 · 강화군 관할</div>
+                </div>
+
+                <!-- 카드 3: 아라역 -->
+                <div class="bg-white/55 backdrop-blur-md rounded-xl p-4 md:p-5 shadow-2xl border border-white/60 ring-1 ring-white/20 text-center hover:bg-white/75 hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-12 h-12 md:w-14 md:h-14 mx-auto mb-2.5 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center shadow-lg ring-2 ring-white/50">
+                        <svg class="w-6 h-6 md:w-7 md:h-7 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C8 2 4 2.5 4 6v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2h3.54l2 2H18v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm2 0V6h5v4h-5zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                        </svg>
+                    </div>
+                    <div class="inline-block bg-blue-100 text-blue-700 text-[10px] md:text-xs font-bold px-2 py-0.5 rounded-full mb-1.5 border border-blue-200">
+                        인천도시철도 1호선
+                    </div>
+                    <div class="font-semibold text-slate-900 text-sm md:text-base mb-1 leading-snug tracking-tight">
+                        아라역<br>(북부법원·검찰청)
+                    </div>
+                    <div class="text-[11px] md:text-xs text-slate-700 font-medium">역명 개명 예정 · 도보권</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-5">
+        <!-- 모바일 전용 3카드 (배경 사진 아래) -->
+        <div class="md:hidden grid grid-cols-3 gap-2 mt-6 mb-2">
+            <!-- 카드 1: 법원 -->
+            <div class="bg-white rounded-lg p-2.5 shadow-md border border-slate-200 text-center">
+                <div class="w-9 h-9 mx-auto mb-1.5 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center ring-1 ring-amber-300/40">
+                    <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                </div>
+                <div class="inline-block bg-amber-100 text-amber-700 text-[8px] font-bold px-1.5 py-0.5 rounded-full mb-1 border border-amber-200">
+                    2028 개원
+                </div>
+                <div class="font-semibold text-slate-900 text-[11px] leading-tight tracking-tight">
+                    인천지방법원<br>북부지원
+                </div>
+            </div>
+
+            <!-- 카드 2: 검찰청 -->
+            <div class="bg-white rounded-lg p-2.5 shadow-md border border-slate-200 text-center">
+                <div class="w-9 h-9 mx-auto mb-1.5 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center ring-1 ring-amber-300/40">
+                    <svg class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                        <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="inline-block bg-amber-100 text-amber-700 text-[8px] font-bold px-1.5 py-0.5 rounded-full mb-1 border border-amber-200">
+                    2028 개원
+                </div>
+                <div class="font-semibold text-slate-900 text-[11px] leading-tight tracking-tight">
+                    인천지방검찰청<br>북부지청
+                </div>
+            </div>
+
+            <!-- 카드 3: 아라역 -->
+            <div class="bg-white rounded-lg p-2.5 shadow-md border border-slate-200 text-center">
+                <div class="w-9 h-9 mx-auto mb-1.5 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center ring-1 ring-blue-300/40">
+                    <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C8 2 4 2.5 4 6v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2h3.54l2 2H18v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V6h5v4zm2 0V6h5v4h-5zm3.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                    </svg>
+                </div>
+                <div class="inline-block bg-blue-100 text-blue-700 text-[8px] font-bold px-1.5 py-0.5 rounded-full mb-1 border border-blue-200">
+                    1호선
+                </div>
+                <div class="font-semibold text-slate-900 text-[11px] leading-tight tracking-tight">
+                    아라역<br>(법원·검찰청)
+                </div>
+            </div>
+        </div>
+
+        <!-- 사업자등록증 비포애프터 애니메이션 -->
+        <div class="reveal max-w-5xl mx-auto mb-10 md:mb-12 mt-12 md:mt-16">
+            <div class="text-center mb-6">
+                <div class="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 text-[11px] md:text-xs font-bold px-3 py-1.5 rounded-full mb-3 border border-emerald-200 shadow-sm">
+                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+                    ✅ 사업자등록 정식 변경 완료
+                </div>
+                <h4 class="text-xl md:text-2xl font-bold text-slate-900 tracking-tight">
+                    송도에서 검단으로, 공식 등록 이전
+                </h4>
+            </div>
+
+            <!-- 비포애프터 스테이지 -->
+            <div class="relocation-stage relative h-[420px] md:h-[560px]">
+                <!-- 구 사업자등록증 -->
+                <div class="relocation-old">
+                    <div class="text-center mb-2">
+                        <span class="inline-block bg-slate-200 text-slate-600 text-[10px] md:text-xs font-bold px-3 py-1 rounded-full">
+                            BEFORE · 2025.08 송도 시절
+                        </span>
+                    </div>
+                    <div class="relative bg-white rounded-lg shadow-xl border border-slate-200 p-2">
+                        <img src="images/사업자등록증_구_송도.jpg"
+                             alt="이전 사업자등록증 (인천 연수구 송도)"
+                             class="block rounded" />
+                    </div>
+                </div>
+
+                <!-- 화살표 -->
+                <div class="relocation-arrow">
+                    <div class="bg-gradient-to-r from-amber-400 to-amber-500 text-white rounded-full p-3 md:p-4 shadow-2xl">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="w-7 h-7 md:w-10 md:h-10">
+                            <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- 신 사업자등록증 -->
+                <div class="relocation-new">
+                    <div class="text-center mb-2">
+                        <span class="inline-block bg-amber-500 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded-full shadow-md">
+                            AFTER · 2026.06 검단법조타운
+                        </span>
+                    </div>
+                    <div class="relative bg-white rounded-lg shadow-2xl border-2 border-amber-400 ring-4 ring-amber-100 p-2">
+                        <!-- 코너 장식 -->
+                        <div class="absolute -top-1.5 -left-1.5 w-5 h-5 border-t-2 border-l-2 border-amber-500 rounded-tl"></div>
+                        <div class="absolute -top-1.5 -right-1.5 w-5 h-5 border-t-2 border-r-2 border-amber-500 rounded-tr"></div>
+                        <div class="absolute -bottom-1.5 -left-1.5 w-5 h-5 border-b-2 border-l-2 border-amber-500 rounded-bl"></div>
+                        <div class="absolute -bottom-1.5 -right-1.5 w-5 h-5 border-b-2 border-r-2 border-amber-500 rounded-br"></div>
+
+                        <img src="images/사업자등록증_신_검단.png"
+                             alt="현 사업자등록증 (인천 서구 검단법조푸리마타워)"
+                             class="block rounded" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+        /* ===== 사업장 이전 비포애프터 애니메이션 ===== */
+        .relocation-stage {
+            position: relative;
+            width: 100%;
+        }
+        .relocation-old, .relocation-new, .relocation-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition: transform 1.4s cubic-bezier(0.45, 0, 0.15, 1), opacity 1.2s ease-out, filter 1.4s ease-out;
+            will-change: transform, opacity;
+        }
+        .relocation-old img, .relocation-new img {
+            max-height: 340px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .relocation-old img, .relocation-new img { max-height: 220px; }
+        }
+
+        /* 초기: 구 사업자등록증 가운데, 신/화살표 숨김 */
+        .relocation-old {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            z-index: 2;
+        }
+        .relocation-new {
+            transform: translate(-50%, -50%) scale(0.7);
+            opacity: 0;
+            z-index: 1;
+        }
+        .relocation-arrow {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            z-index: 3;
+        }
+
+        /* 활성: 구는 왼쪽 작게, 신은 오른쪽 크게, 화살표 중앙 */
+        .relocation-stage.activated .relocation-old {
+            transform: translate(calc(-50% - 200px), -50%) scale(0.55);
+            opacity: 0.5;
+            filter: grayscale(70%);
+        }
+        .relocation-stage.activated .relocation-new {
+            transform: translate(calc(-50% + 200px), -50%) scale(1);
+            opacity: 1;
+            z-index: 2;
+        }
+        .relocation-stage.activated .relocation-arrow {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* 모바일: 위아래 배치 */
+        @media (max-width: 768px) {
+            .relocation-stage.activated .relocation-old {
+                transform: translate(-50%, calc(-50% - 130px)) scale(0.55);
+            }
+            .relocation-stage.activated .relocation-new {
+                transform: translate(-50%, calc(-50% + 105px)) scale(0.92);
+            }
+            .relocation-stage.activated .relocation-arrow {
+                transform: translate(-50%, calc(-50% - 40px)) rotate(90deg) scale(0.65);
+            }
+        }
+        </style>
+
+        <script>
+        (function() {
+            const stage = document.querySelector('.relocation-stage');
+            if (!stage) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => stage.classList.add('activated'), 700);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.35 });
+            observer.observe(stage);
+        })();
+        </script>
+
+        <!-- 지도 (작은 크기) + 네이버 지도 버튼 -->
+        <div class="reveal max-w-3xl mx-auto mb-8">
+            <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200">
+                <iframe
+                    src="https://maps.google.com/maps?q=%EA%B2%80%EB%8B%A8%EB%B2%95%EC%A1%B0%ED%91%B8%EB%A6%AC%EB%A7%88%ED%83%80%EC%9B%8C&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%" height="240"
+                    style="border:0;"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="검단법조푸리마타워 위치">
+                </iframe>
+            </div>
+            <!-- 정확한 위치 안내 + 네이버 지도 링크 -->
+            <div class="mt-3 flex flex-col sm:flex-row items-center justify-between gap-3 px-2">
+                <div class="text-sm text-slate-600 text-center sm:text-left">
+                    <span class="inline-flex items-center gap-1.5">
+                        📍 <strong class="text-slate-900">검단법조푸리마타워 1동 3층 314호</strong>
+                    </span>
+                </div>
+                <a href="https://map.naver.com/v5/search/바른정책자금연구소"
+                   target="_blank" rel="noopener"
+                   class="inline-flex items-center gap-2 bg-[#03C75A] hover:bg-[#02B350] text-white font-bold text-sm px-4 py-2 rounded-lg shadow-md transition-all hover:shadow-lg">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M16.273 12.845 7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727z"/>
+                    </svg>
+                    네이버 지도에서 정확한 위치 보기
+                </a>
+            </div>
+        </div>
+
+        <!-- 강조 메시지 -->
+        <div class="reveal text-center bg-gradient-to-r from-slate-50 to-amber-50 rounded-2xl p-6 md:p-8 border border-amber-200/60 max-w-5xl mx-auto">
+            <p class="text-base md:text-xl text-slate-800 leading-relaxed font-medium break-keep">
+                바른정책자금연구소는<br>
+                <strong class="text-slate-900">검단법조타운의 핵심 입지</strong>에 자리잡아<br>
+                <strong class="text-brand-600">법·제도에 기반한 정확한 정책자금 컨설팅</strong>으로 보답하겠습니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     2. CORE VALUES (신뢰·결과·책임)
+============================================ -->
+<section id="about" class="py-20 md:py-28 bg-slate-50">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center mb-12 md:mb-16 reveal">
+            <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-4">
+                100% 성과를 위한 <span class="text-brand-600">바른만의 검증된 시스템</span>
+            </h2>
+            <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">저희는 단순 컨설팅이 아닌, 대표님의 사업과 함께 성장하는 파트너입니다.</p>
+        </div>
+
+        <div class="reveal grid grid-cols-3 gap-4 md:gap-6">
+            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-md border border-slate-100 text-center">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h3 class="text-lg md:text-xl font-black text-slate-900 mb-2">신뢰</h3>
+                <p class="text-xs md:text-sm text-gray-600 leading-relaxed">정직하게, 끝까지 함께합니다.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-md border border-slate-100 text-center">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <h3 class="text-lg md:text-xl font-black text-slate-900 mb-2">결과</h3>
+                <p class="text-xs md:text-sm text-gray-600 leading-relaxed">최적 자금 분석·매칭으로 최대 한도 승인.</p>
+            </div>
+            <div class="bg-white rounded-2xl p-5 md:p-6 shadow-md border border-slate-100 text-center">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mx-auto mb-3 shadow-md">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                </div>
+                <h3 class="text-lg md:text-xl font-black text-slate-900 mb-2">책임</h3>
+                <p class="text-xs md:text-sm text-gray-600 leading-relaxed">실행 후 1년, 추가 자금까지 책임집니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     3. 이런 분께 필요합니다
+============================================ -->
+<section class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="relative max-w-6xl mx-auto px-5">
+        <div class="text-center mb-12 md:mb-16 reveal">
+            <h2 class="text-3xl md:text-5xl font-bold text-slate-900 mb-4 tracking-tight">
+                이런 분께 꼭 필요합니다
+            </h2>
+            <p class="text-base md:text-lg text-gray-600 max-w-xl mx-auto break-keep">
+                해당된다면,<br>
+                지금 바로 상담 받아보세요.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5 mb-8 sm:mb-12">
+            <div class="reveal text-center bg-slate-900 border-2 border-amber-500/60 rounded-2xl p-4 sm:p-7 hover:border-amber-400 hover:bg-black transition">
+                <div class="w-12 h-12 sm:w-20 sm:h-20 mx-auto rounded-2xl border-2 border-amber-500/60 flex items-center justify-center mb-3 sm:mb-5 bg-black/50">
+                    <svg class="w-6 h-6 sm:w-10 sm:h-10 text-amber-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 000 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 000-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+                </div>
+                <div class="font-bold text-amber-300 mb-1 sm:mb-2 text-xs sm:text-lg">정책자금 신청이 처음이신 분</div>
+                <div class="text-xs text-amber-100/70 hidden sm:block">처음부터 끝까지 전문가가 이끌어드립니다.</div>
+            </div>
+            <div class="reveal text-center bg-slate-900 border-2 border-amber-500/60 rounded-2xl p-4 sm:p-7 hover:border-amber-400 hover:bg-black transition">
+                <div class="w-12 h-12 sm:w-20 sm:h-20 mx-auto rounded-2xl border-2 border-amber-500/60 flex items-center justify-center mb-3 sm:mb-5 bg-black/50">
+                    <svg class="w-6 h-6 sm:w-10 sm:h-10 text-amber-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"/></svg>
+                </div>
+                <div class="font-bold text-amber-300 mb-1 sm:mb-2 text-xs sm:text-lg">혼자 신청했다가 거절당하신 분</div>
+                <div class="text-xs text-amber-100/70 hidden sm:block">전략을 바꾸면 재도전 성공률이 높습니다.</div>
+            </div>
+            <div class="reveal text-center bg-slate-900 border-2 border-amber-500/60 rounded-2xl p-4 sm:p-7 hover:border-amber-400 hover:bg-black transition">
+                <div class="w-12 h-12 sm:w-20 sm:h-20 mx-auto rounded-2xl border-2 border-amber-500/60 flex items-center justify-center mb-3 sm:mb-5 bg-black/50">
+                    <svg class="w-6 h-6 sm:w-10 sm:h-10 text-amber-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/></svg>
+                </div>
+                <div class="font-bold text-amber-300 mb-1 sm:mb-2 text-xs sm:text-lg">시설·운전자금이 급하게 필요한 분</div>
+                <div class="text-xs text-amber-100/70 hidden sm:block">빠른 경로로 신속하게 진행합니다.</div>
+            </div>
+            <div class="reveal text-center bg-slate-900 border-2 border-amber-500/60 rounded-2xl p-4 sm:p-7 hover:border-amber-400 hover:bg-black transition">
+                <div class="w-12 h-12 sm:w-20 sm:h-20 mx-auto rounded-2xl border-2 border-amber-500/60 flex items-center justify-center mb-3 sm:mb-5 bg-black/50">
+                    <svg class="w-6 h-6 sm:w-10 sm:h-10 text-amber-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941"/></svg>
+                </div>
+                <div class="font-bold text-amber-300 mb-1 sm:mb-2 text-xs sm:text-lg">사업 확장·설비 투자를 계획 중인 분</div>
+                <div class="text-xs text-amber-100/70 hidden sm:block">낮은 금리·긴 상환으로 투자 부담을 줄여드립니다.</div>
+            </div>
+            <div class="reveal text-center bg-slate-900 border-2 border-amber-500/60 rounded-2xl p-4 sm:p-7 hover:border-amber-400 hover:bg-black transition">
+                <div class="w-12 h-12 sm:w-20 sm:h-20 mx-auto rounded-2xl border-2 border-amber-500/60 flex items-center justify-center mb-3 sm:mb-5 bg-black/50">
+                    <svg class="w-6 h-6 sm:w-10 sm:h-10 text-amber-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg>
+                </div>
+                <div class="font-bold text-amber-300 mb-1 sm:mb-2 text-xs sm:text-lg">창업 5년 이내 초기 기업</div>
+                <div class="text-xs text-amber-100/70 hidden sm:block">매출이 적어도 받을 수 있는 전용 자금이 있습니다.</div>
+            </div>
+            <div class="reveal text-center bg-slate-900 border-2 border-amber-500/60 rounded-2xl p-4 sm:p-7 hover:border-amber-400 hover:bg-black transition">
+                <div class="w-12 h-12 sm:w-20 sm:h-20 mx-auto rounded-2xl border-2 border-amber-500/60 flex items-center justify-center mb-3 sm:mb-5 bg-black/50">
+                    <svg class="w-6 h-6 sm:w-10 sm:h-10 text-amber-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.745 3.745 0 0 1 3.296-1.043A3.745 3.745 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
+                </div>
+                <div class="font-bold text-amber-300 mb-1 sm:mb-2 text-xs sm:text-lg">매출 감소·경영 위기를 겪는 분</div>
+                <div class="text-xs text-amber-100/70 hidden sm:block">경영 안정 전용 자금으로 위기를 버텨드립니다.</div>
+            </div>
+        </div>
+
+        <div class="reveal text-center">
+            <a href="문의하기" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-4 rounded-xl text-base md:text-lg shadow-lg transition transform hover:scale-105">
+                무료로 해당 여부 확인하기 →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     4. PROCESS (8 STEPS)
+============================================ -->
+<section id="process" class="py-20 md:py-28 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center mb-14 md:mb-20 reveal">
+            <h2 class="text-3xl md:text-5xl font-black mb-4">
+                상담부터 사후관리까지 <span class="text-yellow-300">8단계 진행절차</span>
+            </h2>
+            <p class="text-base md:text-lg text-blue-100/80">자금 실행이 끝이 아닙니다. 1년간 책임지고 관리해드립니다.</p>
+        </div>
+
+        <div id="stepGrid" class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+            <div class="step-card bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-black text-sm mb-2">STEP 01</div>
+                <h4 class="text-base md:text-lg font-black mb-1.5">상담 신청</h4>
+                <p class="text-xs md:text-sm text-blue-100/80">전화·홈페이지로 무료 상담 접수</p>
+            </div>
+            <div class="step-card bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-black text-sm mb-2">STEP 02</div>
+                <h4 class="text-base md:text-lg font-black mb-1.5">사업 진단</h4>
+                <p class="text-xs md:text-sm text-blue-100/80">매출·업종·사업기간 분석</p>
+            </div>
+            <div class="step-card bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-black text-sm mb-2">STEP 03</div>
+                <h4 class="text-base md:text-lg font-black mb-1.5">자금 매칭</h4>
+                <p class="text-xs md:text-sm text-blue-100/80">300여개 중 최적 자금 선정</p>
+            </div>
+            <div class="step-card bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-black text-sm mb-2">STEP 04</div>
+                <h4 class="text-base md:text-lg font-black mb-1.5">서류 준비</h4>
+                <p class="text-xs md:text-sm text-blue-100/80">사업계획서·증빙서류 작성 지원</p>
+            </div>
+            <div class="step-card bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-black text-sm mb-2">STEP 05</div>
+                <h4 class="text-base md:text-lg font-black mb-1.5">신청 접수</h4>
+                <p class="text-xs md:text-sm text-blue-100/80">기관 접수 및 진행상황 관리</p>
+            </div>
+            <div class="step-card bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-black text-sm mb-2">STEP 06</div>
+                <h4 class="text-base md:text-lg font-black mb-1.5">승인 및 실행</h4>
+                <p class="text-xs md:text-sm text-blue-100/80">자금 승인 후 실행까지 전 과정 지원</p>
+            </div>
+            <div class="step-card bg-white/8 backdrop-blur border border-white/15 rounded-2xl p-5 md:p-6">
+                <div class="text-yellow-300 font-black text-sm mb-2">STEP 07</div>
+                <h4 class="text-base md:text-lg font-black mb-1.5">자금 실행</h4>
+                <p class="text-xs md:text-sm text-blue-100/80">승인 후 통장 입금 확인</p>
+            </div>
+            <div class="step-card-last bg-gradient-to-br from-orange-500 to-red-600 border border-white/15 rounded-2xl p-5 md:p-6 shadow-xl">
+                <div class="text-yellow-100 font-black text-sm mb-2">STEP 08 ⭐</div>
+                <h4 class="text-base md:text-lg font-black mb-1.5 text-white">사후관리</h4>
+                <p class="text-xs md:text-sm text-white/90">1년간 자금 관리 + 추가자금 컨설팅</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     5. 대표 소개
+============================================ -->
+<section class="py-20 md:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+            <div class="reveal">
+                <div class="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-slate-100">
+                    <img src="images/강정균프로필1.png" alt="강정균 대표" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="reveal">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 leading-tight mb-6">
+                    "대표님의 사업과 <span class="text-brand-600">함께 성장합니다"</span>
+                </h2>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
+                    사업이 어려울수록, 돈을 빌리는 건 더 무겁게 느껴집니다.
+                    하지만 정책자금은 대표님을 돕기 위해 정부가 마련해 둔 안전한 제도입니다.
+                </p>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                    저는 그 제도의 문 앞까지, 대표님이 혼자 헤매지 않도록 길잡이가 되겠습니다.
+                    복잡한 절차와 어려운 용어 속에서 가장 안전하고 유리한 길을 끝까지 함께 찾겠습니다.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     8. FAQ
+============================================ -->
+<section class="py-20 md:py-28 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-5">
+        <div class="text-center mb-12 reveal">
+            <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-4">자주 묻는 질문</h2>
+            <p class="text-base text-gray-600">상담 전 가장 많이 하시는 질문들을 모았습니다.</p>
+        </div>
+
+        <div class="space-y-3 reveal">
+            <details class="bg-white rounded-2xl border border-slate-200 shadow-sm group">
+                <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-bold text-slate-900 list-none">
+                    <span>상담 비용이 있나요?</span>
+                    <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5 text-gray-600 leading-relaxed border-t border-slate-100 pt-4">
+                    초기 상담은 <strong>완전 무료</strong>입니다. 사업 검토 후 신청 가능 여부를 먼저 확인해드리며, 성공 시에만 수수료가 발생합니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-200 shadow-sm group">
+                <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-bold text-slate-900 list-none">
+                    <span>이전에 거절당한 적 있는데 재신청이 가능한가요?</span>
+                    <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5 text-gray-600 leading-relaxed border-t border-slate-100 pt-4">
+                    가능합니다. 반려 이유를 분석해 서류 전략을 바꾸면 재도전 성공률이 높습니다. 실제로 타사 반송 후 저희를 통해 승인받은 사례가 다수 있습니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-200 shadow-sm group">
+                <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-bold text-slate-900 list-none">
+                    <span>심사까지 기간이 얼마나 걸리나요?</span>
+                    <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5 text-gray-600 leading-relaxed border-t border-slate-100 pt-4">
+                    자금 종류에 따라 다르지만 일반적으로 서류 준비 1~2주, 심사 2~4주 정도 소요됩니다. 긴급 자금의 경우 더 빠른 경로를 안내해드립니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-200 shadow-sm group">
+                <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-bold text-slate-900 list-none">
+                    <span>창업한 지 얼마 안 됐는데 신청할 수 있나요?</span>
+                    <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5 text-gray-600 leading-relaxed border-t border-slate-100 pt-4">
+                    네, 가능합니다. 창업 초기 기업 전용 자금이 별도로 있으며, 매출이 적거나 업력이 짧아도 받을 수 있는 자금이 있습니다. 상담을 통해 맞는 자금을 찾아드립니다.
+                </div>
+            </details>
+
+            <details class="bg-white rounded-2xl border border-slate-200 shadow-sm group">
+                <summary class="flex items-center justify-between px-6 py-5 cursor-pointer font-bold text-slate-900 list-none">
+                    <span>어떤 업종이든 신청 가능한가요?</span>
+                    <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-6 pb-5 text-gray-600 leading-relaxed border-t border-slate-100 pt-4">
+                    제조업·서비스업·도소매·요식업 등 대부분의 업종이 가능합니다. 일부 제한 업종이 있으나, 상담 시 바로 확인해드립니다.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     9. CONTACT
+============================================ -->
+<section id="contact" class="relative py-20 md:py-28 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+    <!-- Background: 대한민국 GIF -->
+    <img src="images/대한민국.gif" alt="" class="absolute inset-0 w-full h-full object-cover opacity-30" aria-hidden="true">
+    <!-- Dark overlay for readability -->
+    <div class="absolute inset-0 bg-gradient-to-br from-slate-900/80 via-blue-900/80 to-slate-900/85"></div>
+
+    <div class="relative max-w-5xl mx-auto px-5">
+        <div class="text-center mb-12 md:mb-14 reveal">
+            <h2 class="text-2xl md:text-4xl font-black mt-2 mb-3 drop-shadow-lg">
+                <span class="text-yellow-300">2026년 정책자금</span>,<br>
+                예산이 빠르게 소진되고 있습니다
+            </h2>
+            <p class="text-base md:text-lg text-blue-100/90 leading-relaxed drop-shadow">
+                중소기업 4조 5천억 + 소상공인 3조 7천억.<br>
+                매년 조기 마감되니 <strong class="text-yellow-300">서둘러 신청하세요.</strong>
+            </p>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+            <div class="reveal">
+                <form id="contactForm" class="bg-white rounded-2xl p-6 md:p-8 shadow-2xl text-slate-900">
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-1.5">성함 *</label>
+                            <input type="text" name="name" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100" placeholder="홍길동">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-1.5">연락처 *</label>
+                            <input type="tel" name="phone" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100" placeholder="010-1234-5678">
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-1.5">상호 *</label>
+                            <input type="text" name="company_name" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100" placeholder="예) 바른상사">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-1.5">업종 *</label>
+                            <select name="industry" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 bg-white">
+                                <option value="">선택해주세요</option>
+                                <option value="음식·카페">음식·카페</option>
+                                <option value="서비스업">서비스업</option>
+                                <option value="IT·정보통신업">IT·정보통신업</option>
+                                <option value="디자인업">디자인업 (시각/제품/인테리어/웹)</option>
+                                <option value="문화·콘텐츠">문화·콘텐츠 (영상/애니/음반/방송업/게임/웹툰)</option>
+                                <option value="제조업">제조업</option>
+                                <option value="건설·인테리어">건설·인테리어</option>
+                                <option value="운수업">운수업</option>
+                                <option value="도매·유통업">도매·유통업</option>
+                                <option value="숙박·여가">숙박·여가</option>
+                                <option value="소매·판매업">소매·판매업</option>
+                                <option value="농·축·수산업">농·축·수산업</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-sm font-bold mb-1.5">연매출 *</label>
+                            <select name="annual_revenue" required class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 bg-white">
+                                <option value="">선택해주세요</option>
+                                <option value="5천 이하">5천 이하</option>
+                                <option value="1억 이하">1억 이하</option>
+                                <option value="1~2억">1~2억</option>
+                                <option value="2~3억">2~3억</option>
+                                <option value="3~5억">3~5억</option>
+                                <option value="5~10억">5~10억</option>
+                                <option value="10억 이상">10억 이상</option>
+                                <option value="50억 이상">50억 이상</option>
+                                <option value="100억 이상">100억 이상</option>
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-sm font-bold mb-1">지역 *</label>
+                            <select name="region" required data-region-select class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none bg-white">
+                                <option value="">선택해주세요</option>
+                                <option value="기타">기타</option>
+                            </select>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="block text-sm font-bold mb-1">국세 체납 여부 *</label>
+                            <p class="text-xs text-red-500 mb-2">세금 체납 중에는 신청이 불가합니다</p>
+                            <div class="flex flex-col gap-2">
+                                <label class="flex items-center justify-between px-4 py-3 border border-slate-300 rounded-lg cursor-pointer hover:border-brand-500 hover:bg-brand-50 transition has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
+                                    <span class="text-sm text-gray-700">네, 현재 체납 중입니다. <span class="text-red-500 font-medium">(신청불가)</span></span>
+                                    <input type="radio" name="tax_status" value="있음" required class="w-4 h-4 text-brand-500">
+                                </label>
+                                <label class="flex items-center justify-between px-4 py-3 border border-slate-300 rounded-lg cursor-pointer hover:border-brand-500 hover:bg-brand-50 transition has-[:checked]:border-brand-500 has-[:checked]:bg-brand-50">
+                                    <span class="text-sm text-gray-700">아니요, 문제 없습니다.</span>
+                                    <input type="radio" name="tax_status" value="없음" class="w-4 h-4 text-brand-500">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="flex items-start gap-2 mb-5 text-sm text-gray-600">
+                        <input type="checkbox" name="agreement" required checked class="mt-0.5">
+                        <span>개인정보 수집·이용에 동의합니다 (상담 목적 외 사용하지 않음)</span>
+                    </label>
+                    <button type="submit" onclick="slTrackConversion()" class="w-full bg-accent-500 hover:bg-accent-600 text-white font-black text-lg py-4 rounded-xl shadow-lg transition transform hover:scale-[1.02]">
+                        무료 상담 신청
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================
+     FOOTER
+============================================ -->
+<footer class="bg-slate-950 text-slate-400 py-5">
+    <div class="max-w-6xl mx-auto px-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 text-xs">
+            <div class="flex items-center gap-2">
+                <img src="images/바른정책자금로고.png" class="h-6 w-auto">
+                <span class="text-white font-bold text-sm">바른정책자금연구소</span>
+            </div>
+            <div class="text-slate-500 leading-relaxed flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>대표 강정균</span>
+                <span class="text-slate-700">|</span>
+                <span>292-54-01028</span>
+                <span class="text-slate-700">|</span>
+                <span class="inline-flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+                    1666-0266
+                </span>
+                <span class="text-slate-700">|</span>
+                <span class="inline-flex items-center gap-1.5">
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+                    kjgman0711@gmail.com
+                </span>
+                <br class="md:hidden">
+                <span class="hidden md:inline text-slate-700">|</span>
+                <span>인천 서구 이음대로 428, 1동 314호 (검단법조푸리마타워)</span>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 mt-4 pt-3 text-center text-xs text-slate-600">
+            © 2025 바른정책자금연구소. All rights reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    // === 유입 추적 (외부 진입 referrer + UTM 파라미터 캡처) ===
+    (function() {
+        const ref = document.referrer;
+        const isExternal = ref && !ref.includes(window.location.hostname);
+        if (isExternal && !sessionStorage.getItem('first_referrer')) {
+            sessionStorage.setItem('first_referrer', ref);
+            sessionStorage.setItem('first_landing', window.location.pathname);
+        }
+        const params = new URLSearchParams(window.location.search);
+        ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(key => {
+            const val = params.get(key);
+            if (val) sessionStorage.setItem(key, val);
+        });
+    })();
+
+    // === UTM 캠페인에서 지역 자동 감지 ===
+    (function() {
+        const REGION_MAP = {
+            '서울':'서울특별시','부산':'부산광역시','대구':'대구광역시',
+            '인천':'인천광역시','광주':'광주광역시','대전':'대전광역시',
+            '울산':'울산광역시','세종':'세종특별자치시','경기':'경기도',
+            '강원':'강원특별자치도','충북':'충청북도','충남':'충청남도',
+            '전북':'전북특별자치도','전남':'전라남도','경북':'경상북도',
+            '경남':'경상남도','제주':'제주특별자치도'
+        };
+        const params = new URLSearchParams(window.location.search);
+        const campaign = params.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || '';
+        let detected = '';
+        for (const key of Object.keys(REGION_MAP)) {
+            if (campaign.includes(key)) { detected = key; break; }
+        }
+        document.querySelectorAll('select[data-region-select]').forEach(sel => {
+            const etcOpt = sel.querySelector('option[value="기타"]');
+            if (detected) {
+                const opt = document.createElement('option');
+                opt.value = detected;
+                opt.textContent = REGION_MAP[detected];
+                sel.insertBefore(opt, etcOpt);
+                sel.value = detected;
+            } else {
+                Object.entries(REGION_MAP).forEach(([val, label]) => {
+                    const opt = document.createElement('option');
+                    opt.value = val;
+                    opt.textContent = label;
+                    sel.insertBefore(opt, etcOpt);
+                });
+            }
+        });
+    })();
+
+    // Sticky nav scroll effect
+    const nav = document.getElementById('topNav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) nav.classList.add('nav-scrolled');
+        else nav.classList.remove('nav-scrolled');
+    });
+
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobileMenu a').forEach(a => {
+        a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+    });
+
+    // ── 한 글자씩 새겨지는 텍스트 ──
+    const engraveEl = document.querySelector('.hero-text-engrave');
+    if (engraveEl) {
+        const text = engraveEl.textContent.trim();
+        engraveEl.textContent = '';
+        text.split('').forEach((ch, i) => {
+            const span = document.createElement('span');
+            span.className = 'char';
+            span.textContent = ch;
+            span.style.animationDelay = (1.5 + i * 0.1) + 's';
+            engraveEl.appendChild(span);
+        });
+    }
+
+    // ── Step 불빛 순서 애니메이션 ──
+    const stepGrid = document.getElementById('stepGrid');
+    if (stepGrid) {
+        const stepObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !stepGrid.dataset.lit) {
+                    stepGrid.dataset.lit = '1';
+                    const allCards = stepGrid.querySelectorAll('.step-card, .step-card-last');
+                    allCards.forEach((card, i) => {
+                        setTimeout(() => card.classList.add('step-lit'), i * 400);
+                    });
+                }
+            });
+        }, { threshold: 0.15 });
+        stepObs.observe(stepGrid);
+    }
+
+    // ── 숫자 카운팅 애니메이션 ──
+    function runCounter(card) {
+        const target = parseInt(card.dataset.count);
+        const numEl  = card.querySelector('.count-num');
+        if (!numEl || card.dataset.counted) return;
+        card.dataset.counted = '1';
+        const duration = 1600;
+        const start    = performance.now();
+        function tick(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - p, 3); // ease-out cubic
+            const val = Math.floor(eased * target);
+            numEl.textContent = val >= 1000 ? val.toLocaleString() : val;
+            if (p < 1) requestAnimationFrame(tick);
+            else numEl.textContent = target >= 1000 ? target.toLocaleString() : target;
+        }
+        requestAnimationFrame(tick);
+    }
+    const counterObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) runCounter(e.target); });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(c => counterObs.observe(c));
+
+    // ── 블로그 카드 모바일 탭 클릭 ──
+    (function() {
+        const scroll = document.querySelector('.cases-scroll');
+        if (!scroll) return;
+        let startX = 0, startY = 0;
+        scroll.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }, { passive: true });
+        scroll.addEventListener('touchend', function(e) {
+            const dx = Math.abs(e.changedTouches[0].clientX - startX);
+            const dy = Math.abs(e.changedTouches[0].clientY - startY);
+            if (dx < 8 && dy < 8) {
+                const link = e.target.closest('a[href]');
+                if (link) { e.preventDefault(); window.open(link.href, '_blank', 'noopener'); }
+            }
+        }, { passive: false });
+    })();
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    reveals.forEach(r => obs.observe(r));
+
+    // Form submission to Zapier
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fd = new FormData(e.target);
+        const data = Object.fromEntries(fd.entries());
+        data.source = 'home-contact';
+        data.submitted_at = new Date().toISOString();
+        data.referrer = sessionStorage.getItem('first_referrer') || document.referrer || '(직접 접속)';
+        data.first_landing = sessionStorage.getItem('first_landing') || window.location.pathname;
+        data.utm_source = sessionStorage.getItem('utm_source') || '';
+        data.utm_medium = sessionStorage.getItem('utm_medium') || '';
+        data.utm_campaign = sessionStorage.getItem('utm_campaign') || '';
+        try {
+            await fetch('https://바른정책자금연구소.com/api/submit', {
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(data)
+            });
+            alert('상담 신청이 접수되었습니다. 1영업일 내 연락드리겠습니다.');
+            e.target.reset();
+        } catch (err) {
+            alert('전송 중 오류가 발생했습니다. 1666-0266으로 연락주세요.');
+        }
+    });
+
+</script>
+
+<script>
+(function () {
+  var ENDPOINT = 'https://www.sangsaenglink.com/api/track/landing';
+  var PAGE = 'homepage';
+  function qp(k){ return new URLSearchParams(location.search).get(k) || ''; }
+  function vid(){ try { var v=localStorage.getItem('sl_vid'); if(!v){ v=Date.now().toString(36)+Math.random().toString(36).slice(2); localStorage.setItem('sl_vid',v);} return v; } catch(e){ return ''; } }
+  function send(ev){ try { fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,body:JSON.stringify({event:ev,utm_source:qp('utm_source'),utm_medium:qp('utm_medium'),utm_campaign:qp('utm_campaign'),utm_content:qp('utm_content'),visitor_id:vid(),page:PAGE,referrer:document.referrer})}).catch(function(){}); } catch(e){} }
+  send('visit');
+  window.slTrackConversion = function(){ send('conversion'); };
+})();
+</script>
+
 </body>
 </html>

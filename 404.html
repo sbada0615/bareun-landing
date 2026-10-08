@@ -2,87 +2,39 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-    <meta name="googlebot" content="noindex, nofollow">
-    <meta http-equiv="refresh" content="0;url=about:blank" style="display:none">
-    <title>서비스 점검 중 | 바른정책자금연구소</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
-            color: #fff;
-            padding: 20px;
+    <title>바른정책자금연구소</title>
+    <script>
+        // 한국어/영어 URL 디코딩 후 리다이렉트
+        const path = decodeURIComponent(window.location.pathname).toLowerCase();
+
+        const map = [
+            ['회사소개',    '/회사소개'],
+            ['about',       '/회사소개'],
+            ['바른서비스',  '/바른서비스'],
+            ['진행절차',    '/바른서비스'],
+            ['process',     '/바른서비스'],
+            ['서비스',      '/바른서비스'],
+            ['성공사례',    '/성공사례'],
+            ['승인사례',    '/성공사례'],
+            ['뉴우스',      '/성공사례'],
+            ['뉴스',        '/성공사례'],
+            ['cases',       '/성공사례'],
+            ['문의하기',    '/문의하기'],
+            ['문의',        '/문의하기'],
+            ['contact',     '/문의하기'],
+        ];
+
+        let redirectTo = '/';
+        for (const [key, val] of map) {
+            if (path.includes(key)) { redirectTo = val; break; }
         }
-        .container {
-            text-align: center;
-            max-width: 480px;
-        }
-        .icon {
-            font-size: 64px;
-            margin-bottom: 24px;
-        }
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-        p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.75);
-            margin-bottom: 32px;
-        }
-        .contact {
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            border-radius: 16px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
-        }
-        .contact-label {
-            font-size: 12px;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 8px;
-            letter-spacing: 0.05em;
-        }
-        .contact-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: #fbbf24;
-            text-decoration: none;
-            display: block;
-        }
-        .footer {
-            margin-top: 32px;
-            font-size: 12px;
-            color: rgba(255,255,255,0.35);
-        }
-    </style>
+
+        window.location.replace(redirectTo);
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="icon">🔧</div>
-        <h1>서비스 점검 중입니다</h1>
-        <p>
-            더 나은 서비스 제공을 위해<br>
-            시스템 점검을 진행하고 있습니다.<br><br>
-            점검이 완료될 때까지 전화로 문의 주시면<br>
-            빠르게 도와드리겠습니다.
-        </p>
-        <div class="contact">
-            <div class="contact-label">상담 전화</div>
-            <a href="tel:1666-0266" class="contact-number">📞 1666-0266</a>
-        </div>
-        <div class="footer">
-            바른정책자금연구소
-        </div>
-    </div>
+    <p style="font-family:sans-serif;text-align:center;margin-top:100px;color:#666">
+        페이지를 이동 중입니다...
+    </p>
 </body>
 </html>
