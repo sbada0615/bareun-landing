@@ -98,6 +98,12 @@
 
         .hero-photo-reveal { animation: heroPhotoReveal 1.9s cubic-bezier(0.4,0,0.2,1) 0.25s both; }
         .hero-aurora        { animation: auroraGlow     2.8s ease-out               0.2s  both; }
+        /* 캡션은 사진이 드러난 뒤에 등장 */
+        @keyframes heroCaptionIn {
+            from { opacity: 0; transform: translate(-50%, 8px); }
+            to   { opacity: 1; transform: translate(-50%, 0); }
+        }
+        .hero-caption { animation: heroCaptionIn 0.6s ease-out 1.7s both; }
         /* Ken Burns zoom-pan for video section background */
         @keyframes kenBurns {
             0%   { transform: scale(1) translate(0, 0); }
@@ -218,7 +224,7 @@
             <!-- 금빛 오로라 -->
             <div class="hero-aurora absolute inset-0 pointer-events-none"></div>
             <!-- 사진 캡션: 손 위치의 네이비 명패 -->
-            <div class="absolute text-white pointer-events-none flex items-center justify-center"
+            <div class="hero-caption absolute text-white pointer-events-none flex items-center justify-center"
                  style="left:50%; transform:translateX(-50%); width:max-content; max-width:calc(100% - 28px); bottom:23%; background:#0b1f44; padding:10px 22px; border-top:2px solid #d4b472; box-shadow:0 8px 24px rgba(0,0,0,.35);">
                 <span style="font-size:15px; font-weight:700; letter-spacing:.08em; color:#e2e8f0; white-space:nowrap;">바른정책자금연구소</span>
                 <span style="width:1px; height:16px; background:#d4b472; margin:0 14px; opacity:.8;"></span>
@@ -264,7 +270,7 @@
                     <!-- 데스크탑 오로라 (카드 내부) -->
                     <div class="hero-aurora absolute inset-0 pointer-events-none"></div>
                     <!-- 사진 캡션: 손 위치의 네이비 명패 -->
-                    <div class="absolute text-white pointer-events-none flex items-center justify-center"
+                    <div class="hero-caption absolute text-white pointer-events-none flex items-center justify-center"
                          style="left:50%; transform:translateX(-50%); width:max-content; max-width:calc(100% - 28px); bottom:23%; background:#0b1f44; padding:10px 22px; border-top:2px solid #d4b472; box-shadow:0 8px 24px rgba(0,0,0,.35);">
                         <span style="font-size:15px; font-weight:700; letter-spacing:.08em; color:#e2e8f0; white-space:nowrap;">바른정책자금연구소</span>
                         <span style="width:1px; height:16px; background:#d4b472; margin:0 14px; opacity:.8;"></span>
